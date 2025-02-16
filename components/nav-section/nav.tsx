@@ -12,6 +12,9 @@ import primeLogo from '@/public/images/PrimeLogo.png';
 export default function NavSection() {
     const [isOpen, setIsOpen] = useState(false);
 
+
+    
+
     return (
         <nav className="bg-white shadow-md">
             <div className="container mx-auto flex items-center justify-between py-4 px-6 md:px-12">
