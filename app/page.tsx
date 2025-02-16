@@ -19,9 +19,12 @@ export default function Home() {
 
   const router = useRouter();
 
-  const handleAutoHomeInsurance = (name?: string) => {
-    router.push(`/${name}`);
-  }
+  const handleAutoHomeInsurance = (path: string) => {
+    const isAutoOrHome = path.includes('/autoinsurance') || path.includes('/homeinsurance');
+    const basePath = isAutoOrHome ? path : `/${path}`;
+
+    router.push(basePath);
+  };
 
   const companies = [
     { name: "Allstate", logo: "https://s3-alpha-sig.figma.com/img/dcd3/9d24/f679b4060c10163ea31b39e027681a53?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ajRDlpWMmfY7lUXz3QjO9Jrvt~Spmq3VH66~a8CxgGakFxVmXcMC0NCaiIn7VtKSKRXyC4plEL4Pk13MIpDYZD80xGVKDdps~Q2qBoXjMVrYF7NiBVqUrpmnVcLDhHBAwjr666GOrgHToVT7MLtI0bxeZ1-yTSuYmj0vV4iD55L~-m0Zk5c79C17gb9y0xBbnnL-v69UxC105L4zZbfyt410f2d8KRh0Py1k4JfpjiksYXlL99KhpCfwxKjlQ9JMJd9gcpYgC2q8C4DsG5rWnxbXhpCmeKISkB5n~wqt~LlY~28xYBRhIu3ROes9koitp3UWe3upLbzoMTSvAIsCuA__" },
@@ -32,17 +35,17 @@ export default function Home() {
   ];
 
   const insuranceOptions = [
-    { name: "Auto Insurance", icon: <Car /> , path: "autoinsurance" },
-    { name: "Home Insurance", icon: <House /> , path: "homeinsurance" },
-    { name: "Life Insurance", icon: <Umbrella />  ,  path: "businessInsurance" },
-    { name: "Commercial Insurance", icon: <Briefcase /> ,  path: "homeInsurance" },
-    { name: "Motorcycle Insurance", icon: <Bike /> ,  path: "homeInsurance" },
-    { name: "Boat Insurance", icon: <Sailboat /> ,  path: "homeInsurance" },
-    { name: "Personal Insurance", icon: <User /> ,  path: "homeInsurance" },
-    { name: "Cyber & EPIL", icon: <ShieldCheck />  ,  path: "homeInsurance"},
-    { name: "Umbrella Insurance", icon: <Umbrella />  ,  path: "homeInsurance"},
-    { name: "Renters Insurance", icon: <Building2 />  ,  path: "homeInsurance"},
-    { name: "Transportational Insurance", icon: <Truck /> ,  path: "homeInsurance" },
+    { name: "Auto Insurance", icon: <Car />, path: "autoinsurance" },
+    { name: "Home Insurance", icon: <House />, path: "homeinsurance" },
+    { name: "Life Insurance", icon: <Umbrella />, path: "lifeInsurance" },
+    { name: "Commercial Insurance", icon: <Briefcase />, path: "commercialInsurance" },
+    { name: "Motorcycle Insurance", icon: <Bike />, path: "motorcycleInsurance" },
+    { name: "Boat Insurance", icon: <Sailboat />, path: "boatInsurance" },
+    { name: "Personal Insurance", icon: <User />, path: "personalInsurance" },
+    { name: "Cyber & EPIL", icon: <ShieldCheck />, path: "cyber&epilInsurance" },
+    { name: "Umbrella Insurance", icon: <Umbrella />, path: "umbrellaInsurance" },
+    { name: "Renters Insurance", icon: <Building2 />, path: "rentersInsurance" },
+    { name: "Transportational Insurance", icon: <Truck />, path: "transportationalInsurance" },
     { name: "View more", icon: '' },
   ];
 
@@ -51,25 +54,25 @@ export default function Home() {
       {/* Navbar Section */}
       <NavSection />
       <section
-                className="relative w-full h-screen flex items-center justify-start bg-cover bg-center px-4 md:px-8"
-                style={{
-                    background: "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('https://s3-alpha-sig.figma.com/img/a5b0/3878/75de6c08e5d5cbd2fcbd636d3fb40715?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HCym0HxQi5-kxwrDALWpK5JZJegTa7c5xzqgVtek668VlaXh~closSf4K2QQUV5JiMY6Qt5RhpvBzJC3ivf1fSKXLDkrNbFUFhSL8peMfND7oU4u~EdQHrrTgfkItsjHjWxkp1DwAPBYXvlefPFt2b-H7gGIxKLhdjUQm4ZO1SwsAnIqFmpAUkJ2s0icICI9HXksIOPoZMkfWzLypc6Z~OBnubgdv4XndpCA5j5BrgYXiHYJo9BshCnCaLd8-2zZP~BqfI0Wfidc2WZT6xKovcNAFasx-fL457RI2jS7LEFozRMnRGpCAR~xFV6JHnYQP8wOQi-IxPlBUbS8YPFjPQ__') no-repeat center center / cover",
-                }}
-            >
-                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-                <div className="relative z-10 text-white max-w-3xl text-left ml-6 md:ml-16">
-                    <h1 className="text-2xl md:text-4xl font-bold mb-4">
-                        Insurance is not just about protecting what you have; it&apos;s about securing
-                        your future and the peace of mind that comes with it.
-                    </h1>
-                    <div className="flex flex-col items-start gap-2 mt-4">
-                        <Input type="text" placeholder="Auto Insurance" className="w-full md:w-64 text-black p-4" />
-                        <Button className="bg-red-600 hover:bg-red-700 w-64 text-white px-6 py-3 font-bold">
-                            START QUOTE
-                        </Button>
-                    </div>
-                </div>
-            </section>
+        className="relative w-full h-screen flex items-center justify-start bg-cover bg-center px-4 md:px-8"
+        style={{
+          background: "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('https://s3-alpha-sig.figma.com/img/a5b0/3878/75de6c08e5d5cbd2fcbd636d3fb40715?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HCym0HxQi5-kxwrDALWpK5JZJegTa7c5xzqgVtek668VlaXh~closSf4K2QQUV5JiMY6Qt5RhpvBzJC3ivf1fSKXLDkrNbFUFhSL8peMfND7oU4u~EdQHrrTgfkItsjHjWxkp1DwAPBYXvlefPFt2b-H7gGIxKLhdjUQm4ZO1SwsAnIqFmpAUkJ2s0icICI9HXksIOPoZMkfWzLypc6Z~OBnubgdv4XndpCA5j5BrgYXiHYJo9BshCnCaLd8-2zZP~BqfI0Wfidc2WZT6xKovcNAFasx-fL457RI2jS7LEFozRMnRGpCAR~xFV6JHnYQP8wOQi-IxPlBUbS8YPFjPQ__') no-repeat center center / cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative z-10 text-white max-w-3xl text-left ml-6 md:ml-16">
+          <h1 className="text-2xl md:text-4xl font-bold mb-4">
+            Insurance is not just about protecting what you have; it&apos;s about securing
+            your future and the peace of mind that comes with it.
+          </h1>
+          <div className="flex flex-col items-start gap-2 mt-4">
+            <Input type="text" placeholder="Auto Insurance" className="w-full md:w-64 text-black p-4" />
+            <Button className="bg-red-600 hover:bg-red-700 w-64 text-white px-6 py-3 font-bold">
+              START QUOTE
+            </Button>
+          </div>
+        </div>
+      </section>
       <section className="w-full px-4 md:px-8 py-12">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">About Us</h2>
         <div className="border border-red-400 rounded-lg p-6 md:p-10  text-left">
@@ -106,9 +109,14 @@ export default function Home() {
             <Card key={index} className="bg-red-600 text-white p-6 flex flex-col items-center justify-center hover:bg-red-700 transition">
               <CardContent className="flex flex-col items-center space-y-3">
                 <div className="w-10 h-10">{item.icon}</div>
-               
-                <p className="text-center font-medium" onClick={() => handleAutoHomeInsurance(item?.path)}>{item.name}</p>
-               
+
+                <p
+                  className="text-center font-medium cursor-pointer"
+                  onClick={() => handleAutoHomeInsurance(item?.path ?? '/')}
+                >
+                  {item.name}
+                </p>
+
               </CardContent>
             </Card>
           ))}

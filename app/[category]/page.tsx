@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import primeLogo from '@/public/images/PrimeLogo.png'
 import { Inter } from 'next/font/google'
-
-
 const inter = Inter({ weight: ['400', '600', '700'], subsets: ['latin'] });
 
 const BusinessInsurance = () => {
@@ -33,6 +31,7 @@ const BusinessInsurance = () => {
       </div>
       {/* Information Section */}
       <div className="p-4 md:p-8 text-xs md:text-sm">
+      {/* <span className="font-bold text-2xl">{params.category} </span>  */}
         <p className="mb-4">
           Business insurance is a type of coverage that protects businesses from financial losses due to various risks,
           such as property damage, liability claims, employee-related risks, and more.
