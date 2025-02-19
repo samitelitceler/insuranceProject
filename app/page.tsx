@@ -77,7 +77,7 @@ export default function Home() {
     {
       name: "Cyber & EPIL",
       icon: <ShieldCheck />,
-      path: "cyber&epilInsurance",
+      path: "cyberInsurance",
     },
     {
       name: "Umbrella Insurance",
