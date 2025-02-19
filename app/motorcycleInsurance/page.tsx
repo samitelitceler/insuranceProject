@@ -2,8 +2,9 @@ import NavSection from "@/components/nav-section/nav";
 import React from "react";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
-import Hero from "@/components/hero-section/hero";
 import Form from "@/components/form/Form";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 const BusinessInsurance = () => {
@@ -12,7 +13,21 @@ const BusinessInsurance = () => {
       <NavSection />
       <div className="w-full">
         {/* Hero Section */}
-        <Hero/>
+        <div className="relative w-full h-[60vh] flex items-center justify-center bg-cover bg-center bg-black">
+        <Image
+          src="https://www.anchorins.com/img/featured-motorcycle-insurance.jpg"
+          alt="Business Insurance"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-70 bg-cover bg-center"
+        />
+       <div className="absolute inset-0  flex items-center pl-8 lg:pl-16">
+          <div className="text-white max-w-lg">
+            <h1 className="text-2xl lg:text-4xl font-semibold mb-4 text-left">Get a Quote Instantly</h1>
+            <Button className="bg-red-600 font-bold w-72 text-white px-6 py-3 text-lg text-left">Start Quote</Button>
+          </div>
+        </div>
+        </div>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-xs md:text-sm">
         <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Motorcycle Insurance</h2>
