@@ -41,7 +41,7 @@ export default function NavSection() {
           >
             <span className="hidden md:inline">My Account</span>
           </Link>
-          <Button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2">
+          <Button onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com", "_blank")} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2">
             Get a Quote
           </Button>
         </div>
@@ -81,7 +81,7 @@ export default function NavSection() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection("contactUs")}
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com"
               className="cursor-pointer"
             >
               Contact Us
@@ -103,15 +103,21 @@ export default function NavSection() {
           <Link href="/" onClick={() => setIsOpen(false)}>
             Home
           </Link>
-          <Link href="#" onClick={() => setIsOpen(false)}>
-            About Us
-          </Link>
-          <Link href="#" onClick={() => setIsOpen(false)}>
-            Insurance Services
-          </Link>
-          <Link href="#" onClick={() => setIsOpen(false)}>
+          <a
+              onClick={() => scrollToSection("about")}
+              className="cursor-pointer"
+            >
+              About Us
+            </a>
+            <a
+              onClick={() => scrollToSection("insuranceServices")}
+              className="cursor-pointer"
+            >
+              Insurance Services
+            </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com" onClick={() => setIsOpen(false)}>
             Contact Us
-          </Link>
+          </a>
 
           {/* Social Icons */}
           <div className="flex justify-center space-x-3 pt-2">
