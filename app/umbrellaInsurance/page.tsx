@@ -15,7 +15,7 @@ const BusinessInsurance = () => {
         <Hero/>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-xs md:text-sm">
-          <span className="font-bold text-2xl">Umbrella Insurance</span>
+        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Umbrella Insurance</h2>
           <h2 className="font-semibold mb-2 mt-6">
             Gain Extra Coverage for Claims Against You With Umbrella Insurance
           </h2>
@@ -68,7 +68,7 @@ const BusinessInsurance = () => {
         </div>
 
 
-        
+
 
         {/* Form Section */}
         <div className="bg-red-700 p-6 md:p-10 text-white mt-12 mb-12">

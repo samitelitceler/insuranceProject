@@ -15,8 +15,8 @@ const BusinessInsurance = () => {
         <Hero/>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-xs md:text-sm">
-          <span className="font-bold text-2xl">Boat Insurance</span>
-          <p className="mb-4">
+        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Boat Insurance</h2>
+          <p className="mb-4 mt-6">
             Whether you like to spend your weekends out fishing for walleye or
             just enjoy evenings out on the lake, we&apos;re here to help you do so
             with peace of mind. Anchor Insurance Agency offers high-quality boat

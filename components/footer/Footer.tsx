@@ -119,7 +119,7 @@ function Footer() {
 
           {/* Copyright */}
           <div className="text-left text-xs md:text-sm">
-            Copyright © 20CC, Prime Insurance. All Rights Reserved
+            Copyright © 2025, Prime Insurance. All Rights Reserved
           </div>
         </div>
       </footer>

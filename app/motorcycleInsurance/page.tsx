@@ -15,7 +15,7 @@ const BusinessInsurance = () => {
         <Hero/>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-xs md:text-sm">
-          <span className="font-bold text-2xl">Motorcycle Insurance</span>
+        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Motorcycle Insurance</h2>
           <h2 className="font-semibold mb-2 mt-6">
             Protect Your Motorcycle With Anchor Insurance Agency
           </h2>

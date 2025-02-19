@@ -1,8 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
 import { Inter } from "next/font/google";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -16,17 +14,28 @@ import {
   ShieldCheck,
   Building2,
   Truck,
-  Mail
+  Mail,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
+import { useState } from "react";
 
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function Home() {
   const router = useRouter();
+  const [selectedPath, setSelectedPath] = useState("");
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedPath(event.target.value);
+  };
+  const handleNavigation = () => {
+    if (selectedPath) {
+      router.push(`/${selectedPath}`);
+    }
+  };
 
   const handleAutoHomeInsurance = (path: string) => {
     const isAutoOrHome =
@@ -94,7 +103,7 @@ export default function Home() {
       icon: <Truck />,
       path: "transportationalInsurance",
     },
-    { name: "Condo Insurance", icon: <Mail/> , path: "condoinsurance" },
+    { name: "Condo Insurance", icon: <Mail />, path: "condoInsurance" },
   ];
 
   return (
@@ -114,19 +123,28 @@ export default function Home() {
             Insurance is not just about protecting what you have; it&apos;s
             about securing your future and the peace of mind that comes with it.
           </h1>
-          <div className="flex flex-col items-start gap-2 mt-4">
-            <Input
-              type="text"
-              placeholder="Auto Insurance"
-              className="w-full md:w-64 text-black p-4"
-            />
-            <Button className="bg-red-600 hover:bg-red-700 w-64 text-white px-6 py-3 font-bold">
+          <div className="flex flex-col items-start gap-2 mt-4 w-full md:w-64">
+            <select
+              onChange={handleChange}
+              className="w-full text-black p-2 border rounded"
+            >
+              <option value="">Select Insurance</option>
+              {insuranceOptions.map((option) => (
+                <option key={option.path} value={option.path}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+            <Button
+              onClick={handleNavigation}
+              className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 font-bold"
+            >
               START QUOTE
             </Button>
           </div>
         </div>
       </section>
-      <section className="w-full px-4 md:px-8 py-12">
+      <section id="about" className="w-full px-4 md:px-8 py-12">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           About Us
         </h2>
@@ -162,7 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full px-4 md:px-8 py-12">
+      <section id="insuranceServices" className="w-full px-4 md:px-8 py-12">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           Top Choices for Insurance
         </h2>
@@ -170,11 +188,16 @@ export default function Home() {
           {insuranceOptions.map((item, index) => (
             <Card
               key={index}
-              className="bg-red-600 text-white p-6 flex flex-col items-center justify-center hover:bg-red-700 transition"
+              className="bg-red-600 cursor-pointer text-white p-6 mt-4 rounded-2xl flex flex-col items-center justify-center hover:bg-red-700 transition shadow-lg"
+              onClick={() => handleAutoHomeInsurance(item?.path ?? "/")}
             >
-              <CardContent className="flex flex-col items-center space-y-3">
-                <div className="text-lg">{item.icon}</div>
+              <CardContent className="flex flex-col items-center space-y-4">
+                {/* Icon Wrapper */}
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-red-600 text-2xl">
+                  {item.icon}
+                </div>
 
+                {/* Insurance Name */}
                 <p
                   className="text-center font-medium cursor-pointer"
                   onClick={() => handleAutoHomeInsurance(item?.path ?? "/")}
@@ -197,7 +220,7 @@ export default function Home() {
             animate={{ x: ["0%", "-10%"] }}
             transition={{
               repeat: Infinity,
-              duration: 10,
+              duration: 5,
               ease: "linear",
             }}
           >

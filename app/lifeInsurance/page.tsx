@@ -21,7 +21,7 @@ export default function lifeInsurance() {
         <h2 className="text-xl md:text-2xl text-red-600 font-semibold">
           Life Insurance
         </h2>
-        <h2 className="mt-6 text-md text-gray-800">
+        <h2 className="font-semibold mb-2 mt-6">
           {" "}
           Protect Your Loved Ones With Anchor Insurance Agency
         </h2>
@@ -36,7 +36,7 @@ export default function lifeInsurance() {
         </p>
 
         {/* Factors Affecting Premiums */}
-        <h2 className="mt-6 text-md text-gray-800">
+        <h2 className="font-semibold mb-2 mt-6">
           Life Insurance: Financial Support for Your Family&apos;s Future
         </h2>
         <p className="text-sm text-gray-700 mt-3">
@@ -50,7 +50,7 @@ export default function lifeInsurance() {
           comprehensive life insurance policy can eliminate these threats.
         </p>
         {/* Optional Add-Ons */}
-        <h2 className="mt-6 text-md text-gray-800">
+        <h2 className="font-semibold mb-2 mt-6">
           Our Life Insurance Policy Options:
         </h2>
         <p className="text-sm text-gray-700 mt-3">
@@ -67,7 +67,7 @@ export default function lifeInsurance() {
           <li>Disability</li>
         </ul>
 
-        <h2 className="font-semibold mb-2">
+        <h2 className="font-semibold mb-2 mt-6">
           How to Choose the Right Insurance?
         </h2>
         <ul className="list-disc list-inside mb-4">

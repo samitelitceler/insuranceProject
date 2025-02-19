@@ -15,8 +15,8 @@ const BusinessInsurance = () => {
         <Hero />
         {/* Information Section */}
         <div className="p-4 md:p-8 text-xs md:text-sm">
-          <span className="font-bold text-2xl">Condo Insurance</span>
-          <p className="mb-4">
+        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Condo Insurance</h2>
+          <p className="mb-4 mt-6">
             Condos and townhomes require additional insurance coverage beyond
             the typical homeowners&apos; insurance policy. Anchor Insurance Agency
             understands the unique factors involved in owning a condo and will

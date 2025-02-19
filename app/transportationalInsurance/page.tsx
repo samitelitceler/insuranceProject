@@ -16,8 +16,8 @@ const BusinessInsurance = () => {
       <Hero/>
       {/* Information Section */}
       <div className="p-4 md:p-8 text-xs md:text-sm">
-      <span className="font-bold text-2xl">Business Insurance</span> 
-        <p className="mb-4">
+      <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Transportational Insurance</h2> 
+        <p className="mb-4 mt-4">
           Business insurance is a type of coverage that protects businesses from financial losses due to various risks,
           such as property damage, liability claims, employee-related risks, and more.
         </p>
