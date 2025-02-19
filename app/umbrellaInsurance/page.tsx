@@ -67,6 +67,9 @@ const BusinessInsurance = () => {
           </ul>
         </div>
 
+
+        
+
         {/* Form Section */}
         <div className="bg-red-700 p-6 md:p-10 text-white mt-12 mb-12">
         <Form/>
