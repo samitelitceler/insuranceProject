@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[category]/[slug.tsx]", ".next/types/app/[category]/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/businessInsurance/[slug.tsx]", ".next/types/app/[category]/page.tsx"],
   "exclude": ["node_modules"]
 }
