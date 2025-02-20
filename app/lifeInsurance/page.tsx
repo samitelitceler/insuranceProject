@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import Form from "@/components/form/Form";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import lifeInsure from '@/public/images/meetingbusiness.jpg';
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function lifeInsurance() {
@@ -16,7 +17,7 @@ export default function lifeInsurance() {
         {/* Hero Section */}
         <div className="relative w-full h-[60vh] flex items-center justify-center bg-cover bg-center bg-black">
         <Image
-          src="https://www.anchorins.com/img/featured-life-insurance.jpg"
+          src={lifeInsure.src}
           alt="Business Insurance"
           layout="fill"
           objectFit="cover"

@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import Form from "@/components/form/Form";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import transportational from '@/public/images/TransportationalInsure.jpg';
 const inter = Inter({ weight: ['400', '600', '700'], subsets: ['latin'] });
 
 const BusinessInsurance = () => {
@@ -16,7 +17,7 @@ const BusinessInsurance = () => {
       {/* Hero Section */}
       <div className="relative w-full h-[60vh] flex items-center justify-center bg-cover bg-center bg-black">
         <Image
-          src="https://s3-alpha-sig.figma.com/img/219a/c5f0/922b0bef4768d4cb4b116fa2f1a3bd45?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=m4A2udGJpx2xnkk5ZnCGLPRu5-Hwv9geK1CCTN12FxzfLC8y3blY9vIXjGxLP-hUuhgwVXDFlGD83vb7RxyIzlL5CyR3kUJbZRQPEfcdDCoHSfiqK-XkENghqYBlynBYhppFeijcItKwrpJtFbX3ggx0i5yQnLtMWrpgsb0Co9wrrnd~5b8xCdZYS6VLr8qfT0Dfh5JmAgcUPhjrFJPjhbrmcybIVVI8mEaKfk34BtSRkmZOq2wkJtv3Hu~fQYe5-hU9d0vHHdMEmugvjdNY75YaQ2vJWilaHRuc-9ty3iB2tvKxF67Rso-D~Qgq7UhOQKV8fy7r6Py-~kgEhIKJbA__"
+          src={transportational.src}
           alt="Business Insurance"
           layout="fill"
           objectFit="cover"
