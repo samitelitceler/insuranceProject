@@ -10,14 +10,33 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { usePathname, useRouter } from "next/navigation";
+
 import { HiOutlineMenu, HiX } from "react-icons/hi"; // Icons for mobile menu
 
 import primeLogo from "@/public/images/PrimeLogo.png";
 
 export default function NavSection() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+  const handleNavigation = (sectionId: string) => {
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 200); // Delay to ensure page transition is completed
+    } else {
+      scrollToSection(sectionId);
+    }
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -41,7 +60,15 @@ export default function NavSection() {
           >
             <span className="hidden md:inline">My Account</span>
           </Link>
-          <Button onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com", "_blank")} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2">
+          <Button
+            onClick={() =>
+              window.open(
+                "https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com",
+                "_blank"
+              )
+            }
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2"
+          >
             Get a Quote
           </Button>
         </div>
@@ -65,7 +92,7 @@ export default function NavSection() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection("about")}
+              onClick={() => handleNavigation("about")}
               className="cursor-pointer"
             >
               About Us
@@ -73,7 +100,7 @@ export default function NavSection() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection("insuranceServices")}
+              onClick={() => handleNavigation("insuranceServices")}
               className="cursor-pointer"
             >
               Insurance Services
@@ -104,18 +131,22 @@ export default function NavSection() {
             Home
           </Link>
           <a
-              onClick={() => scrollToSection("about")}
-              className="cursor-pointer"
-            >
-              About Us
-            </a>
-            <a
-              onClick={() => scrollToSection("insuranceServices")}
-              className="cursor-pointer"
-            >
-              Insurance Services
-            </a>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com" onClick={() => setIsOpen(false)}>
+            onClick={() => scrollToSection("about")}
+            className="cursor-pointer"
+          >
+            About Us
+          </a>
+          <a
+            href="#insuranceServices"
+            onClick={() => scrollToSection("insuranceServices")}
+            className="cursor-pointer"
+          >
+            Insurance Services
+          </a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com"
+            onClick={() => setIsOpen(false)}
+          >
             Contact Us
           </a>
 

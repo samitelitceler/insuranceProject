@@ -2,8 +2,12 @@ import React from 'react'
 
 function Form() {
   return (
-    <div>
-      <form action="https://formspree.io/f/mwpvaqdv" method="POST">
+    <>
+    <div className="p-4 md:p-8 text-xs md:text-sm">
+    <h2 className="text-xl md:text-2xl text-red-600 font-bold">Get a Quote</h2>
+    </div>
+    <div className="bg-red-700 p-6 md:p-10 text-white mx-8 mb-12 ">
+      <form action="https://formspree.io/f/mwpvaqdv" method="POST" id='form'>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"
@@ -40,6 +44,7 @@ function Form() {
           </div>
         </form>
     </div>
+    </>
   )
 }
 

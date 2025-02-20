@@ -3,9 +3,9 @@ import React from "react";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Form from "@/components/form/Form";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import condoInsure from '@/public/images/condoInsure.jpg';
+import QuoteButton from "@/components/QuoteButton/QuoteButton";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 const BusinessInsurance = () => {
@@ -22,12 +22,7 @@ const BusinessInsurance = () => {
           objectFit="cover"
           className="opacity-70 bg-cover bg-center"
         />
-       <div className="absolute inset-0  flex items-center pl-8 lg:pl-16">
-          <div className="text-white max-w-lg">
-            <h1 className="text-2xl lg:text-4xl font-semibold mb-4 text-left">Get a Quote Instantly</h1>
-            <Button className="bg-red-600 font-bold w-72 text-white px-6 py-3 text-lg text-left">Start Quote</Button>
-          </div>
-        </div>
+       <QuoteButton/>
         </div>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-xs md:text-sm">
@@ -92,8 +87,8 @@ const BusinessInsurance = () => {
         </div>
 
         {/* Form Section */}
-        <div className="bg-red-700 p-6 md:p-10 text-white mt-12 mb-12">
-          <Form />
+        <div>
+          <Form  />
         </div>
       </div>
       <Footer />

@@ -4,9 +4,9 @@ import NavSection from "@/components/nav-section/nav";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Form from "@/components/form/Form";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import lifeInsure from '@/public/images/meetingbusiness.jpg';
+import QuoteButton from "@/components/QuoteButton/QuoteButton";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function lifeInsurance() {
@@ -23,12 +23,7 @@ export default function lifeInsurance() {
           objectFit="cover"
           className="opacity-70 bg-cover bg-center"
         />
-       <div className="absolute inset-0  flex items-center pl-8 lg:pl-16">
-          <div className="text-white max-w-lg">
-            <h1 className="text-2xl lg:text-4xl font-semibold mb-4 text-left">Get a Quote Instantly</h1>
-            <Button className="bg-red-600 font-bold w-72 text-white px-6 py-3 text-lg text-left">Start Quote</Button>
-          </div>
-        </div>
+       <QuoteButton/>
         </div>
       </div>
 
@@ -105,9 +100,9 @@ export default function lifeInsurance() {
         </ul>
       </div>
 
-      <div className="bg-red-700 p-6 md:p-10 text-white mt-12 mb-12">
-        <Form />
-      </div>
+      <div>
+          <Form  />
+        </div>
       <Footer />
     </div>
   );
