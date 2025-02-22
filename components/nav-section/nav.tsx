@@ -6,14 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
-  FaLinkedinIn,
 } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
-
 import { HiOutlineMenu, HiX } from "react-icons/hi"; // Icons for mobile menu
-
 import primeLogo from "@/public/images/PrimeLogo.png";
 
 export default function NavSection() {
@@ -24,9 +20,7 @@ export default function NavSection() {
   const handleNavigation = (sectionId: string) => {
     if (pathname !== "/") {
       router.push("/");
-      setTimeout(() => {
-        scrollToSection(sectionId);
-      }, 200); // Delay to ensure page transition is completed
+      setTimeout(() => scrollToSection(sectionId), 200);
     } else {
       scrollToSection(sectionId);
     }
@@ -34,8 +28,19 @@ export default function NavSection() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDropdownNavigation = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const value = event.target.value;
+    if (!value) return;
+
+    if (value === "clientCenter") {
+      router.push('/clientCenter')
+    } else if (value === "contactCarrier") {
+      router.push('/contactCarrier')
     }
   };
 
@@ -67,7 +72,7 @@ export default function NavSection() {
                 "_blank"
               )
             }
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2"
+            className="bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-4 py-2"
           >
             Get a Quote
           </Button>
@@ -85,7 +90,7 @@ export default function NavSection() {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex justify-between px-12 p-4 items-center bg-[#C10013]">
+      <div className="hidden md:flex justify-between px-12 p-4 items-center bg-gradient-to-b from-[#D2091D] to-[#880310]">
         <ul className="flex space-x-6 font-semibold text-white">
           <li>
             <Link href="/">Home</Link>
@@ -107,26 +112,40 @@ export default function NavSection() {
             </a>
           </li>
           <li>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com"
+            <Link href="/compareQuotes" className="cursor-pointer">
+              Compare Quotes
+            </Link>
+          </li>
+          <li>
+            <select
+              onChange={handleDropdownNavigation}
+              className="cursor-pointer bg-transparent text-white border-none focus:outline-none"
+            >
+              <option value="">Customer Services</option>
+              <option value="clientCenter">Client Center</option>
+              <option value="contactCarrier">Contact Your Carrier</option>
+            </select>
+          </li>
+          <li>
+            <Link
+              href="/contactUs"
               className="cursor-pointer"
             >
               Contact Us
-            </a>
+            </Link>
           </li>
         </ul>
 
         <div className="flex space-x-3 text-white">
           <FaFacebookF className="cursor-pointer" />
-          <FaTwitter className="cursor-pointer" />
+
           <FaInstagram className="cursor-pointer" />
-          <FaLinkedinIn className="cursor-pointer" />
         </div>
       </div>
 
       {/* Mobile Menu (Sliding Down) */}
       {isOpen && (
-        <div className="md:hidden flex flex-col bg-[#C10013] text-white p-4 space-y-4">
+        <div className="md:hidden flex flex-col bg-gradient-to-b from-[#D2091D] to-[#880310] text-white p-4 space-y-4">
           <Link href="/" onClick={() => setIsOpen(false)}>
             Home
           </Link>
@@ -152,10 +171,8 @@ export default function NavSection() {
 
           {/* Social Icons */}
           <div className="flex justify-center space-x-3 pt-2">
-            <FaFacebookF className="cursor-pointer" />
-            <FaTwitter className="cursor-pointer" />
-            <FaInstagram className="cursor-pointer" />
-            <FaLinkedinIn className="cursor-pointer" />
+            <FaFacebookF href="https://www.facebook.com/PrimeInsuranceServicesLLC/" className="cursor-pointer" />
+            <FaInstagram href="https://www.instagram.com/PrimeInsuranceServicesLLC/" className="cursor-pointer" />
           </div>
         </div>
       )}

@@ -137,7 +137,7 @@ export default function Home() {
             </select>
             <Button
               onClick={handleNavigation}
-              className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 font-bold"
+              className="w-full bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3 font-bold"
             >
               START QUOTE
             </Button>
@@ -188,7 +188,7 @@ export default function Home() {
           {insuranceOptions.map((item, index) => (
             <Card
               key={index}
-              className="bg-red-600 cursor-pointer text-white p-6 mt-4 rounded-2xl flex flex-col items-center justify-center hover:bg-red-700 transition shadow-lg"
+              className="bg-gradient-to-b from-[#D2091D] to-[#880310] cursor-pointer text-white p-6 mt-4 rounded-2xl flex flex-col items-center justify-center hover:bg-red-700 transition shadow-lg"
               onClick={() => handleAutoHomeInsurance(item?.path ?? "/")}
             >
               <CardContent className="flex flex-col items-center space-y-4">
