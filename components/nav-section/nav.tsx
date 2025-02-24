@@ -60,13 +60,13 @@ export default function NavSection() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4 h">
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="py-0">
               <div className="flex gap-1 items-center">
                 <Link
                   href=""
-                  className="w-full bg-transparent  hover:opacity-90"
+                  className="w-full bg-transparent hover:underline hover:opacity-90"
                 >
                   My Account
                 </Link>
@@ -95,8 +95,9 @@ export default function NavSection() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <div>
-            <FaCalendar className="text-red-700 cursor-pointer text-2xl" onClick={() => router.push('/appointments')} />
+          <div className="flex items-center gap-1 cursor-pointer">
+            <FaCalendar className="text-red-700 cursor-pointer text-lg"  />
+              <h2 className="hover:underline" onClick={() => router.push('/appointments')}>Make an Appointment</h2>
           </div>
 
           <Button

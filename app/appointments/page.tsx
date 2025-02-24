@@ -75,7 +75,7 @@ const AppointmentsPage = () => {
         </ul>
       </div>
       
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center mt-2">
         <iframe
           src="https://calendly.com/samit-elitceler/30min"
           className="w-full h-[600px]"
