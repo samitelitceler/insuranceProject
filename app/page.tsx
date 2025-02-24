@@ -114,7 +114,7 @@ export default function Home() {
         className="relative w-full h-screen flex items-center justify-start bg-cover bg-center px-4 md:px-8"
         style={{
           background:
-            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('https://s3-alpha-sig.figma.com/img/a5b0/3878/75de6c08e5d5cbd2fcbd636d3fb40715?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HCym0HxQi5-kxwrDALWpK5JZJegTa7c5xzqgVtek668VlaXh~closSf4K2QQUV5JiMY6Qt5RhpvBzJC3ivf1fSKXLDkrNbFUFhSL8peMfND7oU4u~EdQHrrTgfkItsjHjWxkp1DwAPBYXvlefPFt2b-H7gGIxKLhdjUQm4ZO1SwsAnIqFmpAUkJ2s0icICI9HXksIOPoZMkfWzLypc6Z~OBnubgdv4XndpCA5j5BrgYXiHYJo9BshCnCaLd8-2zZP~BqfI0Wfidc2WZT6xKovcNAFasx-fL457RI2jS7LEFozRMnRGpCAR~xFV6JHnYQP8wOQi-IxPlBUbS8YPFjPQ__') no-repeat center center / cover",
+            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
