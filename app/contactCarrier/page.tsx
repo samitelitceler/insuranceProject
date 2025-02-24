@@ -38,42 +38,84 @@ function ContactCarrier() {
       customerService: "800-222-4357",
       claims: "#",
       website: "#",
-      logo: "https://s3-alpha-sig.figma.com/img/dcd3/9d24/f679b4060c10163ea31b39e027681a53?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ajRDlpWMmfY7lUXz3QjO9Jrvt~Spmq3VH66~a8CxgGakFxVmXcMC0NCaiIn7VtKSKRXyC4plEL4Pk13MIpDYZD80xGVKDdps~Q2qBoXjMVrYF7NiBVqUrpmnVcLDhHBAwjr666GOrgHToVT7MLtI0bxeZ1-yTSuYmj0vV4iD55L~-m0Zk5c79C17gb9y0xBbnnL-v69UxC105L4zZbfyt410f2d8KRh0Py1k4JfpjiksYXlL99KhpCfwxKjlQ9JMJd9gcpYgC2q8C4DsG5rWnxbXhpCmeKISkB5n~wqt~LlY~28xYBRhIu3ROes9koitp3UWe3upLbzoMTSvAIsCuA__",
+      logo: "/images/Allstate.png",
     },
     {
       name: "Foremost",
       customerService: "800-282-1446",
       claims: "#",
       website: "#",
-      logo: "https://s3-alpha-sig.figma.com/img/9528/915c/257b522f1d58ad3e1394b8d549513de4?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Y4OCjjdt2SRBdwDQX04D5TlUMLBkj64U3OUCkFdLLtl7UgXvFVZ23zFx6GH70KuhKF3hUz5yJDzwNtz-VTuNoFCLyox75g5mSqStIyezzyqEBMAYh0kSyZRQam~eE~amiLIhcJjIMdF2gfvVg2QicvATUvhZr6~Ivb7Yyy00aSZxKvnkIDjNaGHgCRO21jJwv1v19BvT6fZXGkJWcHqc7Fh8JeTzEVJ2CV6xq2OS7EYRjyMEO-Exutu1CiI~cjP3EnO5XYAEqL3HLlf9qgVzSC1xE6qjkBjuDh1S0GjaJaVonWxkVf6bXjuVYG1L9Aq75~xXQoiWgAznV55x4yIsHA__",
+      logo: "/images/Foremost.jpeg",
     },
     {
       name: "Heritage",
       customerService: "866-274-8765",
       claims: "#",
       website: "#",
-      logo: "https://s3-alpha-sig.figma.com/img/c388/9e3a/0b328151f49aa567c445bce211a0a9c2?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=F8NFY55EG4AE-Y6DScd0P33XOWaUJ52AWwZuNlTIFtoSpE7RllhMaEDoGO0p4vrP6GE0L8AKbX3DgusFqMfJBsuXKZNvMXK14lZe5I3GPTu0k3i8maJgBSP7vJqf7Syn2lvz7fuvPi86YWvHlGMIgkaYzTc0ZjPVdR8x028IHwidyxelGOvpbUO~6PElWZByYaR1ZlzrJvkyAqRqP782HrXyxEJC92AL381eOWVvgbgZ6eIuHd8ChD63w0HDGlGgy9BZ3FbB9LiR2Gs~CvOibPIDVjgZl4RP~bsNlsazvHwnS7Lelk73pe9ZqI4qr~X5qS~PTi0sIlZO9edY9-MODg__",
+      logo: "/images/heritageLogo.png",
     },
     {
       name: "Liberty Mutual",
       customerService: "888-252-4626",
       claims: "#",
       website: "#",
-      logo: "https://s3-alpha-sig.figma.com/img/3ca3/3c43/63543806ff324b2cfa2c81c0b0fab173?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=LsMbmlXO-Jca-D5PQ~vheTpsvX9MXn7lyczxks8FuD5LMXZl1QnhKoPL4LKIgjL9pK24cf5XcqPWU0x0WrWA8kR0jf7psLN9tdcAlDahyRy9R86jmIbetL~saG6f5uODGByDTdrWbM~wTbs3uWgiTWJ~s4RqJsXCvKqGAgQlXBfd7G832Xn9tEljoRLR8zuzssoBptWcwVQqB2fqbKxD3HGfRxcDGsAN0ylg~MCVi~Qx53YizHv7Ir-XIThXGGmDgJ6cKB5W~4Mjb4S79YAW6qY4jmJcsU8Lt0JKGNZqsccqlPWlo3-BpnmkIPlELF-70z2mvw38H0SzXkWoEgPsiQ__",
+      logo: "https://www.anchorins.com/img/carriers/liberty-mutual.png",
     },
     {
       name: "MetLife",
       customerService: "855-663-8551",
       claims: "#",
       website: "#",
-      logo: "https://s3-alpha-sig.figma.com/img/de00/f0fa/fba39ac15b1d475e6eeec51ca6d59a31?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rvvc14MZdr6-FTYsnJJqa2gNvpYD11Mfgb9j7-fBlN6Kv8Fdn-QeH7Pnixv7J8WhU3A1B5CfPTU5WZgY4OfGz5ejQdxJOXY6EZ1sS5TPqdxr25m56UG7T9CVGzSXD9mVIF9DC89GQgBMD5VwaX0hYlOePmJvzhsFN4ZxZCPBYv-0iAPxd3533wV6HSGdbOL8yX4-iR02yR0qv12lwHOt5aE22CBAkIz8ty~hHgoROuUMCFWXuHz-k27~7Sr4ZYV9xkdWZep1THoBVUHDutRfxRklKZJa6XdVNZY-hf8WreY4dAGlFa6WiXUm9l7dT2~4vxDFokzGGzVIgLq6LKc4uw__",
+      logo: "https://www.anchorins.com/img/carriers/metlife.png",
     },
     {
-      name: "Chubb",
+      name: "AAA",
       customerService: "800-252-4670",
       claims: "#",
       website: "#",
-      logo: "https://www.anchorins.com/img/carriers/chubb.png",
+      logo: "https://www.anchorins.com/img/carriers/aaa.png",
+    },
+    {
+      name: "National General",
+      customerService: "800-252-4670",
+      claims: "#",
+      website: "#",
+      logo: "/images/NationalGenral.png",
+    },
+    {
+      name: "National wide",
+      customerService: "800-252-4670",
+      claims: "#",
+      website: "#",
+      logo: "https://www.anchorins.com/img/carriers/allied.png",
+    },
+    {
+      name: "Safeco",
+      customerService: "800-252-4670",
+      claims: "#",
+      website: "#",
+      logo: "https://www.anchorins.com/img/carriers/safeco.png",
+    },
+    {
+      name: "State Auto",
+      customerService: "800-252-4670",
+      claims: "#",
+      website: "#",
+      logo: "https://www.anchorins.com/img/carriers/state-auto.png",
+    },
+    {
+      name: "The Hartford",
+      customerService: "800-252-4670",
+      claims: "#",
+      website: "#",
+      logo: "https://www.anchorins.com/img/carriers/hartford.png",
+    },
+    {
+      name: "Travelers",
+      customerService: "800-252-4670",
+      claims: "#",
+      website: "#",
+      logo: "https://www.anchorins.com/img/carriers/travelers.png",
     },
   ];
   
@@ -182,8 +224,8 @@ function ContactCarrier() {
                 <Image
                   src={carrier.logo}
                   alt={carrier.name}
-                  width={120}
-                  height={60}
+                  width={200}
+                  height={100}
                   className="mb-4"
                 />
                 <h2 className="text-2xl font-semibold text-[#D2091D]">{carrier.name}</h2>

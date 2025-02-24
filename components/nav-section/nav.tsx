@@ -4,13 +4,18 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 import { HiOutlineMenu, HiX } from "react-icons/hi"; // Icons for mobile menu
 import primeLogo from "@/public/images/PrimeLogo.png";
+import { ChevronDown } from "lucide-react";
+import { FaCalendar } from "react-icons/fa";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function NavSection() {
   const router = useRouter();
@@ -31,16 +36,13 @@ export default function NavSection() {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleDropdownNavigation = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const value = event.target.value;
+  const handleDropdownNavigation = (value: string) => {
     if (!value) return;
 
     if (value === "clientCenter") {
-      router.push('/clientCenter')
+      router.push("/clientCenter");
     } else if (value === "contactCarrier") {
-      router.push('/contactCarrier')
+      router.push("/contactCarrier");
     }
   };
 
@@ -59,19 +61,46 @@ export default function NavSection() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link
-            href="https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login"
-            className="text-gray-700"
-          >
-            <span className="hidden md:inline">My Account</span>
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="py-0">
+              <div className="flex gap-1 items-center">
+                <Link
+                  href=""
+                  className="w-full bg-transparent  hover:opacity-90"
+                >
+                  My Account
+                </Link>
+                <ChevronDown />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-48 bg-gradient-to-b from-[#D2091D] to-[#880310] text-white border-none">
+              <DropdownMenuItem
+                className="hover:bg-[#D2091D] text-white cursor-pointer"
+                onClick={() => router.push("/clientCenter")}
+              >
+                View Policies
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="hover:bg-[#D2091D] text-white cursor-pointer"
+                onClick={() => router.push("/clientCenter")}
+              >
+                Print Id Cards
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="hover:bg-[#D2091D] text-white cursor-pointer"
+                onClick={() => router.push("/clientCenter")}
+              >
+                Add Driver
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <div>
+            <FaCalendar className="text-red-700 cursor-pointer text-2xl" onClick={() => router.push('/appointments')} />
+          </div>
+
           <Button
-            onClick={() =>
-              window.open(
-                "https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com",
-                "_blank"
-              )
-            }
+            onClick={() => router.push("/compareQuotes")}
             className="bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-4 py-2"
           >
             Get a Quote
@@ -117,29 +146,45 @@ export default function NavSection() {
             </Link>
           </li>
           <li>
-            <select
-              onChange={handleDropdownNavigation}
-              className="cursor-pointer bg-transparent text-white border-none focus:outline-none"
-            >
-              <option value="">Customer Services</option>
-              <option value="clientCenter">Client Center</option>
-              <option value="contactCarrier">Contact Your Carrier</option>
-            </select>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="py-0">
+                <div className="flex gap-1 items-center">
+                  <Link
+                    href=""
+                    className="w-full bg-transparent text-white hover:opacity-90"
+                  >
+                    Customer Services
+                  </Link>
+                  <ChevronDown />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-gradient-to-b from-[#D2091D] to-[#880310] text-white border-none">
+                <DropdownMenuItem
+                  className="hover:bg-[#D2091D] text-white cursor-pointer"
+                  onClick={() => handleDropdownNavigation("clientCenter")}
+                >
+                  Client Center
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="hover:bg-[#D2091D] text-white cursor-pointer"
+                  onClick={() => handleDropdownNavigation("contactCarrier")}
+                >
+                  Contact Your Carrier
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
           <li>
-            <Link
-              href="/contactUs"
-              className="cursor-pointer"
-            >
+            <Link href="/contactUs" className="cursor-pointer">
               Contact Us
             </Link>
           </li>
         </ul>
 
         <div className="flex space-x-3 text-white">
-          <FaFacebookF className="cursor-pointer" />
+          <FaFacebookF  onClick={() => router.push('https://www.facebook.com/PrimeInsuranceServicesLLC/')} className="cursor-pointer"  />
 
-          <FaInstagram className="cursor-pointer" />
+          <FaInstagram onClick={() => router.push('https://www.instagram.com/PrimeInsuranceServicesLLC/')} className="cursor-pointer" />
         </div>
       </div>
 
@@ -150,29 +195,60 @@ export default function NavSection() {
             Home
           </Link>
           <a
-            onClick={() => scrollToSection("about")}
-            className="cursor-pointer"
-          >
-            About Us
-          </a>
-          <a
-            href="#insuranceServices"
-            onClick={() => scrollToSection("insuranceServices")}
-            className="cursor-pointer"
-          >
-            Insurance Services
-          </a>
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=gopal@primeinsurancellc.com"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact Us
-          </a>
+              onClick={() => handleNavigation("about")}
+              className="cursor-pointer"
+            >
+              About Us
+            </a>
+            <a
+              onClick={() => handleNavigation("insuranceServices")}
+              className="cursor-pointer"
+            >
+              Insurance Services
+            </a>
+          
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="py-0">
+                <div className="flex gap-1 items-center">
+                  <Link
+                    href=""
+                    className="w-full bg-transparent text-white hover:opacity-90"
+                  >
+                    Customer Services
+                  </Link>
+                  <ChevronDown />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-gradient-to-b from-[#D2091D] to-[#880310] text-white border-none">
+                <DropdownMenuItem
+                  className="hover:bg-[#D2091D] text-white cursor-pointer"
+                  onClick={() => handleDropdownNavigation("clientCenter")}
+                >
+                  Client Center
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="hover:bg-[#D2091D] text-white cursor-pointer"
+                  onClick={() => handleDropdownNavigation("contactCarrier")}
+                >
+                  Contact Your Carrier
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+    
+            <Link href="/contactUs" className="cursor-pointer">
+              Contact Us
+            </Link>
 
           {/* Social Icons */}
           <div className="flex justify-center space-x-3 pt-2">
-            <FaFacebookF href="https://www.facebook.com/PrimeInsuranceServicesLLC/" className="cursor-pointer" />
-            <FaInstagram href="https://www.instagram.com/PrimeInsuranceServicesLLC/" className="cursor-pointer" />
+            <FaFacebookF
+              href="https://www.facebook.com/PrimeInsuranceServicesLLC/"
+              className="cursor-pointer"
+            />
+            <FaInstagram
+              href="https://www.instagram.com/PrimeInsuranceServicesLLC/"
+              className="cursor-pointer"
+            />
           </div>
         </div>
       )}
