@@ -142,6 +142,14 @@ export default function NavSection() {
             </a>
           </li>
           <li>
+            <a
+              onClick={() => handleNavigation("bonds")}
+              className="cursor-pointer"
+            >
+             Bonds
+            </a>
+          </li>
+          <li>
             <Link href="/compareQuotes" className="cursor-pointer">
               Compare Quotes
             </Link>
@@ -207,7 +215,11 @@ export default function NavSection() {
             >
               Insurance Services
             </a>
-          
+            <li>
+            <Link href="/compareQuotes" className="cursor-pointer">
+              Compare Quotes
+            </Link>
+          </li>
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="py-0">
                 <div className="flex gap-1 items-center">
