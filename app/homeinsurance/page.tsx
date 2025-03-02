@@ -9,14 +9,14 @@ export default function HomeInsurance() {
   return (
     <div>
       <HeroSection />
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Text Content */}
-          <div>
-            <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">
+          <div className="order-2 lg:order-1">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold">
               Home Insurance
             </h2>
-            <p className="text-lg text-gray-700 mt-3">
+            <p className="text-base sm:text-lg text-gray-700 mt-3">
               Protect Your Greatest Investment With Anchor Insurance Agency Your
               home is your greatest investment. It&apos;s the place you and your
               family gather and the place you kick up your feet after a long
@@ -26,7 +26,7 @@ export default function HomeInsurance() {
               policies to individuals and families throughout Minnesota,
               Wisconsin, Arizona, Florida, Nevada and Colorado.
             </p>
-            <p className="text-lg text-gray-700 mt-3">
+            <p className="text-base sm:text-lg text-gray-700 mt-3">
               Fully Customized Home Insurance Policies to Fit You A downed tree
               through your roof. Graffiti across your garage door. Shattered
               windows from hail. Damage to your home can be costly to repair,
@@ -40,13 +40,13 @@ export default function HomeInsurance() {
               can build a policy for all (yes, even your remote log cabin).
             </p>
             {/* Factors Affecting Premiums */}
-            <h2 className="mt-6 text-2xl text-gray-800 font-semibold">
+            <h2 className="mt-6 text-xl sm:text-2xl text-gray-800 font-semibold">
               What&apos;s Included in a Home Insurance Policy? Home insurance policy
               types span from the bare necessities to comprehensive coverage for
               anything that could go wrong. Through our custom policies, we can
               offer:
             </h2>
-            <ul className="list-disc list-inside text-lg text-gray-600 mt-1 space-y-1">
+            <ul className="list-disc list-inside text-base sm:text-lg text-gray-600 mt-1 space-y-1">
               <li>Guaranteed replacement</li>
               <li>Back-up drain and sewer</li>
               <li>Mechanical breakdown</li>
@@ -58,12 +58,12 @@ export default function HomeInsurance() {
               <li> Identity theft</li>
             </ul>
             {/* Optional Add-Ons */}
-            <h2 className="mt-6 text-2xl text-gray-800 font-semibold">
+            <h2 className="mt-6 text-xl sm:text-2xl text-gray-800 font-semibold">
               Why Choose Anchor Insurance Agency? Many insurance companies offer
               home insurance policies. What makes us different? Here at Anchor
               Insurance Agency, you&apos;ll find:
             </h2>
-            <ul className="list-disc list-inside text-lg text-gray-600 mt-1 space-y-1">
+            <ul className="list-disc list-inside text-base sm:text-lg text-gray-600 mt-1 space-y-1">
               <li className="font-semibold">
                 Insurance policies to fit your needs:
                 <span className="font-normal"> There isn&apos;t a one-size-fits-all option for insurance. We custom build policies
@@ -82,10 +82,10 @@ export default function HomeInsurance() {
               </li>
             </ul>
             {/* Why It&apos;s Important */}
-            <h2 className="mt-6 text-2xl text-gray-800 font-semibold">
+            <h2 className="mt-6 text-xl sm:text-2xl text-gray-800 font-semibold">
               Start Protecting Your Home Today. Get Your Free Quote!
             </h2>
-            <p className="text-lg text-gray-700 mt-3">
+            <p className="text-base sm:text-lg text-gray-700 mt-3">
               Your home is truly your greatest investment. A customized home
               insurance policy can help you protect it. Ready to get started? Get
               your free quote today. Or, for answers to all of your policy
@@ -94,17 +94,17 @@ export default function HomeInsurance() {
           </div>
 
           {/* Image Section */}
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 order-1 lg:order-2">
             <Image
               src={autoInsuranceImage.src}
               alt="Car Insurance"
-              width={300}
-              height={200}
-              className="rounded-md"
+              width={400}
+              height={300}
+              className="rounded-md w-full max-w-md object-cover"
             />
             <Button
               onClick={() => window.open("https://www.agentinsure.com/compare/auto-insurance-home-insurance/primei/quote.aspx", "_blank")}
-              className="bg-black hover:bg-gray-800 text-white px-6 py-3 text-lg"
+              className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg"
             >
               Get Home Insurance Quote
             </Button>

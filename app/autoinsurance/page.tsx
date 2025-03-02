@@ -9,11 +9,11 @@ export default function AutoInsurance() {
     return (
         <div>
             <HeroSection />
-            <section className="max-w-7xl mx-auto px-6 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
                     {/* Text Content */}
-                    <div>
-                        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">
+                    <div className="order-2 lg:order-1">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold">
                             Auto Insurance
                         </h2>
                         <p className="text-base md:text-lg text-gray-700 mt-3">
@@ -58,17 +58,17 @@ export default function AutoInsurance() {
                     </div>
 
                     {/* Image Section */}
-                    <div className="flex flex-col items-center gap-6">
+                    <div className="flex flex-col items-center gap-4 sm:gap-6 order-1 lg:order-2">
                         <Image
                             src={autoInsuranceImage.src}
                             alt="Car Insurance"
-                            width={300}
-                            height={200}
-                            className="rounded-md"
+                            width={400}
+                            height={300}
+                            className="rounded-md w-full max-w-md object-cover"
                         />
                         <Button
                             onClick={() => window.open("https://www.agentinsure.com/compare/auto-insurance-home-insurance/primei/quote.aspx", "_blank")}
-                            className="bg-black hover:bg-gray-800 text-white px-6 py-3 text-lg"
+                            className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg"
                         >
                             Get Auto Insurance Quote
                         </Button>

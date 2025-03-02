@@ -59,7 +59,7 @@ export default function NavSection() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center justify-end space-x-8 h-full flex-1">
+        <div className="hidden lg:flex items-center justify-end space-x-4 md:space-x-8 h-full flex-1">
           {/* Email An Agent */}
           <div className="flex items-center gap-2 cursor-pointer">
             <svg className="w-5 h-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -130,7 +130,7 @@ export default function NavSection() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-700 focus:outline-none"
@@ -141,8 +141,8 @@ export default function NavSection() {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex justify-between px-12 p-4 items-center bg-gradient-to-b from-[#D2091D] to-[#880310]">
-        <ul className="flex space-x-6 font-semibold text-white">
+      <div className="hidden lg:flex justify-between px-4 md:px-12 p-4 items-center bg-gradient-to-b from-[#D2091D] to-[#880310]">
+        <ul className="flex flex-wrap space-x-3 md:space-x-6 font-semibold text-white text-sm md:text-base">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -274,26 +274,68 @@ export default function NavSection() {
           </li>
         </ul>
 
-        <div className="flex space-x-3 text-white">
+        {/* <div className="flex space-x-3 text-white">
           <FaFacebookF onClick={() => router.push('https://www.facebook.com/PrimeInsuranceServicesLLC/')} className="cursor-pointer" />
 
           <FaInstagram onClick={() => router.push('https://www.instagram.com/PrimeInsuranceServicesLLC/')} className="cursor-pointer" />
-        </div>
+        </div> */}
       </div>
 
       {/* Mobile Menu (Sliding Down) */}
       {isOpen && (
-        <div className="md:hidden flex flex-col bg-gradient-to-b from-[#D2091D] to-[#880310] text-white p-4 space-y-4">
-          <Link href="/" onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
-          <a
-            onClick={() => handleNavigation("about")}
-            className="cursor-pointer"
-          >
-            About Us
-          </a>
-          <DropdownMenu>
+        <div className="lg:hidden flex flex-col bg-gradient-to-b from-[#D2091D] to-[#880310] text-white p-4 space-y-4">
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center gap-2 text-white">
+              <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+              </svg>
+              <span className="hover:text-gray-200 cursor-pointer" onClick={() => router.push('/contactUs')}>
+                Email An Agent
+              </span>
+            </div>
+            
+            <div className="flex items-center gap-2 text-white">
+              <FaCalendar className="text-lg" />
+              <span className="hover:text-gray-200 cursor-pointer"
+                onClick={() => window.open('https://calendly.com/samit-elitceler/30min', '_blank')}>
+                Make an Appointment
+              </span>
+            </div>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="py-0">
+                <div className="flex items-center gap-2 cursor-pointer text-white">
+                  <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                  </svg>
+                  <span>My Account</span>
+                  <ChevronDown />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-white border shadow-lg">
+                <DropdownMenuItem
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
+                >
+                  View Policies
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
+                >
+                  Print Id Cards
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
+                >
+                  Add Driver
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
               <DropdownMenuTrigger asChild className="py-0">
                 <div className="flex gap-1 items-center">
                   <Link
@@ -345,39 +387,39 @@ export default function NavSection() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-          <Link href="/compareQuotes" className="cursor-pointer">
-            Compare Quotes
-          </Link>
+            <Link href="/compareQuotes" className="cursor-pointer">
+              Compare Quotes
+            </Link>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild className="py-0">
-              <div className="flex gap-1 items-center">
-                <Link
-                  href=""
-                  className="w-full bg-transparent text-white hover:opacity-90"
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="py-0">
+                <div className="flex gap-1 items-center">
+                  <Link
+                    href=""
+                    className="w-full bg-transparent text-white hover:opacity-90"
+                  >
+                    Customer Services
+                  </Link>
+                  <ChevronDown />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48  text-white border-none">
+                <DropdownMenuItem
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  onClick={() => handleDropdownNavigation("clientCenter")}
                 >
-                  Customer Services
-                </Link>
-                <ChevronDown />
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48  text-white border-none">
-              <DropdownMenuItem
-                className="hover:bg-gray-100 text-gray-700 cursor-pointer"
-                onClick={() => handleDropdownNavigation("clientCenter")}
-              >
-                Client Center
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="hover:bg-gray-100 text-gray-700 cursor-pointer"
-                onClick={() => handleDropdownNavigation("contactCarrier")}
-              >
-                Contact Your Carrier
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+                  Client Center
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  onClick={() => handleDropdownNavigation("contactCarrier")}
+                >
+                  Contact Your Carrier
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-          <DropdownMenu>
+            <DropdownMenu>
               <DropdownMenuTrigger asChild className="py-0">
                 <div className="flex gap-1 items-center">
                   <Link
@@ -402,20 +444,20 @@ export default function NavSection() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-          <Link href="/contactUs" className="cursor-pointer">
-            Contact Us
-          </Link>
+            <Link href="/contactUs" className="cursor-pointer">
+              Contact Us
+            </Link>
 
-          {/* Social Icons */}
-          <div className="flex justify-center space-x-3 pt-2">
-            <FaFacebookF
-              href="https://www.facebook.com/PrimeInsuranceServicesLLC/"
-              className="cursor-pointer"
-            />
-            <FaInstagram
-              href="https://www.instagram.com/PrimeInsuranceServicesLLC/"
-              className="cursor-pointer"
-            />
+            <div className="flex justify-center space-x-3 pt-2">
+              <FaFacebookF
+                href="https://www.facebook.com/PrimeInsuranceServicesLLC/"
+                className="cursor-pointer"
+              />
+              <FaInstagram
+                href="https://www.instagram.com/PrimeInsuranceServicesLLC/"
+                className="cursor-pointer"
+              />
+            </div>
           </div>
         </div>
       )}
