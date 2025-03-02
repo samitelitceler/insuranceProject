@@ -25,14 +25,14 @@ const BusinessInsurance = () => {
           <QuoteButton />
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-xs md:text-sm">
-          <h2 className="text-xl md:text-2xl text-red-600 font-semibold">
+        <div className="p-4 md:p-8 text-base md:text-lg">
+          <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">
             Umbrella Insurance
           </h2>
-          <h2 className="font-semibold mb-2 mt-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
             Gain Extra Coverage for Claims Against You With Umbrella Insurance
           </h2>
-          <p className="mb-4">
+          <p className="text-lg mb-4">
             In rare cases, even quality homeowners&apos; and auto insurance
             policies aren&apos;t enough to protect your finances should a claim
             be filed against you. If you&apos;re found liable for more than your
@@ -62,7 +62,7 @@ const BusinessInsurance = () => {
           <h2 className="font-semibold mb-2">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-decimal list-inside text-lg mb-4">
             <li>
               Assess Risks: Evaluate the specific risks associated with your
               industry and business activities.

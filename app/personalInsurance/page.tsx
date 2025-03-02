@@ -25,12 +25,14 @@ const BusinessInsurance = () => {
        <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-xs md:text-sm">
-        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Personal Insurance</h2>
-          <h2 className="font-semibold mb-2 mt-6">
+        <div className="p-4 md:p-8 text-base md:text-lg">
+        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">
+          Personal Insurance
+        </h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
             Personal Insurance Policies for Individuals & Families
           </h2>
-          <p className="mb-4">
+          <p className="text-lg mb-4">
             From homes to cabins and condos to motorcycles, we offer a personal
             insurance policy to help you protect what matters most to you.
             Anchor Insurance Agency is an independent insurance agency serving
@@ -52,7 +54,7 @@ const BusinessInsurance = () => {
             companies to deliver high-quality insurance options to each of our
             clients. Our insurance policies include:
           </p>
-          <ul className="list-decimal list-inside mb-4">
+          <ul className="list-decimal list-inside text-lg mb-4">
             <li>Auto</li>
             <li>Home</li>
             <li>Life</li>

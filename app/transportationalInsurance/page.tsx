@@ -26,15 +26,15 @@ const BusinessInsurance = () => {
       <QuoteButton/>
         </div>
       {/* Information Section */}
-      <div className="p-4 md:p-8 text-xs md:text-sm">
-      <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Transportational Insurance</h2> 
-        <p className="mb-4 mt-4">
+      <div className="p-4 md:p-8 text-base md:text-lg">
+      <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">Transportational Insurance</h2> 
+        <p className="text-lg mb-4 mt-4">
           Business insurance is a type of coverage that protects businesses from financial losses due to various risks,
           such as property damage, liability claims, employee-related risks, and more.
         </p>
 
-        <h2 className="font-semibold mb-2">Types of Business Insurance</h2>
-        <ul className="list-decimal list-inside mb-4">
+        <h2 className="text-xl md:text-2xl font-semibold mb-2">Types of Business Insurance</h2>
+        <ul className="list-decimal list-inside text-lg mb-4">
           <li>General Liability Insurance – Covers legal expenses if your business is sued for injury, property damage, or advertising mistakes.</li>
           <li>Property Insurance – Protects your business&apos;s physical assets like buildings, equipment, and inventory against damage or theft.</li>
           <li>Business Interruption Insurance – Compensates for lost income if your business is unable to operate due to events like natural disasters.</li>

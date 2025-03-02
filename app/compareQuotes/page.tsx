@@ -59,7 +59,7 @@ function CompareQuotes() {
   return (
     <>
     <NavSection />
-    <div className="bg-gray-100 min-h-screen p-8">
+    <div className="bg-gray-100  p-8">
       <div className="container mx-auto">
         {/* Heading */}
         <div className="bg-[#dfdfdf] p-4">
@@ -76,7 +76,7 @@ function CompareQuotes() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 max-w-4xl mx-auto">
           {insuranceOptions.map((option, index) => (
             <Link key={index} href={option.path} passHref>
-              <div className="flex items-center bg-gradient-to-b from-[#D2091D] to-[#880310] text-white p-4 rounded-lg cursor-pointer hover:bg-blue-800 transition duration-300">
+              <div className="flex items-center bg-gray-800 text-white p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition duration-300">
                 <span className="text-2xl mr-3">{option.icon}</span>
                 <span className="text-lg font-semibold">{option.name}</span>
               </div>

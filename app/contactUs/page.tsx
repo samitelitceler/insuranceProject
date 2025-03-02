@@ -103,7 +103,7 @@ function ContactUs() {
             </select>
             <Button
               onClick={handleNavigation}
-              className="w-full bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white text-2xl px-6 py-3"
+              className="w-full bg-black hover:bg-gray-800 text-white text-2xl px-6 py-3"
             >
               Quote it!
             </Button>
@@ -111,6 +111,7 @@ function ContactUs() {
         </div>
       </section>
       <div className="bg-gray-100 min-h-screen p-8">
+        
         <div className="container mx-auto">
           {/* Heading */}
           <div className="bg-[#dfdfdf] p-4">
@@ -129,34 +130,76 @@ function ContactUs() {
             <h2 className="text-2xl font-bold text-gray-900">
               Prime Insurance Agency
             </h2>
-            <p className="mt-2 text-gray-700">
-              3440 Toringdon Way,{" "}
-              <a href="#" className="text-blue-500 underline">
-                Suite 205
-              </a>
-              <br />
-              <a href="#" className="text-blue-500 underline">
-                Office 254, Charlotte NC 28277
-              </a>
+            <p className="mt-2 text-gray-700 text-lg underline">
+              3440 Toringdon Way, Suite 205<br />
+              Office 254, Charlotte NC 28277
             </p>
-            <p className="text-gray-700 mt-1">Phone: 9802979827</p>
-            <p className="text-gray-700">
-              Email:{" "}
-              <a
-                href="mailto:anchor@anchorins.com"
-                className="text-blue-500 underline"
-              >
-                info@primeinsurancellc.com
-              </a>
+            <p className="text-gray-700 text-lg mt-4">Phone: <span className="ml-2 underline">9802979827</span></p>
+            <p className="text-gray-700 text-lg mt-2 mb-4">
+              Email: <span className="ml-2 underline">info@primeinsurancellc.com</span>
             </p>
 
-            <div className="w-full h-[400px] mb-4">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.536614201292!2d-80.84008732386392!3d35.06206997297264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541ff03c8d47df%3A0x4eaf6b4dfb3018ff!2s3440%20Toringdon%20Way%2C%20Charlotte%2C%20NC%2028277%2C%20USA!5e0!3m2!1sen!2sus!4v1700000000000"
-                className="w-full h-full rounded-lg border-0"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
+            {/* Map and Form Container */}
+            <div className="container mx-auto max-w-6xl">
+              <div className="flex flex-col md:flex-row justify-center gap-12 w-full mb-4 mt-8">
+                {/* Map */}
+                <div className="w-full md:w-full h-[400px]">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.536614201292!2d-80.84008732386392!3d35.06206997297264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541ff03c8d47df%3A0x4eaf6b4dfb3018ff!2s3440%20Toringdon%20Way%2C%20Charlotte%2C%20NC%2028277%2C%20USA!5e0!3m2!1sen!2sus!4v1700000000000"
+                    className="w-full h-full rounded-lg border-0"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+
+                {/* Contact Form */}
+                <div className="w-full md:w-full bg-white p-8 rounded-lg shadow-md">
+                  <form action="https://formspree.io/f/mwpvaqdv" method="POST" id="form">
+                    <div className="grid grid-cols-1 gap-4">
+                      <div className="flex gap-4">
+                        <input
+                          type="text"
+                          name="firstName"
+                          placeholder="First Name"
+                          className="p-2 rounded border border-gray-300 w-full"
+                        />
+                        <input
+                          type="text"
+                          name="lastName"
+                          placeholder="Last Name"
+                          className="p-2 rounded border border-gray-300 w-full"
+                        />
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className="p-2 rounded border border-gray-300 w-full"
+                      />
+                      <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone"
+                        className="p-2 rounded border border-gray-300 w-full"
+                      />
+                      <textarea
+                        name="comments"
+                        placeholder="Comments"
+                        className="w-full p-2 rounded border border-gray-300 h-24 resize-none"
+                      ></textarea>
+                    </div>
+
+                    <div className="mt-6">
+                      <button
+                        type="submit"
+                        className="w-full bg-black hover:bg-gray-800 text-white px-6 py-2 rounded transition"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
 
             {/* Hours of Operation */}

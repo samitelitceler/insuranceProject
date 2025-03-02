@@ -25,8 +25,8 @@ const BusinessInsurance = () => {
           <QuoteButton />
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-xs md:text-sm">
-          <h2 className="text-xl md:text-2xl text-red-600 font-semibold">
+        <div className="p-4 md:p-8 text-sm md:text-base">
+          <h2 className="text-2xl md:text-3xl text-red-600 font-semibold">
             Boat Insurance
           </h2>
           <p className="mb-4 mt-6">
@@ -38,7 +38,7 @@ const BusinessInsurance = () => {
             Colorado.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold mb-2">
             Insurance for All Watercraft, From Jon Boats to Yachts
           </h2>
           <p className="mb-4">
@@ -55,7 +55,7 @@ const BusinessInsurance = () => {
             <li>Collector boat coverage</li>
           </ul>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold mb-2">
             How to Choose the Right Insurance?
           </h2>
           <ul className="list-disc list-inside mb-4">

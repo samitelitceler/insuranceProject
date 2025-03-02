@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Inter } from "next/font/google";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Car,
   Umbrella,
@@ -21,6 +20,7 @@ import { useRouter } from "next/navigation";
 import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
 import { useState } from "react";
+import React from "react";
 
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
@@ -106,19 +106,27 @@ export default function Home() {
     { name: "Condo Insurance", icon: <Mail />, path: "condoInsurance" },
   ];
 
+  // const menuItems = [
+  //   { name: "AUTO INSURANCE", icon: <Car />, path: "autoinsurance" },
+  //   { name: "HOME INSURANCE", icon: <House />, path: "homeinsurance" },
+  //   { name: "BUSINESS INSURANCE", icon: <Calculator />, path: "businessInsurance" },
+  //   { name: "JOIN OUR Team", icon: <User />, path: "jointeam" },
+  // ];
+
   return (
     <div className={inter.className}>
       {/* Navbar Section */}
       <NavSection />
       <section
-        className="relative w-full h-screen flex items-center justify-start bg-cover bg-center px-4 md:px-8"
+        id="hero"
+        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center px-4 md:px-8"
         style={{
           background:
             "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 text-white max-w-3xl text-left ml-6 md:ml-16">
+        <div className="relative z-10 text-white max-w-3xl text-left md:ml-16">
           <h1 className="text-2xl md:text-4xl font-bold mb-4">
             Insurance is not just about protecting what you have; it&apos;s
             about securing your future and the peace of mind that comes with it.
@@ -141,6 +149,47 @@ export default function Home() {
             >
               START QUOTE
             </Button>
+          </div>
+        </div>
+      </section>
+      {/* Add this new section right after the hero section */}
+      {/* <section className="w-full py-12 px-4 md:px-8 overflow-x-auto">
+        <div className="flex justify-between min-w-max gap-8">
+          {insuranceOptions.map((option, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center w-40 cursor-pointer"
+              onClick={() => handleAutoHomeInsurance(option.path)}
+            >
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#D2091D] text-white mb-2">
+                {option.icon}
+              </div>
+              <p className="text-center font-medium text-sm uppercase">
+                {option.name.split(' ')[0]}
+                <br />
+                INSURANCE
+              </p>
+            </div>
+          ))}
+        </div>
+      </section> */}
+      <section className="w-full bg-gray-800 py-12">
+        <div className="container mx-auto overflow-x-auto">
+          <div className="grid grid-cols-4 md:grid-cols-4 auto-cols-[minmax(250px,1fr)] grid-flow-col gap-8 px-4 min-w-max">
+            {insuranceOptions.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center cursor-pointer w-72"
+                onClick={() => handleAutoHomeInsurance(item.path)}
+              >
+                <div className="w-24 h-24 flex items-center justify-center text-white">
+                  {React.cloneElement(item.icon, { size: 40 })}
+                </div>
+                <p className="text-white text-center font-medium text-2xl uppercase tracking-wider">
+                  {item.name}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -180,37 +229,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="insuranceServices" className="w-full px-4 md:px-8 py-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-          Top Choices for Insurance
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12 max-w-5xl mx-auto">
-          {insuranceOptions.map((item, index) => (
-            <Card
-              key={index}
-              className="bg-gradient-to-b from-[#D2091D] to-[#880310] cursor-pointer text-white p-6 mt-4 rounded-2xl flex flex-col items-center justify-center hover:bg-red-700 transition shadow-lg"
-              onClick={() => handleAutoHomeInsurance(item?.path ?? "/")}
-            >
-              <CardContent className="flex flex-col items-center space-y-4">
-                {/* Icon Wrapper */}
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-red-600 text-2xl">
-                  {item.icon}
-                </div>
+     
 
-                {/* Insurance Name */}
-                <p
-                  className="text-center font-medium cursor-pointer"
-                  onClick={() => handleAutoHomeInsurance(item?.path ?? "/")}
-                >
-                  {item.name}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="w-full py-12  flex flex-col items-center text-center rounded-xl">
+      {/* <section className="w-full py-12  flex flex-col items-center text-center rounded-xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Bonds</h2>
         <div className="max-w-2xl">
           <ul className="mb-6">
@@ -256,7 +277,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-      </section>
+      </section> */}
 
       <section className="w-full py-12 overflow-hidden">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">

@@ -25,12 +25,12 @@ const BusinessInsurance = () => {
         <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-xs md:text-sm">
-        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Renters Insurance</h2>
-          <h2 className="font-semibold mb-2 mt-6">
+        <div className="p-4 md:p-8 text-base md:text-lg">
+        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">Renters Insurance</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
             Renters Insurance: Added Protection for You & Your Home
           </h2>
-          <p className="mb-4">
+          <p className="text-lg mb-4">
             Anyone who rents should have a renters insurance policy for the best
             protection. Maybe you&apos;re a college student renting your first
             apartment. Or, maybe you&apos;re renting while building your dream home.
@@ -46,8 +46,8 @@ const BusinessInsurance = () => {
             Why Should I Have Renters Insurance?
           </h2>
           <p className="mb-4">
-            It&apos;s a common misconception that renters insurance is only a “nice
-            to have” instead of a “must-have.” After all, many landlords still
+            It&apos;s a common misconception that renters insurance is only a &quot;nice
+            to have&quot; instead of a &quot;must-have.&quot; After all, many landlords still
             don&apos;t require you to carry separate insurance. The truth is that any
             renter should have insurance to ensure their belongings are
             protected. For example, if a fire broke out in your apartment
@@ -64,7 +64,7 @@ const BusinessInsurance = () => {
             overage depends on the renters insurance policy you choose. However,
             common coverage includes:
           </p>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-decimal list-inside text-lg mb-4">
             <li>Personal property</li>
             <li>Liability</li>
             <li>Additional living expenses</li>

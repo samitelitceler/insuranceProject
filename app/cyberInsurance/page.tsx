@@ -25,9 +25,9 @@ const BusinessInsurance = () => {
       <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-xs md:text-sm">
-        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Cyber and EPLI Insurance</h2>
-          <h2 className="font-semibold mb-2 mt-6">
+        <div className="p-4 md:p-8 text-sm md:text-base lg:text-lg">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-red-600 font-semibold mb-6">Cyber and EPLI Insurance</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 mt-8">
             Cyber & Employee Practice Liability Insurance
           </h2>
           <p className="mb-4">
@@ -69,7 +69,7 @@ const BusinessInsurance = () => {
             attorney&apos;s fees and fines. Some of the claims covered under an EPLI
             policy include:
           </p>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-6 space-y-2">
             <li>Discrimination</li>
             <li>Wrongful termination or discipline</li>
             <li>Sexual harassment</li>

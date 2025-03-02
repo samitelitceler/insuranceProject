@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 function Footer() {
   return (
     <footer className="bg-black text-white py-12">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Company Section */}
         <div>
           <h3 className="text-xl font-bold mb-4 underline">Company</h3>
@@ -17,6 +17,9 @@ function Footer() {
             </li>
             <li>
               <a href="#">Insurance Services</a>
+            </li>
+            <li>
+              <a href="#">Bonds</a>
             </li>
             <li>
               <a href="#">Compare Quotes</a>
@@ -75,6 +78,22 @@ function Footer() {
           </ul>
         </div>
 
+        {/* Bonds Section */}
+        <div>
+          <h3 className="text-xl font-bold mb-4 underline">Bonds</h3>
+          <ul className="space-y-2 text-sm md:text-lg">
+            <li>
+              <a href="https://www.tisins.com/contract-bonds/" target="_blank" rel="noopener noreferrer">Contract Bonds</a>
+            </li>
+            <li>
+              <a href="https://www.tisins.com/commercial-bonds/" target="_blank" rel="noopener noreferrer">Commercial Bonds</a>
+            </li>
+            <li>
+              <a href="https://www.tisins.com/notary-bonds/" target="_blank" rel="noopener noreferrer">Notary Bonds</a>
+            </li>
+          </ul>
+        </div>
+
         {/* Contact Us Section */}
         <div>
           <h3 className="text-xl font-bold mb-4 underline">Contact Us</h3>
@@ -93,7 +112,7 @@ function Footer() {
 
           {/* Address */}
           <div className="flex items-start space-x-3">
-            <FaMapMarkerAlt className="text-red-500 mt-1" />
+            <FaMapMarkerAlt className="text-gray-400 mt-1" />
             <p className="text-sm">
               3440 Toringdon Way, Suite 205, Office 254, Charlotte NC 28277
             </p>
@@ -101,13 +120,13 @@ function Footer() {
 
           {/* Phone */}
           <div className="flex items-start space-x-3 mt-3">
-            <FaPhoneAlt className="text-green-400 mt-1" />
+            <FaPhoneAlt className="text-gray-400 mt-1" />
             <p className="text-sm">9802979827</p>
           </div>
 
           {/* Email */}
           <div className="flex items-start space-x-3 mt-3">
-            <FaEnvelope className="text-blue-400 mt-1" />
+            <FaEnvelope className="text-gray-400 mt-1" />
             <p className="text-sm">
               <a href="mailto:info@primeinsurancellc.com" className="underline">
                 info@primeinsurancellc.com

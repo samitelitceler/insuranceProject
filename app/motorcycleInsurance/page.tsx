@@ -25,12 +25,12 @@ const BusinessInsurance = () => {
         <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-xs md:text-sm">
-        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">Motorcycle Insurance</h2>
-          <h2 className="font-semibold mb-2 mt-6">
+        <div className="p-4 md:p-8 text-base md:text-lg">
+        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">Motorcycle Insurance</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
             Protect Your Motorcycle With Anchor Insurance Agency
           </h2>
-          <p className="mb-4">
+          <p className="text-lg mb-4">
             Whether you&apos;re a weekend rider or use your motorcycle as your main
             mode of transportation, you deserve high-quality protection.
             Motorcycle accidents are costly and can be detrimental to your
@@ -60,7 +60,7 @@ const BusinessInsurance = () => {
             best coverage for your needs. Some of the motorcycle insurance
             policies we offer include:
           </p>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside text-lg mb-4">
             <li>Liability coverage</li>
             <li>Collision coverage</li>
             <li>Uninsured and underinsured motorist coverage</li>

@@ -28,15 +28,14 @@ export default function lifeInsurance() {
       </div>
 
       {/* Text Content */}
-      <div className="p-4 md:p-8 text-xs md:text-sm">
-        <h2 className="text-xl md:text-2xl text-red-600 font-semibold">
+      <div className="p-4 md:p-8 text-base md:text-lg">
+        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">
           Life Insurance
         </h2>
-        <h2 className="font-semibold mb-2 mt-6">
-          {" "}
+        <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
           Protect Your Loved Ones With Anchor Insurance Agency
         </h2>
-        <p className="text-sm text-gray-700 mt-3">
+        <p className="text-lg text-gray-700 mt-3">
           It&apos;s the place you and your No one knows what the future holds. Yet,
           you can take steps now to protect your loved ones in the event of your
           death. Life insurance provides financial support for everything from
@@ -47,10 +46,10 @@ export default function lifeInsurance() {
         </p>
 
         {/* Factors Affecting Premiums */}
-        <h2 className="font-semibold mb-2 mt-6">
+        <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
           Life Insurance: Financial Support for Your Family&apos;s Future
         </h2>
-        <p className="text-sm text-gray-700 mt-3">
+        <p className="text-lg text-gray-700 mt-3">
           Life insurance is designed to deliver financial support to your family
           if you should pass away. The beneficiaries you choose will receive a
           lump-sum payment called a death benefit, which they can use to replace
@@ -64,13 +63,13 @@ export default function lifeInsurance() {
         <h2 className="font-semibold mb-2 mt-6">
           Our Life Insurance Policy Options:
         </h2>
-        <p className="text-sm text-gray-700 mt-3">
+        <p className="text-lg text-gray-700 mt-3">
           There&apos;s a wide range of life insurance products available on the
           market today. And by partnering with 30 insurance companies, we&apos;re
           proud to be able to deliver them all. Some of the life insurance
           policies we offer include:
         </p>
-        <ul className="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+        <ul className="list-disc list-inside text-lg text-gray-600 mt-1 space-y-1">
           <li>Term life</li>
           <li>Whole life</li>
           <li>Universal whole life</li>
