@@ -1,6 +1,4 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-
 function Form() {
   return (
     <div className="p-4 md:p-8 max-w-5xl mx-auto">
