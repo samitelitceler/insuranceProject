@@ -27,6 +27,7 @@ const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 export default function Home() {
   const router = useRouter();
   const [selectedPath, setSelectedPath] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedPath(event.target.value);
@@ -42,37 +43,6 @@ export default function Home() {
       path.includes("/autoinsurance") || path.includes("/homeinsurance");
     const basePath = isAutoOrHome ? path : `/${path}`;
     router.push(basePath);
-  };
-
-  const getInsuranceDescription = (path: string) => {
-    switch (path) {
-      case "autoinsurance":
-        return "Auto insurance protects your vehicle and other property in case of accidents or theft. It also covers you and your passengers in case of injuries.";
-      case "homeinsurance":
-        return "Home insurance protects your home and other property from damage or loss. It also covers you and your family in case of injuries.";
-      case "lifeInsurance":
-        return "Life insurance provides financial support for your family in case of your death. It also covers your funeral expenses.";
-      case "businessInsurance":
-        return "Business insurance protects your business from damage or loss. It also covers you and your employees in case of injuries.";
-      case "motorcycleInsurance":
-        return "Motorcycle insurance protects your motorcycle and other property in case of accidents or theft. It also covers you in case of injuries.";
-      case "boatInsurance":
-        return "Boat insurance protects your boat and other property in case of accidents or theft. It also covers you in case of injuries.";
-      case "personalInsurance":
-        return "Personal insurance protects your personal property from damage or loss. It also covers you in case of injuries.";
-      case "cyberInsurance":
-        return "Cyber insurance protects your computer and other property from damage or loss. It also covers you in case of injuries.";
-      case "umbrellaInsurance":
-        return "Umbrella insurance protects you and your family in case of injuries.";
-      case "rentersInsurance":
-        return "Renters insurance protects your personal property from damage or loss. It also covers you in case of injuries.";
-      case "transportationalInsurance":
-        return "Transportational insurance protects your vehicle and other property in case of accidents or theft. It also covers you in case of injuries.";
-      case "condoInsurance":
-        return "Condo insurance protects your personal property from damage or loss. It also covers you in case of injuries.";
-      default:
-        return "";
-    }
   };
 
   const companies = [
@@ -204,37 +174,55 @@ export default function Home() {
           ))}
         </div>
       </section> */}
-      <section className="w-full bg-gray-800 py-12">
-        <div className="container mx-auto overflow-x-auto scrollbar-hide">
-          <div className="grid grid-cols-4 md:grid-cols-4 auto-cols-[minmax(250px,1fr)] grid-flow-col gap-8 px-4 min-w-max">
-            {insuranceOptions.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center cursor-pointer w-72 group relative hover:scale-105 transition-transform duration-300"
-                onClick={() => handleAutoHomeInsurance(item.path)}
-              >
-                <div className="w-24 h-24 flex items-center justify-center text-white">
-                  {React.cloneElement(item.icon, { size: 40 })}
-                </div>
-                <p className="text-white text-center font-medium text-2xl uppercase tracking-wider">
-                  {item.name}
-                </p>
-                
-                {/* Modified hover overlay */}
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 text-white backdrop-blur-sm">
-                  <p className="text-center text-xs mb-4">
-                    {getInsuranceDescription(item.path)}
-                  </p>
-                  <button className="text-xs font-bold text-white px-6 py-2 rounded flex cursor-pointer items-center justify-center gap-2">
-                    LEARN MORE
-                    <span className="text-xl text-red-700 flex items-center">→</span>
-                  </button>
-                </div>
-              </div>
-            ))}
+     <section
+  className="w-full bg-gray-800 py-8"
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
+  <div className="container mx-auto overflow-hidden">
+    <motion.div
+      className="flex space-x-12" // Increased spacing between items
+      animate={{ x: isHovered ? "0%" : ["0%", "-50%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: 20,
+        ease: "linear",
+      }}
+    >
+      {[...insuranceOptions, ...insuranceOptions].map((item, index) => (
+        <div key={index} className="flex items-center">
+          {/* Insurance Item */}
+          <div
+            className="flex-shrink-0 flex flex-col items-center justify-center cursor-pointer w-56 h-40 group relative hover:scale-105 transition-transform duration-300"
+            onClick={() => handleAutoHomeInsurance(item.path)}
+          >
+            <div className="w-16 h-16 flex items-center justify-center text-white">
+              {React.cloneElement(item.icon, { size: 32 })} {/* Slightly larger icon */}
+            </div>
+            <p className="text-white text-center font-medium text-lg uppercase tracking-wider leading-tight px-2">
+              {item.name}
+            </p>
+
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-3 text-white backdrop-blur-sm">
+              <button className="text-xs font-bold text-white px-4 py-1 rounded flex cursor-pointer items-center justify-center gap-1">
+                LEARN MORE
+                <span className="text-lg text-red-700 flex items-center">→</span>
+              </button>
+            </div>
           </div>
+
+          {/* Vertical Divider (except after the last item) */}
+          {index !== [...insuranceOptions, ...insuranceOptions].length - 1 && (
+            <div className="h-28 border-l border-gray-500 mx-8"></div> 
+            // Increased height (h-28) and margin (mx-8) for more spacing
+          )}
         </div>
-      </section>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
+
       <section id="about" className="w-full px-4 md:px-8 py-12">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           About Us
