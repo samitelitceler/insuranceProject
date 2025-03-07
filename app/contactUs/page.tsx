@@ -18,6 +18,8 @@ import {
   Truck,
   Mail,
 } from "lucide-react";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+
 
 function ContactUs() {
   const router = useRouter();
@@ -136,7 +138,7 @@ function ContactUs() {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1">📍</div>
+                <FaMapMarkerAlt className="text-gray-800 mt-1" />
                   <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
                     3440 Toringdon Way, Suite 205<br />
                     Office 254, Charlotte NC 28277
@@ -144,14 +146,14 @@ function ContactUs() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div>📞</div>
+                <FaPhoneAlt className="text-gray-800 mt-1" />
                   <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
                     980-297-9827
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div>✉️</div>
+                <FaEnvelope className="text-gray-800 mt-1" />
                   <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
                     info@primeinsurancellc.com
                   </p>

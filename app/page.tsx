@@ -174,53 +174,50 @@ export default function Home() {
           ))}
         </div>
       </section> */}
-     <section
-  className="w-full bg-gray-800 py-8"
-  onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}
->
-  <div className="container mx-auto overflow-hidden">
-    <motion.div
-      className="flex space-x-12" // Increased spacing between items
-      animate={{ x: isHovered ? "0%" : ["0%", "-50%"] }}
-      transition={{
-        repeat: Infinity,
-        duration: 20,
-        ease: "linear",
-      }}
-    >
-      {[...insuranceOptions, ...insuranceOptions].map((item, index) => (
-        <div key={index} className="flex items-center">
-          {/* Insurance Item */}
-          <div
-            className="flex-shrink-0 flex flex-col items-center justify-center cursor-pointer w-56 h-40 group relative hover:scale-105 transition-transform duration-300"
-            onClick={() => handleAutoHomeInsurance(item.path)}
+      <section
+        className="w-full bg-gray-800 py-4"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className=" overflow-hidden">
+          <motion.div
+            className="flex space-x-30"
+            animate={{ x: isHovered ? "0%" : ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 20,
+              ease: "linear",
+            }}
           >
-            <div className="w-16 h-16 flex items-center justify-center text-white">
-              {React.cloneElement(item.icon, { size: 32 })} {/* Slightly larger icon */}
-            </div>
-            <p className="text-white text-center font-medium text-lg uppercase tracking-wider leading-tight px-2">
-              {item.name}
-            </p>
+            {[...insuranceOptions, ...insuranceOptions].map((item, index) => (
+              <div key={index} className="flex items-center">
+                <div
+                  className="flex-shrink-0 flex flex-col items-center justify-center cursor-pointer w-56 h-32 group relative hover:scale-105 transition-transform duration-300"
+                  onClick={() => handleAutoHomeInsurance(item.path)}
+                >
+                  <div className="w-12 h-12 flex items-center justify-center text-white">
+                    {React.cloneElement(item.icon, { size: 24 })}
+                  </div>
+                  <p className="text-white text-center font-medium text-base uppercase tracking-wider leading-tight px-2">
+                    {item.name}
+                  </p>
 
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-3 text-white backdrop-blur-sm">
-              <button className="text-xs font-bold text-white px-4 py-1 rounded flex cursor-pointer items-center justify-center gap-1">
-                LEARN MORE
-                <span className="text-lg text-red-700 flex items-center">→</span>
-              </button>
-            </div>
-          </div>
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-3 text-white backdrop-blur-sm">
+                    <button className="text-xs font-bold text-white px-4 py-1 rounded flex cursor-pointer items-center justify-center gap-1">
+                      LEARN MORE
+                      <span className="text-lg text-red-700 flex items-center">→</span>
+                    </button>
+                  </div>
+                </div>
 
-          {/* Vertical Divider (except after the last item) */}
-          {index !== [...insuranceOptions, ...insuranceOptions].length - 1 && (
-            <div className="h-28 border-l border-gray-500 mx-8"></div> 
-            // Increased height (h-28) and margin (mx-8) for more spacing
-          )}
+                {index !== [...insuranceOptions, ...insuranceOptions].length - 1 && (
+                  <div className="h-28 border-l border-gray-500 mx-12"></div>
+                )}
+              </div>
+            ))}
+          </motion.div>
         </div>
-      ))}
-    </motion.div>
-  </div>
-</section>
+      </section>
 
 
       <section id="about" className="w-full px-4 md:px-8 py-12">
@@ -259,7 +256,7 @@ export default function Home() {
         </div>
       </section>
 
-     
+
 
       {/* <section className="w-full py-12  flex flex-col items-center text-center rounded-xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Bonds</h2>

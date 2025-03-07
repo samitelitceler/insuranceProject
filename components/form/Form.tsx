@@ -1,4 +1,6 @@
 import React from "react";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+
 function Form() {
   return (
     <div className="p-4 md:p-8 max-w-5xl mx-auto">
@@ -59,18 +61,18 @@ function Form() {
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Insurance Agency</h3>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="mt-1">📍</div>
+            <FaMapMarkerAlt className="text-gray-800 mt-1" />
               <p className="text-gray-700 text-lg">
                 3440 Toringdon Way, Suite 205<br />
                 Office 254, Charlotte NC 28277
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <div>📞</div>
+            <FaPhoneAlt className="text-gray-800 mt-1" />
               <p className="text-gray-700 text-lg">980-297-9827</p>
             </div>
             <div className="flex items-center gap-3">
-              <div>✉️</div>
+            <FaEnvelope className="text-gray-800 mt-1" />
               <p className="text-gray-700 text-lg">info@primeinsurancellc.com</p>
             </div>
             <div className="border-4 border-gray-200 rounded-lg overflow-hidden shadow-lg">

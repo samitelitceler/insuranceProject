@@ -82,16 +82,16 @@ export default function NavSection() {
 
           {/* Follow Us */}
           <div className="flex items-center gap-2">
-            <span onClick={() => window.open('https://www.facebook.com/PrimeInsuranceServicesLLC/', '_blank')} className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer">Follow Us</span>
+            <span className="text-gray-700">Follow Us</span>
             <div className="flex gap-2">
               <FaFacebookF
                 onClick={() => window.open('https://www.facebook.com/PrimeInsuranceServicesLLC/', '_blank')}
+                className="text-gray-700 cursor-pointer hover:opacity-80 hover:opacity-80"
+              />
+              <FaInstagram 
+                onClick={() => window.open('https://www.instagram.com/PrimeInsuranceServicesLLC/', '_blank')}
                 className="text-gray-700 cursor-pointer hover:opacity-80"
               />
-              {/* <FaInstagram 
-                onClick={() => window.open('https://www.instagram.com/PrimeInsuranceServicesLLC/', '_blank')}
-                className="text-[#D2091D] cursor-pointer hover:opacity-80"
-              /> */}
             </div>
           </div>
 
@@ -221,13 +221,13 @@ export default function NavSection() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 text-white border-none">
-                <DropdownMenuItem onClick={() => router.push('https://www.tisins.com/contract-bonds/')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem onClick={() => router.push('/contractBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
                   Contract Bonds
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('https://www.tisins.com/commercial-bonds/')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem onClick={() => router.push('/commercialBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
                   Commercial Bonds
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('https://www.tisins.com/notary-bonds/')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem onClick={() => router.push('notaryBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
                   Notary Bonds
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -432,13 +432,13 @@ export default function NavSection() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 text-white border-none">
-                <DropdownMenuItem onClick={() => router.push('https://www.tisins.com/contract-bonds/')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem onClick={() => router.push('/contractBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
                   Contract Bonds
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('https://www.tisins.com/commercial-bonds/')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem onClick={() => router.push('/commercialBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
                   Commercial Bonds
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('https://www.tisins.com/notary-bonds/')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem onClick={() => router.push('/notaryBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
                   Notary Bonds
                 </DropdownMenuItem>
               </DropdownMenuContent>
