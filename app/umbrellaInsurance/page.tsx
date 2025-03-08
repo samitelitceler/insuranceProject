@@ -25,14 +25,14 @@ const BusinessInsurance = () => {
           <QuoteButton />
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-base md:text-lg">
-          <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">
+        <div className="p-4 md:p-8 text-sm md:text-base">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
             Umbrella Insurance
           </h2>
-          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Gain Extra Coverage for Claims Against You With Umbrella Insurance
           </h2>
-          <p className="text-lg mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             In rare cases, even quality homeowners&apos; and auto insurance
             policies aren&apos;t enough to protect your finances should a claim
             be filed against you. If you&apos;re found liable for more than your
@@ -44,8 +44,8 @@ const BusinessInsurance = () => {
             comes next.
           </p>
 
-          <h2 className="font-semibold mb-2">What Is Umbrella Insurance?</h2>
-          <p className="mb-4">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">What Is Umbrella Insurance?</h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Umbrella insurance is a type of liability insurance that works
             alongside your homeowners&apos; or auto insurance. The goal of
             umbrella insurance is to provide additional financial support if
@@ -59,10 +59,10 @@ const BusinessInsurance = () => {
             severe accident, your umbrella policy is there if you need it.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-decimal list-inside text-lg mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>
               Assess Risks: Evaluate the specific risks associated with your
               industry and business activities.

@@ -26,16 +26,18 @@ const BusinessInsurance = () => {
         </div>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl md:text-3xl text-red-600 font-semibold">Commericial Insurance</h2>
-          <p className="mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+            Business Insurance
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Business insurance is a type of coverage that protects businesses
             from financial losses due to various risks, such as property damage,
             liability claims, employee-related risks, and more.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">Types of Business Insurance</h2>
-          <ul className="list-decimal list-inside mb-4">
-            <li>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Types of Business Insurance</h2>
+          <ul className="list-decimal list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li className="text-left">
               General Liability Insurance – Covers legal expenses if your
               business is sued for injury, property damage, or advertising
               mistakes.
@@ -77,11 +79,11 @@ const BusinessInsurance = () => {
             </li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Why is Business Insurance Important?
           </h2>
-          <ul className="list-disc list-inside mb-4">
-            <li>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li className="text-left">
               Financial Protection: Helps cover the costs of unexpected events
               like lawsuits, natural disasters, or accidents.
             </li>
@@ -100,11 +102,11 @@ const BusinessInsurance = () => {
             </li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-disc list-inside mb-4">
-            <li>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li className="text-left">
               Assess Risks: Evaluate the specific risks associated with your
               industry and business activities.
             </li>
@@ -121,11 +123,11 @@ const BusinessInsurance = () => {
             </li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Tips for Managing Business Insurance
           </h2>
-          <ul className="list-disc list-inside mb-4">
-            <li>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li className="text-left">
               Review Annually: Business needs change, so reviewing policies
               annually ensures adequate coverage.
             </li>

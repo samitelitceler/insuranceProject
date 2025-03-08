@@ -25,8 +25,10 @@ const NotaryBonds = () => {
         </div>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl md:text-3xl text-gray-800 font-semibold">Notary Bonds</h2>
-          <p className="mb-4 mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+            Notary Bonds
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             A Notary Bond is a type of surety bond that protects the public from financial losses due to errors, 
             negligence, or misconduct by a Notary Public. If a notary fails to follow legal procedures—whether 
             intentionally or unintentionally—an affected party can file a claim against the bond. The surety 
@@ -34,37 +36,39 @@ const NotaryBonds = () => {
             responsible for reimbursing the surety.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">How Notary Bonds Work</h2>
-          <p className="mb-4">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+            How Notary Bonds Work
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             A Notary Bond involves three key parties:
           </p>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li> <span className="font-semibold"> Principal </span> – The Notary Public who is required to obtain the bond.</li>
             <li> <span className="font-semibold"> Obligee </span> – The government agency that mandates the bond as part of the notary&apos;s licensing requirements.</li>
             <li> <span className="font-semibold"> Surety </span> – The bonding company that provides the financial guarantee and covers valid claims.</li>
           </ul>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Unlike traditional insurance, a Notary Bond does not protect the notary—it safeguards the public. 
             If a notary makes an error or engages in fraudulent activity, an injured party can file a claim. 
             If the claim is valid, the surety company may cover the financial damages, but the notary must 
             ultimately repay the surety.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Why Are Notary Bonds Required?
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Notary Bonds ensure that Notaries Public uphold their legal responsibilities and protect the public 
             from potential losses due to mistakes or misconduct. These bonds serve as a safeguard in transactions 
             where notarization is critical, such as:
           </p>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>Real estate transactions</li>
             <li>Legal affidavits and sworn statements</li>
             <li>Power of attorney documents</li>
             <li>Loan and financial agreements</li>
           </ul>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Without a Notary Bond, individuals affected by a notary&apos;s negligence or fraud would have limited 
             options for financial recovery.
           </p>
@@ -76,7 +80,7 @@ const NotaryBonds = () => {
         </div>
 
         {/* Bond Types Section */}
-        <div className="p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* <div className="p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <h2 className="text-2xl md:text-3xl text-gray-800 font-semibold col-span-full mb-6">Types of Notary Bonds We Offer</h2>
           
           <button className="relative h-48 w-full bg-gray-800 text-white rounded-lg overflow-hidden group transition-all duration-300 hover:bg-gray-700">
@@ -143,7 +147,7 @@ const NotaryBonds = () => {
               </div>
             </div>
           </button>
-        </div>
+        </div> */}
 
       </div>
       <Footer />

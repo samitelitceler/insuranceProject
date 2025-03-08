@@ -46,7 +46,7 @@ export default function NavSection() {
   };
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md font-opensans">
       <div className="container mx-auto flex items-center justify-between py-4 px-6 md:px-12">
         {/* Logo */}
         <div className="flex items-center space-x-4">

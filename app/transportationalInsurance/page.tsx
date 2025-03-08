@@ -26,15 +26,19 @@ const BusinessInsurance = () => {
       <QuoteButton/>
         </div>
       {/* Information Section */}
-      <div className="p-4 md:p-8 text-base md:text-lg">
-      <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">Transportational Insurance</h2> 
-        <p className="text-lg mb-4 mt-4">
+      <div className="p-4 md:p-8 text-sm md:text-base">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+          Transportational Insurance
+        </h2>
+        <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5 mt-4">
           Business insurance is a type of coverage that protects businesses from financial losses due to various risks,
           such as property damage, liability claims, employee-related risks, and more.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-semibold mb-2">Types of Business Insurance</h2>
-        <ul className="list-decimal list-inside text-lg mb-4">
+        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+          Types of Business Insurance
+        </h2>
+        <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
           <li>General Liability Insurance – Covers legal expenses if your business is sued for injury, property damage, or advertising mistakes.</li>
           <li>Property Insurance – Protects your business&apos;s physical assets like buildings, equipment, and inventory against damage or theft.</li>
           <li>Business Interruption Insurance – Compensates for lost income if your business is unable to operate due to events like natural disasters.</li>
@@ -46,32 +50,38 @@ const BusinessInsurance = () => {
           <li>Business Owner&apos;s Policy (BOP) – A bundle of several types of insurance (like general liability and property insurance) tailored for small businesses.</li>
         </ul>
 
-        <h2 className="font-semibold mb-2">Why is Business Insurance Important?</h2>
-        <ul className="list-disc list-inside mb-4">
+        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+          Why is Business Insurance Important?
+        </h2>
+        <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
           <li>
             Financial Protection: Helps cover the costs of unexpected events like lawsuits, natural disasters, or accidents.
           </li>
           <li>
-            Legal Requirement: Certain types of insurance, like workers&apos; compensation, are legally required in many places.
+            Legal Requirement: Certain types of insurance, like worker&apos;s compensation, are legally required in many places.
           </li>
           <li>
             Builds Credibility: Having insurance builds trust with clients and customers.
           </li>
           <li>
-            Employee Protection: Ensures the safety and well-being of employees with benefits like health coverage and workers&apos; compensation.
+            Employee Protection: Ensures the safety and well-being of employees with benefits like health coverage and worker&apos;s compensation.
           </li>
         </ul>
         
-        <h2 className="font-semibold mb-2">How to Choose the Right Insurance?</h2>
-        <ul className="list-disc list-inside mb-4">
+        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+          How to Choose the Right Insurance?
+        </h2>
+        <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
           <li>Assess Risks: Evaluate the specific risks associated with your industry and business activities.</li>
           <li>Legal Requirements: Check the mandatory insurance requirements in your region or industry.</li>
           <li>Budget Considerations: Balance coverage needs with affordability.</li>
           <li>Consult an Agent: Seek professional advice to tailor coverage to your business needs.</li>
         </ul>
 
-        <h2 className="font-semibold mb-2">Tips for Managing Business Insurance</h2>
-        <ul className="list-disc list-inside mb-4">
+        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+          Tips for Managing Business Insurance
+        </h2>
+        <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
           <li>Review Annually: Business needs change, so reviewing policies annually ensures adequate coverage.</li>
           <li>Combine Policies: Bundling multiple coverages under one provider may offer discounts.</li>
           <li>Risk Management: Implement safety practices to minimize risks and reduce insurance costs.</li>

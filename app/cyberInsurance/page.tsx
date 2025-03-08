@@ -25,12 +25,14 @@ const BusinessInsurance = () => {
       <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-sm md:text-base lg:text-lg">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-red-600 font-semibold mb-6">Cyber and EPLI Insurance</h2>
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 mt-8">
+        <div className="p-4 md:p-8 text-sm md:text-base">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+            Cyber and EPLI Insurance
+          </h2>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Cyber & Employee Practice Liability Insurance
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Today&apos;s businesses face a wide range of additional threats than
             businesses of the past. For example, businesses must stay up-to-date
             with technology to provide the best experience for their customers.
@@ -42,10 +44,10 @@ const BusinessInsurance = () => {
             Employee Practice Liability Insurance (EPLI).
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Cyber Liability: Protection From Data Breaches
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Cyberattacks are incredibly expensive. And even with heightened
             protection, cybercriminals learn new tactics each day. Cyber
             liability protection can help your business recover in the event of
@@ -58,10 +60,10 @@ const BusinessInsurance = () => {
             don&apos;t discriminate.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             EPLI: Protection From Legal Right Violation Claims
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Your employees have rights. And one of those rights is to file a
             claim against you should they feel discriminated against, harassed
             or wrongfully terminated. Employee Practice Liability Insurance
@@ -69,32 +71,24 @@ const BusinessInsurance = () => {
             attorney&apos;s fees and fines. Some of the claims covered under an EPLI
             policy include:
           </p>
-          <ul className="list-disc list-inside mb-6 space-y-2">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>Discrimination</li>
             <li>Wrongful termination or discipline</li>
             <li>Sexual harassment</li>
             <li>Breach of Contract</li>
           </ul>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-disc list-inside">
-            <li>
-              Assess Risks: Evaluate the specific risks associated with your
-              industry and business activities.
-            </li>
-            <li>
-              Legal Requirements: Check the mandatory insurance requirements in
-              your region or industry.
-            </li>
-            <li>
-              Budget Considerations: Balance coverage needs with affordability.
-            </li>
-            <li>
-              Consult an Agent: Seek professional advice to tailor coverage to
-              your business needs.
-            </li>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li>Assess Risks: Evaluate the specific risks associated with your
+              industry and business activities.</li>
+            <li>Legal Requirements: Check the mandatory insurance requirements in
+              your region or industry.</li>
+            <li>Budget Considerations: Balance coverage needs with affordability.</li>
+            <li>Consult an Agent: Seek professional advice to tailor coverage to
+              your business needs.</li>
           </ul>
         </div>
 

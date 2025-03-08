@@ -25,8 +25,10 @@ const CommercialBonds = () => {
         </div>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl md:text-3xl text-gray-800 font-semibold">Commercial Bonds</h2>
-          <p className="mb-4 mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+            Commercial Bonds
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             A commercial bond is a type of surety bond that is used primarily to protect third parties, 
             including businesses and government agencies. Unlike contract bonds, which are typically 
             used in construction projects, commercial bonds focus on regulatory and licensing requirements. 
@@ -34,11 +36,11 @@ const CommercialBonds = () => {
             industry standards, or specific contractual terms.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">How Do Commercial Bonds Work?</h2>
-          <p className="mb-4">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How Do Commercial Bonds Work?</h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             A commercial bond involves three key parties:
           </p>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>
             <span className="font-semibold"> The Principal </span> – The business owner or entity required to obtain the bond.
             </li>
@@ -56,8 +58,8 @@ const CommercialBonds = () => {
             responsible for repaying the amount.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">Benefits of Commercial Bonds</h2>
-          <ol className="list-decimal list-inside mb-4">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Benefits of Commercial Bonds</h2>
+          <ol className="list-decimal list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li className="mb-2">
               <span className="font-semibold">Builds Trust and Credibility</span> - Having a commercial bond reassures customers and government agencies that a business operates ethically and is financially secure.
             </li>
@@ -72,27 +74,27 @@ const CommercialBonds = () => {
             </li>
           </ol>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">How to Obtain a Commercial Bond</h2>
-          <p className="mb-4">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How to Obtain a Commercial Bond</h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             The process of getting a commercial bond typically involves the following steps:
           </p>
-          <ul className="list-disc list-inside mb-4">
-            <li className="mb-2">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li>
               <span className="font-semibold">Determine the Bond Requirement</span> – Identify the type of bond needed based on industry and government regulations.
             </li>
-            <li className="mb-2">
+            <li>
               <span className="font-semibold">Choose a Reputable Surety Company</span> – Work with a reliable surety provider that specializes in commercial bonds.
             </li>
-            <li className="mb-2">
+            <li>
               <span className="font-semibold">Submit an Application</span> – Provide details about the business, financial history, and required bond amount.
             </li>
-            <li className="mb-2">
+            <li>
               <span className="font-semibold">Undergo a Credit Check</span> – Surety companies assess the applicant&apos;s financial stability before issuing a bond.
             </li>
-            <li className="mb-2">
+            <li>
               <span className="font-semibold">Pay the Bond Premium</span> – The cost of the bond depends on factors such as credit score, business history, and bond amount.
             </li>
-            <li className="mb-2">
+            <li>
               <span className="font-semibold">Receive the Bond and Stay Compliant</span> – Once issued, the business must comply with all regulations to avoid claims.
             </li>
           </ul>
@@ -102,7 +104,7 @@ const CommercialBonds = () => {
         <div>
           <Form  />
         </div>
-        <div className="p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* <div className="p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <h2 className="text-2xl md:text-3xl text-gray-800 font-semibold col-span-full mb-6">Types of Commercial Bonds We Offer</h2>
           
           <button className="relative h-48 w-full bg-gray-800 text-white rounded-lg overflow-hidden group transition-all duration-300 hover:bg-gray-700">
@@ -208,7 +210,7 @@ const CommercialBonds = () => {
               </div>
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>

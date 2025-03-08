@@ -13,45 +13,45 @@ export default function AutoInsurance() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
                     {/* Text Content */}
                     <div className="order-2 lg:order-1">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
                             Auto Insurance
                         </h2>
-                        <p className="text-base md:text-lg text-gray-700 mt-3">
-                            <span className="font-semibold">1. Liability Coverage:</span> Covers damages or injuries you cause to others in an accident. It includes:
+                        <p className="text-base md:text-lg text-gray-700 mt-3 font-opensans">
+                            <span className="font-sans font-semibold text-lg md:text-xl">1. Liability Coverage:</span> Covers damages or injuries you cause to others in an accident. It includes:
                         </p>
-                        <ul className="list-disc list-inside text-base md:text-lg text-gray-600 mt-1 space-y-1">
+                        <ul className="list-disc list-inside text-base md:text-lg text-gray-600 mt-1 space-y-1 font-opensans">
                             <li>bodily injury liability - covers medical expenses and lost wages of the other party</li>
                             <li>property damage liability - covers damages to another person&apos;s property (e.g., their car)</li>
                         </ul>
-                        <p className="text-base md:text-lg text-gray-700 mt-3"><span className="font-semibold">2. Collision Coverage:</span> Pays for repairs to your own car if it&apos;s damaged in an accident, regardless of who is at fault.</p>
-                        <p className="text-base md:text-lg text-gray-700 mt-1"><span className="font-semibold">3. Comprehensive Coverage:</span> Covers theft, vandalism, natural disasters, or hitting an animal.</p>
-                        <p className="text-base md:text-lg text-gray-700 mt-1"><span className="font-semibold">4. Personal Injury Protection (PIP):</span> Covers medical expenses and lost wages for you and your passengers.</p>
-                        <p className="text-base md:text-lg text-gray-700 mt-1"><span className="font-semibold">5. Uninsured/Underinsured Motorist Coverage:</span> Protects you if you&apos;re in an accident with someone with little or no insurance.</p>
+                        <p className="text-base md:text-lg text-gray-700 mt-3 font-opensans"><span className="font-sans font-semibold text-lg md:text-xl">2. Collision Coverage:</span> Pays for repairs to your own car if it&apos;s damaged in an accident, regardless of who is at fault.</p>
+                        <p className="text-base md:text-lg text-gray-700 mt-1 font-opensans"><span className="font-sans font-semibold text-lg md:text-xl">3. Comprehensive Coverage:</span> Covers theft, vandalism, natural disasters, or hitting an animal.</p>
+                        <p className="text-base md:text-lg text-gray-700 mt-1 font-opensans"><span className="font-sans font-semibold text-lg md:text-xl">4. Personal Injury Protection (PIP):</span> Covers medical expenses and lost wages for you and your passengers.</p>
+                        <p className="text-base md:text-lg text-gray-700 mt-1 font-opensans"><span className="font-sans font-semibold text-lg md:text-xl">5. Uninsured/Underinsured Motorist Coverage:</span> Protects you if you&apos;re in an accident with someone with little or no insurance.</p>
 
                         {/* Factors Affecting Premiums */}
-                        <h3 className="mt-6 text-xl md:text-2xl text-gray-800">Factors Affecting Premiums:</h3>
-                        <ul className="list-disc list-inside text-base md:text-lg text-gray-600 mt-1 space-y-1">
-                            <li><span className="font-semibold">Driver&apos;s age and experience</span> - younger and inexperienced drivers often pay higher premiums</li>
-                            <li><span className="font-semibold">Vehicle type</span> - expensive or frequently stolen vehicles cost more to insure</li>
-                            <li><span className="font-semibold">Driving record</span> - clean driving history usually means lower premiums</li>
-                            <li><span className="font-semibold">Location</span> - high traffic or crime areas increase premiums</li>
-                            <li><span className="font-semibold">Usage</span> - more mileage means more risk, leading to higher premiums</li>
+                        <h3 className="mt-6 text-xl md:text-2xl  font-sans">Factors Affecting Premiums:</h3>
+                        <ul className="list-disc list-inside text-base md:text-lg  mt-1 space-y-1 font-opensans">
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Driver&apos;s age and experience</span> - younger and inexperienced drivers often pay higher premiums</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Vehicle type</span> - expensive or frequently stolen vehicles cost more to insure</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Driving record</span> - clean driving history usually means lower premiums</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Location</span> - high traffic or crime areas increase premiums</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Usage</span> - more mileage means more risk, leading to higher premiums</li>
                         </ul>
 
                         {/* Optional Add-Ons */}
-                        <h3 className="mt-6 text-xl md:text-2xl text-gray-800">Optional Add-Ons:</h3>
-                        <ul className="list-disc list-inside text-base md:text-lg text-gray-600 mt-1 space-y-1">
-                            <li><span className="font-semibold">Roadside assistance</span> - covers towing, flat tires, and other emergencies</li>
-                            <li><span className="font-semibold">Rental car reimbursement</span> - pays for a rental car while your vehicle is being repaired</li>
-                            <li><span className="font-semibold">Gap insurance</span> - covers the difference between your car&apos;s value and the amount owed on a loan</li>
+                        <h3 className="mt-6 text-xl md:text-2xl  font-sans">Optional Add-Ons:</h3>
+                        <ul className="list-disc list-inside text-base md:text-lg  mt-1 space-y-1 font-opensans">
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Roadside assistance</span> - covers towing, flat tires, and other emergencies</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Rental car reimbursement</span> - pays for a rental car while your vehicle is being repaired</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Gap insurance</span> - covers the difference between your car&apos;s value and the amount owed on a loan</li>
                         </ul>
 
                         {/* Why It's Important */}
-                        <h3 className="mt-6 text-xl md:text-2xl text-gray-800">Why It&apos;s Important:</h3>
-                        <ul className="list-disc list-inside text-base md:text-lg text-gray-600 mt-1 space-y-1">
-                            <li><span className="font-semibold">Legal requirement</span> - most places require at least liability coverage</li>
-                            <li><span className="font-semibold">Financial protection</span> - prevents out-of-pocket costs for repairs or medical bills</li>
-                            <li><span className="font-semibold">Peace of mind</span> - ensures support in case of accidents, theft, or unexpected events</li>
+                        <h3 className="mt-6 text-xl md:text-2xl  font-sans">Why It&apos;s Important:</h3>
+                        <ul className="list-disc list-inside text-base md:text-lg  mt-1 space-y-1 font-opensans">
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Legal requirement</span> - most places require at least liability coverage</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Financial protection</span> - prevents out-of-pocket costs for repairs or medical bills</li>
+                            <li><span className="font-sans font-semibold text-lg md:text-xl">Peace of mind</span> - ensures support in case of accidents, theft, or unexpected events</li>
                         </ul>
 
 

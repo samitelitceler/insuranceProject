@@ -128,7 +128,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-white max-w-3xl text-left md:ml-16">
-          <h1 className="text-2xl md:text-4xl font-bold mb-4">
+          <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
             Insurance is not just about protecting what you have; it&apos;s
             about securing your future and the peace of mind that comes with it.
           </h1>
@@ -146,7 +146,7 @@ export default function Home() {
             </select>
             <Button
               onClick={handleNavigation}
-              className="w-full bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3 font-bold"
+              className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
             >
               START QUOTE
             </Button>
@@ -221,34 +221,34 @@ export default function Home() {
 
 
       <section id="about" className="w-full px-4 md:px-8 py-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-6">
           About Us
         </h2>
-        <div className="border border-red-400 rounded-lg p-6 md:p-10  text-left">
-          <p className="text-lg md:text-base leading-relaxed ">
+        <div className="border border-red-400 rounded-lg p-6 md:p-10 text-left">
+          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
             Insurance Protection Specialists is an independent insurance agency
             located in Flowood, MS, and serving clients across the state with
             homeowners, automobile, recreational, commercial, and life
             insurance.
           </p>
-          <p className="text-lg md:text-base leading-relaxed">
+          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
             As independent agents, we can shop over 30 carriers, including
             Nationwide, Safeco, Liberty Mutual, MetLife, State Auto, and
             Progressive, to explore solutions for your insurance needs.
           </p>
-          <p className="text-lg md:text-base leading-relaxed mb-4">
+          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed mb-4">
             IPS is led by a team of risk managers and account managers
             experienced in both personal and business insurance and is owned and
             operated by Chip Jones and Bubba Howell, who have over 50 years of
             combined experience in insurance.
           </p>
-          <p className="text-lg md:text-base leading-relaxed">
+          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
             Insurance Protection Specialists is an independent insurance agency
             located in Flowood, MS, and serving clients across the state with
             homeowners, automobile, recreational, commercial, and life
             insurance.
           </p>
-          <p className="text-lg md:text-base leading-relaxed">
+          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
             As independent agents, we can shop over 30 carriers, including
             Nationwide, Safeco, Liberty Mutual, MetLife, State Auto and
             Progressive, to explore solutions for your insurance needs.
@@ -307,7 +307,7 @@ export default function Home() {
       </section> */}
 
       <section className="w-full py-12 overflow-hidden">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-8">
           Top Carriers we have
         </h2>
         <div className="relative w-full flex items-center">

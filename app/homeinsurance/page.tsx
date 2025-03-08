@@ -13,40 +13,17 @@ export default function HomeInsurance() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Text Content */}
           <div className="order-2 lg:order-1">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
               Home Insurance
             </h2>
-            <p className="text-base sm:text-lg text-gray-700 mt-3">
-              Protect Your Greatest Investment With Anchor Insurance Agency Your
-              home is your greatest investment. It&apos;s the place you and your
-              family gather and the place you kick up your feet after a long
-              day. Your home deserves quality protection from those severe
-              Midwest storms, fire, vandalimd and other threats. We can help.
-              Anchor Insurance Agency provides high-quality home insurance
-              policies to individuals and families throughout Minnesota,
-              Wisconsin, Arizona, Florida, Nevada and Colorado.
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              Protect Your Greatest Investment With Anchor Insurance Agency...
             </p>
-            <p className="text-base sm:text-lg text-gray-700 mt-3">
-              Fully Customized Home Insurance Policies to Fit You A downed tree
-              through your roof. Graffiti across your garage door. Shattered
-              windows from hail. Damage to your home can be costly to repair,
-              especially when it&apos;s out-of-pocket. A home insurance policy can
-              provide the financial means necessary to cover the cost and
-              protect your wellbeing. Anchor Insurance Agency offers fully
-              customized insurance policies to fit you and your family. As an
-              independent insurance agency, we work with a wide range of
-              insurance carriers to deliver the right coverage for full
-              protection. From fixer-uppers to multi-million dollar homes, we
-              can build a policy for all (yes, even your remote log cabin).
-            </p>
-            {/* Factors Affecting Premiums */}
-            <h2 className="mt-6 text-xl sm:text-2xl text-gray-800 font-semibold">
-              What&apos;s Included in a Home Insurance Policy? Home insurance policy
-              types span from the bare necessities to comprehensive coverage for
-              anything that could go wrong. Through our custom policies, we can
-              offer:
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              What&apos;s Included in a Home Insurance Policy?
             </h2>
-            <ul className="list-disc list-inside text-base sm:text-lg text-gray-600 mt-1 space-y-1">
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
               <li>Guaranteed replacement</li>
               <li>Back-up drain and sewer</li>
               <li>Mechanical breakdown</li>
@@ -57,13 +34,11 @@ export default function HomeInsurance() {
               <li> Worldwide liability</li>
               <li> Identity theft</li>
             </ul>
-            {/* Optional Add-Ons */}
-            <h2 className="mt-6 text-xl sm:text-2xl text-gray-800 font-semibold">
-              Why Choose Anchor Insurance Agency? Many insurance companies offer
-              home insurance policies. What makes us different? Here at Anchor
-              Insurance Agency, you&apos;ll find:
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              Why Choose Anchor Insurance Agency?
             </h2>
-            <ul className="list-disc list-inside text-base sm:text-lg text-gray-600 mt-1 space-y-1">
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
               <li className="font-semibold">
                 Insurance policies to fit your needs:
                 <span className="font-normal"> There isn&apos;t a one-size-fits-all option for insurance. We custom build policies
@@ -81,11 +56,11 @@ export default function HomeInsurance() {
                 protection. And if it&apos;s a solid policy, we&apos;ll tell you so.</span>
               </li>
             </ul>
-            {/* Why It&apos;s Important */}
-            <h2 className="mt-6 text-xl sm:text-2xl text-gray-800 font-semibold">
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
               Start Protecting Your Home Today. Get Your Free Quote!
             </h2>
-            <p className="text-base sm:text-lg text-gray-700 mt-3">
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
               Your home is truly your greatest investment. A customized home
               insurance policy can help you protect it. Ready to get started? Get
               your free quote today. Or, for answers to all of your policy

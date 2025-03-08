@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-black text-white py-12 font-sans">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Company Section */}
         <div>

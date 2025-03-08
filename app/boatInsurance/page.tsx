@@ -26,10 +26,10 @@ const BusinessInsurance = () => {
         </div>
         {/* Information Section */}
         <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl md:text-3xl text-red-600 font-semibold">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
             Boat Insurance
           </h2>
-          <p className="mb-4 mt-6">
+          <p className="text-base md:text-lg text-gray-700 mt-3 font-opensans">
             Whether you like to spend your weekends out fishing for walleye or
             just enjoy evenings out on the lake, we&apos;re here to help you do
             so with peace of mind. Anchor Insurance Agency offers high-quality
@@ -38,10 +38,10 @@ const BusinessInsurance = () => {
             Colorado.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl md:text-2xl mt-4 font-semibold mb-2 font-sans">
             Insurance for All Watercraft, From Jon Boats to Yachts
           </h2>
-          <p className="mb-4">
+          <p className="mb-4 font-opensans">
             We&apos;re able to protect all types of boats or watercraft, from
             small jon boats to million-dollar yachts. Plus, we insure watercraft
             other insurance carriers don&apos;t like to cover such as jet skis
@@ -49,16 +49,16 @@ const BusinessInsurance = () => {
             several carrier options to choose from. Examples of coverage
             include:
           </p>
-          <ul className="list-decimal list-inside mb-4">
+          <ul className="list-decimal list-inside mb-4 font-opensans">
             <li>Mechanical breakdown coverage</li>
             <li>Full replacement value coverage</li>
             <li>Collector boat coverage</li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold mb-2 font-sans">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside text-base md:text-lg mt-1 font-opensans space-y-1 font-opensans">
             <li>
               Assess Risks: Evaluate the specific risks associated with your
               industry and business activities.

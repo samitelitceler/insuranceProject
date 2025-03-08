@@ -25,12 +25,14 @@ const BusinessInsurance = () => {
         <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-base md:text-lg">
-        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">Renters Insurance</h2>
-          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
+        <div className="p-4 md:p-8 text-sm md:text-base">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+            Renters Insurance
+          </h2>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Renters Insurance: Added Protection for You & Your Home
           </h2>
-          <p className="text-lg mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Anyone who rents should have a renters insurance policy for the best
             protection. Maybe you&apos;re a college student renting your first
             apartment. Or, maybe you&apos;re renting while building your dream home.
@@ -42,10 +44,10 @@ const BusinessInsurance = () => {
             and ensuring you understand your policy limits.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Why Should I Have Renters Insurance?
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             It&apos;s a common misconception that renters insurance is only a &quot;nice
             to have&quot; instead of a &quot;must-have.&quot; After all, many landlords still
             don&apos;t require you to carry separate insurance. The truth is that any
@@ -57,23 +59,23 @@ const BusinessInsurance = () => {
             hurt while visiting your home or property stolen due to a break-in.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             What Does Renters Insurance Cover?
           </h2>
-          <p className="mb-4">
-            overage depends on the renters insurance policy you choose. However,
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+            Coverage depends on the renters insurance policy you choose. However,
             common coverage includes:
           </p>
-          <ul className="list-decimal list-inside text-lg mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>Personal property</li>
             <li>Liability</li>
             <li>Additional living expenses</li>
           </ul>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Delivering Customized Renters Insurance Policies
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Insurance Agency strives to give you peace of mind in knowing your
             property is protected. We do so with decades of experience in the
             insurance industry and a dedication to creating customized policies
@@ -83,10 +85,10 @@ const BusinessInsurance = () => {
             call—we&apos;ll be here.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>
               Assess Risks: Evaluate the specific risks associated with your
               industry and business activities.

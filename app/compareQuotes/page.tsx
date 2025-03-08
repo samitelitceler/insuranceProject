@@ -59,16 +59,16 @@ function CompareQuotes() {
   return (
     <>
     <NavSection />
-    <div className="bg-gray-100  p-8">
+    <div className="bg-gray-100 p-8">
       <div className="container mx-auto">
         {/* Heading */}
         <div className="bg-[#dfdfdf] p-4">
-        <h1 className="text-4xl font-bold text-gray-800 text-left">Insurance Quotes</h1>
-        <p className="text-left text-gray-600 mt-2">Home » Insurance Quotes</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">Insurance Quotes</h1>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px]">Home » Insurance Quotes</p>
         </div>
 
         {/* Subheading */}
-        <h2 className="text-4xl font-semibold text-gray-800 text-center mt-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans text-center mt-8">
           Get Insurance Quotes
         </h2>
 
@@ -78,7 +78,7 @@ function CompareQuotes() {
             <Link key={index} href={option.path} passHref>
               <div className="flex items-center bg-gray-800 text-white p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition duration-300">
                 <span className="text-2xl mr-3">{option.icon}</span>
-                <span className="text-lg font-semibold">{option.name}</span>
+                <span className="text-[18px] font-opensans font-medium">{option.name}</span>
               </div>
             </Link>
           ))}

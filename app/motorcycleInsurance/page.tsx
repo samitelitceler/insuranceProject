@@ -25,12 +25,14 @@ const BusinessInsurance = () => {
         <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-base md:text-lg">
-        <h2 className="text-3xl md:text-4xl text-red-600 font-semibold">Motorcycle Insurance</h2>
-          <h2 className="text-xl md:text-2xl font-semibold mb-2 mt-6">
+        <div className="p-4 md:p-8 text-sm md:text-base">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+            Motorcycle Insurance
+          </h2>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Protect Your Motorcycle With Anchor Insurance Agency
           </h2>
-          <p className="text-lg mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Whether you&apos;re a weekend rider or use your motorcycle as your main
             mode of transportation, you deserve high-quality protection.
             Motorcycle accidents are costly and can be detrimental to your
@@ -41,10 +43,10 @@ const BusinessInsurance = () => {
             you enjoy the open road.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Delivering Year-Round Protection for Your Motorcycle
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             While some motorcyclists drive their motorcycles regardless of the
             season, others store them away in winter. No matter how you drive,
             we have insurance policies to help you protect your motorcycle
@@ -53,29 +55,31 @@ const BusinessInsurance = () => {
             a serious threat. It&apos;s best to be protected at all times.
           </p>
 
-          <h2 className="font-semibold mb-2">Types of Insurance Policies</h2>
-          <p className="mb-4">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+            Types of Insurance Policies
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             Anchor Insurance Agency is an independent agency. This means we have
             access to a wide range of insurance carriers, so we can choose the
             best coverage for your needs. Some of the motorcycle insurance
             policies we offer include:
           </p>
-          <ul className="list-disc list-inside text-lg mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>Liability coverage</li>
             <li>Collision coverage</li>
             <li>Uninsured and underinsured motorist coverage</li>
             <li>Equipment coverage for motorcycle upgrades</li>
           </ul>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             We&apos;re proud to be able to insure any kind of motorcycle, from your
             brand new Harley Davidson to your vintage Indian or super fast
             Honda. Whatever matters most to you, matters most to us.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Protect Yourself While Enjoying Your Motorcycle Too
           </h2>
-          <p className="mb-4">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
             n Minnesota, motorcyclists are required to hold certain insurance
             policies to protect themselves and others while on the road. All
             motorcyclists must have liability insurance and must carry proof of
@@ -86,10 +90,10 @@ const BusinessInsurance = () => {
             be considered to protect yourself and your motorcycle.
           </p>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Tips for Managing Business Insurance
           </h2>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>
               Review Annually: Business needs change, so reviewing policies
               annually ensures adequate coverage.
@@ -104,10 +108,10 @@ const BusinessInsurance = () => {
             </li>
           </ul>
 
-          <h2 className="font-semibold mb-2">
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             How to Choose the Right Insurance?
           </h2>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>
               Assess Risks: Evaluate the specific risks associated with your
               industry and business activities.

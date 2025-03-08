@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 function Form() {
   return (
-    <div className="p-4 md:p-8 max-w-5xl mx-auto">
+    <div className="p-4 md:p-8 max-w-5xl mx-auto font-sans">
       <h2 className="text-xl md:text-4xl text-gray-800 font-bold text-center mb-6">
         Get a Quote
       </h2>
