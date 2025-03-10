@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { HiOutlineMenu, HiX } from "react-icons/hi"; // Icons for mobile menu
 import primeLogo from "@/public/images/PrimeLogo.png";
 import { ChevronDown } from "lucide-react";
@@ -18,22 +18,8 @@ import {
 
 export default function NavSection() {
   const router = useRouter();
-  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavigation = (sectionId: string) => {
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => scrollToSection(sectionId), 200);
-    } else {
-      scrollToSection(sectionId);
-    }
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
 
   const handleDropdownNavigation = (value: string) => {
     if (!value) return;
@@ -47,14 +33,15 @@ export default function NavSection() {
 
   return (
     <nav className="bg-white shadow-md font-opensans">
-      <div className="container mx-auto flex items-center justify-between py-4 px-6 md:px-12">
+      <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8 lg:px-12">
         {/* Logo */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center">
           <Image
             src={primeLogo.src}
             alt="Prime Insurance Group"
-            width={120}
-            height={40}
+            width={300}
+            height={80}
+            className="w-[150px] md:w-[180px] lg:w-[200px] object-contain"
           />
         </div>
 
@@ -141,144 +128,123 @@ export default function NavSection() {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex justify-between px-4 md:px-12 p-4 items-center bg-gradient-to-b from-[#D2091D] to-[#880310]">
-        <ul className="flex flex-wrap space-x-3 md:space-x-6 font-semibold text-white text-sm md:text-base">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <a
-              onClick={() => handleNavigation("about")}
-              className="cursor-pointer"
-            >
-              About Us
-            </a>
-          </li>
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild className="py-0">
-                <div className="flex gap-1 items-center">
-                  <Link
-                    href=""
-                    className="w-full bg-transparent text-white hover:opacity-90"
+      <div className="hidden lg:flex justify-between p-4 items-center bg-gradient-to-b from-[#D2091D] to-[#880310]">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <ul className="flex flex-wrap space-x-6 font-semibold text-white text-base">
+            <li className="whitespace-nowrap">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link
+                href="/aboutus"
+                className="cursor-pointer"
+              >
+                About Us
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild className="py-0">
+                  <div className="flex gap-1 items-center">
+                    <Link
+                      href=""
+                      className="w-full bg-transparent text-white hover:opacity-90"
+                    >
+                      Insurance Services
+                    </Link>
+                    <ChevronDown />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-48 text-gray-700 cursor-pointer border-none">
+                  <DropdownMenuItem onClick={() => router.push('/autoinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Auto Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/homeinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Home Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/lifeInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Life Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/businessInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Business Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/personalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Personal Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/umbrellaInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Umbrella Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/cyberInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Cyber Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/rentersInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Renters Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/motorcycleInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Motorcycle Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/transportationalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Transportational Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/boatInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Boat Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/condoInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Condo Insurance
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/contractBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Contract Bonds
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('/commercialBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Commercial Bonds
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push('notaryBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                    Notary Bonds
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/compareQuotes" className="cursor-pointer">
+                Compare Quotes
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild className="py-0">
+                  <div className="flex gap-1 items-center">
+                    <Link
+                      href=""
+                      className="w-full bg-transparent text-white hover:opacity-90"
+                    >
+                      Customer Services
+                    </Link>
+                    <ChevronDown />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-48 text-white border-none">
+                  <DropdownMenuItem
+                    className="hover:bg-gray-100 text-gray-700 bg-white cursor-pointer"
+                    onClick={() => window.open('https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login', '_blank')}
                   >
-                    Insurance Services
-                  </Link>
-                  <ChevronDown />
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48 text-gray-700 cursor-pointer border-none">
-                <DropdownMenuItem onClick={() => router.push('/autoinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Auto Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/homeinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Home Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/lifeInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Life Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/businessInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Business Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/personalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Personal Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/umbrellaInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Umbrella Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/cyberInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Cyber Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/rentersInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Renters Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/motorcycleInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Motorcycle Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/transportationalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Transportational Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/boatInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Boat Insurance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/condoInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Condo Insurance
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild className="py-0">
-                <div className="flex gap-1 items-center">
-                  <Link
-                    href=""
-                    className="w-full bg-transparent text-white hover:opacity-90"
+                    Client Center
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="hover:bg-gray-100 text-gray-700 bg-white cursor-pointer"
+                    onClick={() => handleDropdownNavigation("contactCarrier")}
                   >
-                    Bonds
-                  </Link>
-                  <ChevronDown />
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48 text-white border-none">
-                <DropdownMenuItem onClick={() => router.push('/contractBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Contract Bonds
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/commercialBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Commercial Bonds
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('notaryBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
-                  Notary Bonds
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-          <li>
-            <Link href="/compareQuotes" className="cursor-pointer">
-              Compare Quotes
-            </Link>
-          </li>
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild className="py-0">
-                <div className="flex gap-1 items-center">
-                  <Link
-                    href=""
-                    className="w-full bg-transparent text-white hover:opacity-90"
-                  >
-                    Customer Services
-                  </Link>
-                  <ChevronDown />
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48 text-white border-none">
-                <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 bg-white cursor-pointer"
-                  onClick={() => router.push('https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login')}
-                >
-                  Client Center
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 bg-white cursor-pointer"
-                  onClick={() => handleDropdownNavigation("contactCarrier")}
-                >
-                  Contact Your Carrier
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-          <li>
-            <Link href="/contactUs" className="cursor-pointer">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-
-        {/* <div className="flex space-x-3 text-white">
-          <FaFacebookF onClick={() => router.push('https://www.facebook.com/PrimeInsuranceServicesLLC/')} className="cursor-pointer" />
-
-          <FaInstagram onClick={() => router.push('https://www.instagram.com/PrimeInsuranceServicesLLC/')} className="cursor-pointer" />
-        </div> */}
+                    Contact Your Carrier
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/contactUs" className="cursor-pointer">
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Mobile Menu (Sliding Down) */}
@@ -406,7 +372,7 @@ export default function NavSection() {
               <DropdownMenuContent className="w-48  text-white border-none">
                 <DropdownMenuItem
                   className="hover:bg-gray-100 text-gray-700 cursor-pointer"
-                  onClick={() => handleDropdownNavigation("clientCenter")}
+                  onClick={() => window.open('https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login', '_blank')}
                 >
                   Client Center
                 </DropdownMenuItem>

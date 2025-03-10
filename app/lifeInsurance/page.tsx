@@ -7,6 +7,7 @@ import Form from "@/components/form/Form";
 import Image from "next/image";
 import lifeInsure from '@/public/images/meetingbusiness.jpg';
 import QuoteButton from "@/components/QuoteButton/QuoteButton";
+import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function lifeInsurance() {
@@ -97,10 +98,13 @@ export default function lifeInsurance() {
             your business needs.
           </li>
         </ul>
-      </div>
+        </div>
 
       <div>
           <Form  />
+        </div>
+        <div>
+          <Carriers />
         </div>
       <Footer />
     </div>

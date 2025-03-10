@@ -1,17 +1,16 @@
 import React from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-
 function Form() {
   return (
-    <div className="p-4 md:p-8 max-w-5xl mx-auto font-sans">
+    <div id="form" className="p-4 md:p-8 max-w-5xl mx-auto font-sans">
       <h2 className="text-xl md:text-4xl text-gray-800 font-bold text-center mb-6">
         Get a Quote
       </h2>
 
-      <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
+      <div   className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Left Side: Form */}
         <div className="w-full md:w-1/2 p-6 md:p-10">
-          <form action="https://formspree.io/f/mwpvaqdv" method="POST" className="space-y-4">
+          <form action="https://formspree.io/f/mwpvaqdv"  method="POST"  className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
@@ -86,6 +85,7 @@ function Form() {
           </div>
         </div>
       </div>
+        {/* <Carriers /> */}
     </div>
   );
 }

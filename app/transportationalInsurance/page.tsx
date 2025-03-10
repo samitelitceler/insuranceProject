@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import NavSection from "@/components/nav-section/nav";
 import { Inter } from 'next/font/google'
@@ -6,9 +7,10 @@ import Form from "@/components/form/Form";
 import Image from "next/image";
 import transportational from '@/public/images/TransportationalInsure.jpg';
 import QuoteButton from "@/components/QuoteButton/QuoteButton";
+import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ['400', '600', '700'], subsets: ['latin'] });
 
-const BusinessInsurance = () => {
+const TransportationalInsurance = () => {
 
   return (
     <div className={inter.className}>
@@ -19,12 +21,11 @@ const BusinessInsurance = () => {
         <Image
           src={transportational.src}
           alt="Business Insurance"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-70 bg-cover bg-center"
+          fill
+          className="opacity-70 object-cover"
         />
-      <QuoteButton/>
-        </div>
+        <QuoteButton/>
+      </div>
       {/* Information Section */}
       <div className="p-4 md:p-8 text-sm md:text-base">
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
@@ -93,9 +94,12 @@ const BusinessInsurance = () => {
           <Form  />
         </div>
     </div>
+        <div>
+          <Carriers />
+        </div>
     <Footer/>
     </div>
   );
 };
 
-export default BusinessInsurance;
+export default TransportationalInsurance;

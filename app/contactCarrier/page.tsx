@@ -19,7 +19,7 @@ import {
     Truck,
     Mail,
   } from "lucide-react";
-
+import Carriers from "@/components/partnerCarriers/carriers";
 function ContactCarrier() {
   const router = useRouter();
   const [selectedPath, setSelectedPath] = useState("");
@@ -243,6 +243,9 @@ function ContactCarrier() {
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <Carriers />
         </div>
       </div>
       <Footer />

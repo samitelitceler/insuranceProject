@@ -1,3 +1,4 @@
+'use client';
 import NavSection from "@/components/nav-section/nav";
 import React from "react";
 import Image from "next/image";
@@ -6,6 +7,7 @@ import Footer from "@/components/footer/Footer";
 import Form from "@/components/form/Form";
 import businessInsure from "@/public/images/carsImage.jpg"
 import QuoteButton from "@/components/QuoteButton/QuoteButton";
+import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 const BusinessInsurance = () => {
@@ -147,6 +149,9 @@ const BusinessInsurance = () => {
           <Form  />
         </div>
       </div>
+        <div>
+          <Carriers />
+        </div>
       <Footer />
     </div>
   );

@@ -7,6 +7,7 @@ import Footer from "@/components/footer/Footer";
 import Form from "@/components/form/Form";
 import QuoteButton from "@/components/QuoteButton/QuoteButton";
 import { useInView } from '@/hooks/useInView';
+import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 const ContractBonds = () => {
@@ -152,7 +153,9 @@ const ContractBonds = () => {
         <div>
           <Form  />
         </div>
-
+        <div>
+          <Carriers />
+        </div>
       
 
       </div>

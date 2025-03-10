@@ -21,7 +21,7 @@ import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
 import { useState } from "react";
 import React from "react";
-
+import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function Home() {
@@ -45,28 +45,7 @@ export default function Home() {
     router.push(basePath);
   };
 
-  const companies = [
-    {
-      name: "Allstate",
-      logo: "/images/Allstate.png",
-    },
-    {
-      name: "Foremost",
-      logo: "/images/Foremost.jpeg",
-    },
-    {
-      name: "Heritage",
-      logo: "/images/heritageLogo.png",
-    },
-    {
-      name: "Liberty Mutual",
-      logo: "https://www.anchorins.com/img/carriers/liberty-mutual.png",
-    },
-    {
-      name: "MetLife",
-      logo: "https://www.anchorins.com/img/carriers/metlife.png",
-    },
-  ];
+
 
   const insuranceOptions = [
     { name: "Auto Insurance", icon: <Car />, path: "autoinsurance" },
@@ -120,36 +99,39 @@ export default function Home() {
       <NavSection />
       <section
         id="hero"
-        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center px-4 md:px-8"
+        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
             "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 text-white max-w-3xl text-left md:ml-16">
-          <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
-            Insurance is not just about protecting what you have; it&apos;s
-            about securing your future and the peace of mind that comes with it.
-          </h1>
-          <div className="flex flex-col items-start gap-2 mt-4 w-full md:w-64">
-            <select
-              onChange={handleChange}
-              className="w-full text-black p-2 border rounded"
-            >
-              <option value="">Select Insurance</option>
-              {insuranceOptions.map((option) => (
-                <option key={option.path} value={option.path}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-            <Button
-              onClick={handleNavigation}
-              className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
-            >
-              START QUOTE
-            </Button>
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="relative z-10 text-white max-w-3xl">
+            <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
+              Insurance is not just about protecting what you have; it&apos;s
+              about securing your future and the peace of mind that comes with it.
+            </h1>
+            <div className="flex flex-col items-start gap-2 mt-4 w-full md:w-64">
+              <select
+                onChange={handleChange}
+                className="w-full text-black p-2 border rounded"
+                defaultValue=""
+              >
+                <option value="">Select Insurance</option>
+                {insuranceOptions.map((option) => (
+                  <option key={option.path} value={option.path}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+              <Button
+                onClick={handleNavigation}
+                className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
+              >
+                START QUOTE
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -220,117 +202,13 @@ export default function Home() {
       </section>
 
 
-      <section id="about" className="w-full px-4 md:px-8 py-12">
-        <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-6">
-          About Us
-        </h2>
-        <div className="border border-red-400 rounded-lg p-6 md:p-10 text-left">
-          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
-            Insurance Protection Specialists is an independent insurance agency
-            located in Flowood, MS, and serving clients across the state with
-            homeowners, automobile, recreational, commercial, and life
-            insurance.
-          </p>
-          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
-            As independent agents, we can shop over 30 carriers, including
-            Nationwide, Safeco, Liberty Mutual, MetLife, State Auto, and
-            Progressive, to explore solutions for your insurance needs.
-          </p>
-          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed mb-4">
-            IPS is led by a team of risk managers and account managers
-            experienced in both personal and business insurance and is owned and
-            operated by Chip Jones and Bubba Howell, who have over 50 years of
-            combined experience in insurance.
-          </p>
-          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
-            Insurance Protection Specialists is an independent insurance agency
-            located in Flowood, MS, and serving clients across the state with
-            homeowners, automobile, recreational, commercial, and life
-            insurance.
-          </p>
-          <p className="text-xl md:text-lg font-sans font-normal leading-relaxed">
-            As independent agents, we can shop over 30 carriers, including
-            Nationwide, Safeco, Liberty Mutual, MetLife, State Auto and
-            Progressive, to explore solutions for your insurance needs.
-          </p>
-        </div>
-      </section>
 
 
 
-      {/* <section className="w-full py-12  flex flex-col items-center text-center rounded-xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8">Bonds</h2>
-        <div className="max-w-2xl">
-          <ul className="mb-6">
-            <li className="mb-2">
-              <a
-                href="https://www.tisins.com/surety-bonds/"
-                className="text-blue-600 font-semibold hover:underline hover:text-blue-800 transition-all"
-              >
-                Surety Bond Division | TIS Insurance Services - Knoxville, TN
-              </a>
-            </li>
-          </ul>
 
-          <p className="font-medium text-lg mb-4">
-            Bonds at a high level are broken into:
-          </p>
+      <Carriers />
 
-          <ul className="space-y-3">
-            <li>
-              <a
-                href="https://www.tisins.com/contract-bonds/"
-                className="text-blue-600 font-semibold hover:underline hover:text-blue-800 transition-all"
-              >
-                Contract Bonds - Surety Division | TIS Insurance - Knoxville, TN
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tisins.com/commercial-bonds/"
-                className="text-blue-600 font-semibold hover:underline hover:text-blue-800 transition-all"
-              >
-                Commercial Bonds - Surety Division | TIS Insurance - Knoxville,
-                TN
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tisins.com/notary-bonds/"
-                className="text-blue-600 font-semibold hover:underline hover:text-blue-800 transition-all"
-              >
-                Notary Bonds - Surety Division | TIS Insurance - Knoxville, TN
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section> */}
 
-      <section className="w-full py-12 overflow-hidden">
-        <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-8">
-          Top Carriers we have
-        </h2>
-        <div className="relative w-full flex items-center">
-          <motion.div
-            className="flex space-x-20 min-w-max"
-            animate={{ x: ["0%", "-10%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 5,
-              ease: "linear",
-            }}
-          >
-            {[...companies, ...companies].map((company, index) => (
-              <img
-                key={index}
-                src={company.logo}
-                alt={company.name}
-                className="h-16 md:h-20 object-contain mx-4"
-              />
-            ))}
-          </motion.div>
-        </div>
-      </section>
       <Footer />
     </div>
   );
