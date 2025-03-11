@@ -27,14 +27,15 @@ const BusinessInsurance = () => {
       <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+  <div className="text-sm md:text-base">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
             Cyber and EPLI Insurance
           </h2>
           <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
             Cyber & Employee Practice Liability Insurance
           </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium mt-3 leading-[30px] mb-5">
             Today&apos;s businesses face a wide range of additional threats than
             businesses of the past. For example, businesses must stay up-to-date
             with technology to provide the best experience for their customers.
@@ -93,7 +94,7 @@ const BusinessInsurance = () => {
               your business needs.</li>
           </ul>
         </div>
-
+        </div>
         {/* Form Section */}
         <div>
           <Form  />

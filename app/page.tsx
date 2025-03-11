@@ -135,6 +135,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+    
       {/* Add this new section right after the hero section */}
       {/* <section className="w-full py-12 px-4 md:px-8 overflow-x-auto">
         <div className="flex justify-between min-w-max gap-8">
@@ -201,6 +202,31 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className="w-full px-4 md:px-8 py-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">About Us</h2>
+          <div className="border border-red-400 rounded-lg p-6 md:p-10 text-left mb-16">
+            <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
+              Prime Insurance Services is an independent insurance agency located in Charlotte, NC
+              and serving clients across the North and South Carolina states with homeowners,
+              automobile, recreational, commercial, and life insurance.
+            </p>
+            <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
+              As independent agents, we can shop over 30 carriers, including Travelers, Liberty
+              Mutual, Safeco, Nationwide, The Hartford, State Auto, Berkshire Hathaway, National
+              General, Foremost, Heritage Insurance, American Modern, and AAA to explore
+              solutions for your insurance needs.
+            </p>
+            <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed">
+              We are led by a team of insurance and account managers experienced in both personal
+              and business insurance and is owned and operated independently to serve your needs
+              better.
+            </p>
+          </div>
+
+        </div>
+      </section>
 
 
 

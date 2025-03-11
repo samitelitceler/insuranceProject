@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
@@ -19,7 +19,22 @@ import {
 export default function NavSection() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState('');
 
+  // Add useEffect to track current path
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  const handleNavigation = (path: string) => {
+    if (currentPath !== path) {
+      router.push(path);
+    } else {
+      window.location.reload();
+    }
+  };
+
+  const handleEmailAgentClick = () => handleNavigation('/contactUs');
 
   const handleDropdownNavigation = (value: string) => {
     if (!value) return;
@@ -53,7 +68,10 @@ export default function NavSection() {
               <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
               <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
             </svg>
-            <span className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer" onClick={() => router.push('/contactUs')}>
+            <span 
+              className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer" 
+              onClick={handleEmailAgentClick}
+            >
               Email An Agent
             </span>
           </div>
@@ -132,12 +150,23 @@ export default function NavSection() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <ul className="flex flex-wrap space-x-6 font-semibold text-white text-base">
             <li className="whitespace-nowrap">
-              <Link href="/">Home</Link>
+              <Link 
+                href="/" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation('/');
+                }}
+              >
+                Home
+              </Link>
             </li>
             <li className="whitespace-nowrap">
               <Link
                 href="/aboutus"
-                className="cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation('/aboutus');
+                }}
               >
                 About Us
               </Link>
@@ -156,56 +185,108 @@ export default function NavSection() {
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-48 text-gray-700 cursor-pointer border-none">
-                  <DropdownMenuItem onClick={() => router.push('/autoinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/autoinsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Auto Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/homeinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/homeinsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Home Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/lifeInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/lifeInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Life Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/businessInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/businessInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Business Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/personalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/personalInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Personal Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/umbrellaInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/umbrellaInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Umbrella Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/cyberInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/cyberInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Cyber Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/rentersInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/rentersInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Renters Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/motorcycleInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/motorcycleInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Motorcycle Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/transportationalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/transportationalInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Transportational Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/boatInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/boatInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Boat Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/condoInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/condoInsurance')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Condo Insurance
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/contractBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/contractBonds')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Contract Bonds
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('/commercialBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/commercialBonds')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Commercial Bonds
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push('notaryBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                  <DropdownMenuItem 
+                    onClick={() => handleNavigation('/notaryBonds')} 
+                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  >
                     Notary Bonds
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="/compareQuotes" className="cursor-pointer">
+              <Link 
+                href="/compareQuotes" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation('/compareQuotes');
+                }}
+                className="cursor-pointer"
+              >
                 Compare Quotes
               </Link>
             </li>
@@ -239,7 +320,14 @@ export default function NavSection() {
               </DropdownMenu>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="/contactUs" className="cursor-pointer">
+              <Link 
+                href="/contactUs" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation('/contactUs');
+                }}
+                className="cursor-pointer"
+              >
                 Contact Us
               </Link>
             </li>
@@ -256,7 +344,10 @@ export default function NavSection() {
                 <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                 <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
               </svg>
-              <span className="hover:text-gray-200 cursor-pointer" onClick={() => router.push('/contactUs')}>
+              <span 
+                className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer" 
+                onClick={handleEmailAgentClick}
+              >
                 Email An Agent
               </span>
             </div>
@@ -314,46 +405,89 @@ export default function NavSection() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 text-gray-700 cursor-pointer border-none">
-                <DropdownMenuItem onClick={() => router.push('/autoinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/autoinsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Auto Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/homeinsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/homeinsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Home Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/lifeInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/lifeInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Life Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/businessInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/businessInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Business Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/personalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/personalInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Personal Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/umbrellaInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/umbrellaInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Umbrella Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/cyberInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/cyberInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Cyber Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/rentersInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/rentersInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Renters Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/motorcycleInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/motorcycleInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Motorcycle Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/transportationalInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/transportationalInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Transportational Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/boatInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/boatInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Boat Insurance
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/condoInsurance')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/condoInsurance')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Condo Insurance
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href="/compareQuotes" className="cursor-pointer">
+            <Link 
+              href="/compareQuotes" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/compareQuotes');
+              }}
+              className="cursor-pointer"
+            >
               Compare Quotes
             </Link>
 
@@ -398,19 +532,35 @@ export default function NavSection() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 text-white border-none">
-                <DropdownMenuItem onClick={() => router.push('/contractBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/contractBonds')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Contract Bonds
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/commercialBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/commercialBonds')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Commercial Bonds
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/notaryBonds')} className="hover:bg-gray-100 text-gray-700 cursor-pointer">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigation('/notaryBonds')} 
+                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                >
                   Notary Bonds
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href="/contactUs" className="cursor-pointer">
+            <Link 
+              href="/contactUs" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/contactUs');
+              }}
+              className="cursor-pointer"
+            >
               Contact Us
             </Link>
 

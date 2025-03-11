@@ -26,11 +26,12 @@ const NotaryBonds = () => {
           <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+  <div className="text-sm md:text-base">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
             Notary Bonds
           </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+          <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
             A Notary Bond is a type of surety bond that protects the public from financial losses due to errors, 
             negligence, or misconduct by a Notary Public. If a notary fails to follow legal procedures—whether 
             intentionally or unintentionally—an affected party can file a claim against the bond. The surety 
@@ -74,6 +75,7 @@ const NotaryBonds = () => {
             Without a Notary Bond, individuals affected by a notary&apos;s negligence or fraud would have limited 
             options for financial recovery.
           </p>
+        </div>
         </div>
 
         {/* Form Section */}

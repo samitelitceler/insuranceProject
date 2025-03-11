@@ -26,11 +26,12 @@ const CommercialBonds = () => {
           <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+  <div className="text-sm md:text-base">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
             Commercial Bonds
           </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+          <p className="text-[18px] text-[#393939] text-left font-opensans  mt-3 font-medium leading-[30px] mb-5">
             A commercial bond is a type of surety bond that is used primarily to protect third parties, 
             including businesses and government agencies. Unlike contract bonds, which are typically 
             used in construction projects, commercial bonds focus on regulatory and licensing requirements. 
@@ -101,7 +102,7 @@ const CommercialBonds = () => {
             </li>
           </ul>
         </div>
-
+        </div>
         {/* Form Section */}
         <div>
           <Form  />

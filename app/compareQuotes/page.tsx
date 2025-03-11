@@ -60,10 +60,10 @@ function CompareQuotes() {
   return (
     <>
       <NavSection />
-      <div className="bg-gray-100 p-8">
-        <div className="container mx-auto">
+      <div className="px-4 md:px-8 lg:px-12">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           {/* Heading */}
-          <div className="bg-[#dfdfdf] p-4">
+          <div className="mt-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">Insurance Quotes</h1>
             <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px]">Home » Insurance Quotes</p>
           </div>
@@ -86,7 +86,7 @@ function CompareQuotes() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="mt-8">
         <Carriers />
       </div>
       <Footer />

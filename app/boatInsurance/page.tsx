@@ -27,8 +27,9 @@ const BoatInsurance = () => {
           <QuoteButton />
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+  <div className="text-sm md:text-base">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
             Boat Insurance
           </h2>
           <p className="text-base md:text-lg text-gray-700 mt-3 font-opensans">
@@ -78,7 +79,7 @@ const BoatInsurance = () => {
             </li>
           </ul>
         </div>
-
+        </div>
         {/* Form Section */}
         <div>
           <Form />

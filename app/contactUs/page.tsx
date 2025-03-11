@@ -86,36 +86,39 @@ function ContactUs() {
       <NavSection />
       <section
         id="hero"
-        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center px-4 md:px-8"
+        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
             "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 text-white max-w-3xl text-left md:ml-16">
-          <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
-            Insurance is not just about protecting what you have; it&apos;s
-            about securing your future and the peace of mind that comes with it.
-          </h1>
-          <div className="flex flex-col items-start gap-2 mt-4 w-full md:w-64">
-            <select
-              onChange={handleChange}
-              className="w-full text-black p-2 border rounded"
-            >
-              <option value="">Select Insurance</option>
-              {insuranceOptions.map((option) => (
-                <option key={option.path} value={option.path}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-            <Button
-              onClick={handleNavigation}
-              className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
-            >
-              START QUOTE
-            </Button>
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="relative z-10 text-white max-w-3xl">
+            <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
+              Insurance is not just about protecting what you have; it&apos;s
+              about securing your future and the peace of mind that comes with it.
+            </h1>
+            <div className="flex flex-col font-opensans items-start gap-2 mt-4 w-full md:w-64">
+              <select
+                onChange={handleChange}
+                className="w-full text-black p-2 border rounded"
+                defaultValue=""
+              >
+                <option value="">Select Insurance</option>
+                {insuranceOptions.map((option) => (
+                  <option key={option.path} value={option.path}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+              <Button
+                onClick={handleNavigation}
+                className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
+              >
+                START QUOTE
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -165,9 +168,9 @@ function ContactUs() {
         </div>
       </section>
 
-      <div className="bg-gray-100 min-h-screen p-8">
-        <div className="container mx-auto">
-          <div className="bg-[#dfdfdf] p-4">
+      <div className="min-h-screen">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="mt-8">
             <h1 className="text-4xl font-bold text-gray-800 text-left">
               Contact Us
             </h1>
@@ -265,7 +268,7 @@ function ContactUs() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="mt-8">
           <Carriers />
         </div>
       </div>

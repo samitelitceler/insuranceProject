@@ -19,8 +19,19 @@ export const metadata: Metadata = {
   description: "Prime Insurance Services LLC",
   icons: {
     icon: [
-      { url: '/images/PrimeLogo.png', type: 'image/png' },
+      {
+        url: '/images/PrimeLogo.png',
+        sizes: '42x42',
+      },
+      {
+        url: '/images/PrimeLogo.png',
+        sizes: '42x42',
+      }
     ],
+    apple: {
+      url: '/images/PrimeLogo.png',
+      sizes: '42x42',
+    },
   },
 };
 

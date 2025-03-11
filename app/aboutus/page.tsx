@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
+import Carriers from "@/components/partnerCarriers/carriers";
 import {
     Car,
     Umbrella,
@@ -147,6 +148,7 @@ export default function About() {
           </div>
         </div>
       </section>
+          <Carriers />  
 
       <Footer />
     </div>

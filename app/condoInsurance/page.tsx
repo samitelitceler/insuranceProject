@@ -27,11 +27,12 @@ const BusinessInsurance = () => {
        <QuoteButton/>
         </div>
         {/* Information Section */}
-        <div className="p-4 md:p-8 text-sm md:text-base">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+  <div className="text-sm md:text-base">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
             Condo Insurance
           </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+          <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
             Condos and townhomes require additional insurance coverage beyond
             the typical homeowners&apos; insurance policy. Anchor Insurance Agency
             understands the unique factors involved in owning a condo and will
@@ -75,7 +76,7 @@ const BusinessInsurance = () => {
             <li>Consult an Agent: Seek professional advice to tailor coverage to your business needs.</li>
           </ul>
         </div>
-
+        </div>
         {/* Form Section */}
         <div>
           <Form  />
