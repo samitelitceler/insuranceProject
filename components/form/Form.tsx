@@ -10,7 +10,7 @@ function Form() {
       <div   className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Left Side: Form */}
         <div className="w-full md:w-1/2 p-6 md:p-10">
-          <form action="https://formspree.io/f/mwpvaqdv"  method="POST"  className="space-y-4">
+          <form action="https://formspree.io/f/xgvaezgl"  method="POST"  className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"

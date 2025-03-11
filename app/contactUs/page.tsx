@@ -170,7 +170,7 @@ function ContactUs() {
 
       <div className="min-h-screen">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="mt-8">
+          <div id="contact-form" className="mt-8">
             <h1 className="text-4xl font-bold text-gray-800 text-left">
               Contact Us
             </h1>
@@ -178,16 +178,16 @@ function ContactUs() {
           </div>
 
           <h2 className="text-5xl font-semibold text-gray-800 text-left mt-8">
-            Contact Prime Insurance Agency
+            Contact Prime Insurance Services
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 mt-8 max-w-6xl mx-auto">
+          <div  className="grid md:grid-cols-2 gap-12 mt-8 max-w-6xl mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Prime Insurance Agency
+                Prime Insurance Services
               </h2>
               
-              <div className="space-y-4">
+              <div  className="space-y-4">
                 <div className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-gray-800 mt-1" />
                   <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
@@ -211,7 +211,7 @@ function ContactUs() {
                 </div>
               </div>
 
-              <form action="https://formspree.io/f/mwpvaqdv" method="POST" className="mt-8">
+              <form action="https://formspree.io/f/xgvaezgl" method="POST" className="mt-8">
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <input

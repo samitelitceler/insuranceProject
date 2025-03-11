@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import NavSection from "@/components/nav-section/nav";
 import React from "react";
 import { Inter } from "next/font/google";
@@ -33,65 +33,47 @@ const BusinessInsurance = () => {
             Personal Insurance
           </h2>
           <h2 className="text-xl mt-8 md:text-2xl font-semibold mt-3 mb-4 font-sans">
-            Personal Insurance Policies for Individuals & Families
+            Comprehensive Personal Insurance for Individuals & Families
           </h2>
           <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            From homes to cabins and condos to motorcycles, we offer a personal
-            insurance policy to help you protect what matters most to you.
-            Anchor Insurance Agency is an independent insurance agency serving
-            individuals and families in the Twin Cities and throughout
-            Minnesota. We can also take care of your insurance needs in
-            Wisconsin, Arizona, Florida, Nevada and Colorado.
+            Life is full of unexpected events, and having the right personal insurance ensures you and your loved ones are protected from financial setbacks. Whether it&apos;s your home, vehicle, or recreational assets, Prime Insurance Services provides customized insurance solutions designed to safeguard what matters most.
           </p>
 
           <h2 className="font-semibold mb-2">
-            Fully Customizable Personal Insurance Policies
+            Tailored Coverage for Your Unique Needs
           </h2>
           <p className="mb-4">
-            One car accident, break-in or tree limb through your roof could
-            cause serious financial implications that feel impossible to come
-            back from. Insurance can protect you from the unexpected. No two
-            insurance policies we sell are the same—and they&apos;re not supposed to be.
-            Anchor Insurance Agency offers a wide range of customized personal
-            insurance policies to fit your needs. We work with many insurance
-            companies to deliver high-quality insurance options to each of our
-            clients. Our insurance policies include:
+            A single accident, home burglary, or storm-damaged roof can lead to overwhelming financial stress. With Prime Insurance Services, you get personalized insurance policies that offer reliable protection against the unexpected. We partner with leading insurance providers to deliver high-quality coverage options tailored to your specific needs.
           </p>
           <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li>Auto</li>
-            <li>Home</li>
-            <li>Life</li>
-            <li>Condo</li>
-            <li>Umbrella</li>
-            <li>Boat and Watercraft</li>
-            <li>Motorcycle</li>
-            <li>Rental</li>
+            <li>Auto Insurance – Protects your vehicle against accidents, theft, and liability.</li>
+            <li>Home Insurance – Covers damages to your home and personal belongings.</li>
+            <li>Life Insurance – Ensures financial security for your loved ones in the event of your passing.</li>
+            <li>Condo Insurance – Provides coverage for condominium owners, including personal property and liability protection.</li>
+            <li>Umbrella Insurance – Adds an extra layer of liability coverage beyond standard policies.</li>
+            <li>Boat & Watercraft Insurance – Covers boats, jet skis, and other watercraft against damage and liability.</li>
+            <li>Motorcycle Insurance – Offers protection for motorcycles, including liability and collision coverage.</li>
+            <li>Rental Insurance – Protects renters from losses due to theft, fire, or other unexpected damages.</li>
           </ul>
           <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            Already have an insurance policy? We&apos;ll take the time to complete a
-            thorough review to ensure you have adequate protection and provide
-            our recommendations. If you have an insurance policy that offers the
-            right coverage at a competitive rate, we&apos;ll be sure to tell you so.
+            Already have an insurance policy? We offer policy reviews to assess whether your current coverage meets your needs. If you already have the right protection at a competitive rate, we&apos;ll be the first to tell you. If improvements can be made, we&apos;ll provide expert recommendations to enhance your coverage and savings.
           </p>
 
           <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
-            How to Choose the Right Insurance?
+            How to Choose the Right Personal Insurance?
           </h2>
           <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
             <li>
-              Assess Risks: Evaluate the specific risks associated with your
-              industry and business activities.
+              Identify Potential Risks – Evaluate risks related to your home, vehicle, and lifestyle.
             </li>
             <li>
-              Legal Requirements: Check the mandatory insurance requirements in
-              your region or industry.
+              Understand Legal Requirements – Ensure you meet state-mandated insurance requirements.
             </li>
             <li>
-              Budget Considerations: Balance coverage needs with affordability.
+              Balance Budget & Coverage – Find a policy that provides sufficient protection without unnecessary costs.
             </li>
             <li>
-              Consult an Agent: Seek professional advice to tailor coverage to
-              your business needs.
+              Seek Expert Advice – Our experienced agents help customize policies to fit your needs.
             </li>
           </ul>
         </div>

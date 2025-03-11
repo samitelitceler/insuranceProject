@@ -27,10 +27,34 @@ export default function NavSection() {
   }, []);
 
   const handleNavigation = (path: string) => {
-    if (currentPath !== path) {
-      router.push(path);
+    if (path === '/contactUs') {
+      // If already on contact page, reload and scroll to form
+      if (currentPath === '/contactUs') {
+        window.location.reload();
+        // Add a small delay to ensure the page has loaded before scrolling
+        setTimeout(() => {
+          const contactForm = document.getElementById('contact-form');
+          if (contactForm) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 500);
+      } else {
+        // If coming from another page, navigate and then scroll
+        router.push(path);
+        setTimeout(() => {
+          const contactForm = document.getElementById('contact-form');
+          if (contactForm) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 500);
+      }
     } else {
-      window.location.reload();
+      // Handle other navigation normally
+      if (currentPath !== path) {
+        router.push(path);
+      } else {
+        window.location.reload();
+      }
     }
   };
 
@@ -79,10 +103,13 @@ export default function NavSection() {
           {/* Make an Appointment */}
           <div className="flex items-center gap-2 cursor-pointer">
             <FaCalendar className="text-gray-700 text-lg" />
-            <span className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer"
-              onClick={() => window.open('https://calendly.com/samit-elitceler/30min', '_blank')}>
+            <Link className="text-gray-700 hover:text-[#D2091D] cursor-pointer hover:underline"
+              href="https://calendly.com/primeinsurancellc-info/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Make an Appointment
-            </span>
+            </Link>
           </div>
 
           {/* Follow Us */}
@@ -91,11 +118,11 @@ export default function NavSection() {
             <div className="flex gap-2">
               <FaFacebookF
                 onClick={() => window.open('https://www.facebook.com/PrimeInsuranceServicesLLC/', '_blank')}
-                className="text-gray-700 cursor-pointer hover:opacity-80 hover:opacity-80"
+                className="text-gray-700 cursor-pointer hover:text-[#D2091D]"
               />
               <FaInstagram 
                 onClick={() => window.open('https://www.instagram.com/PrimeInsuranceServicesLLC/', '_blank')}
-                className="text-gray-700 cursor-pointer hover:opacity-80"
+                className="text-gray-700 cursor-pointer hover:text-[#D2091D]"
               />
             </div>
           </div>
@@ -156,6 +183,8 @@ export default function NavSection() {
                   e.preventDefault();
                   handleNavigation('/');
                 }}
+                className="hover:underline transition-all duration-200"
+                title="Home"
               >
                 Home
               </Link>
@@ -167,6 +196,8 @@ export default function NavSection() {
                   e.preventDefault();
                   handleNavigation('/aboutus');
                 }}
+                className="hover:underline transition-all duration-200"
+                title="About Us"
               >
                 About Us
               </Link>
@@ -174,10 +205,10 @@ export default function NavSection() {
             <li className="whitespace-nowrap">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild className="py-0">
-                  <div className="flex gap-1 items-center">
+                  <div className="flex gap-1 items-center hover:underline transition-all duration-200" title="Insurance Services">
                     <Link
                       href=""
-                      className="w-full bg-transparent text-white hover:opacity-90"
+                      className="w-full bg-transparent text-white"
                     >
                       Insurance Services
                     </Link>
@@ -285,7 +316,8 @@ export default function NavSection() {
                   e.preventDefault();
                   handleNavigation('/compareQuotes');
                 }}
-                className="cursor-pointer"
+                className="hover:underline transition-all duration-200 cursor-pointer"
+                title="Compare Insurance Quotes"
               >
                 Compare Quotes
               </Link>
@@ -293,12 +325,12 @@ export default function NavSection() {
             <li className="whitespace-nowrap">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild className="py-0">
-                  <div className="flex gap-1 items-center">
+                  <div className="flex gap-1 items-center hover:underline transition-all duration-200" title="Customer Services">
                     <Link
                       href=""
-                      className="w-full bg-transparent text-white hover:opacity-90"
+                      className="w-full bg-transparent text-white"
                     >
-                      Customer Services
+                      Customer Service
                     </Link>
                     <ChevronDown />
                   </div>
@@ -326,7 +358,8 @@ export default function NavSection() {
                   e.preventDefault();
                   handleNavigation('/contactUs');
                 }}
-                className="cursor-pointer"
+                className="hover:underline transition-all duration-200 cursor-pointer"
+                title="Contact Us"
               >
                 Contact Us
               </Link>
@@ -355,7 +388,7 @@ export default function NavSection() {
             <div className="flex items-center gap-2 text-white">
               <FaCalendar className="text-lg" />
               <span className="hover:text-gray-200 cursor-pointer"
-                onClick={() => window.open('https://calendly.com/samit-elitceler/30min', '_blank')}>
+                onClick={() => window.open('https://calendly.com/primeinsurancellc-info/30min', '_blank')}>
                 Make an Appointment
               </span>
             </div>
@@ -498,7 +531,7 @@ export default function NavSection() {
                     href=""
                     className="w-full bg-transparent text-white hover:opacity-90"
                   >
-                    Customer Services
+                    Customer Service
                   </Link>
                   <ChevronDown />
                 </div>

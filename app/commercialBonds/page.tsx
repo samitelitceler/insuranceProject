@@ -27,81 +27,92 @@ const CommercialBonds = () => {
         </div>
         {/* Information Section */}
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-  <div className="text-sm md:text-base">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
-            Commercial Bonds
-          </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans  mt-3 font-medium leading-[30px] mb-5">
-            A commercial bond is a type of surety bond that is used primarily to protect third parties, 
-            including businesses and government agencies. Unlike contract bonds, which are typically 
-            used in construction projects, commercial bonds focus on regulatory and licensing requirements. 
-            The primary purpose of these bonds is to ensure that the bonded party adheres to laws, 
-            industry standards, or specific contractual terms.
-          </p>
+          <div className="text-sm md:text-base">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
+              Commercial Bonds
+            </h2>
+            <h3 className="text-xl md:text-2xl font-semibold mt-2 mb-4 font-sans">
+              Ensuring Compliance and Financial Security for Businesses
+            </h3>
+            <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
+              A Commercial Bond is a type of surety bond designed to protect third parties, including businesses, 
+              clients, and government agencies. Unlike contract bonds used for construction projects, commercial 
+              bonds focus on regulatory and licensing requirements, ensuring businesses operate ethically and 
+              within the law. Prime Insurance Services provides a range of commercial bond solutions to help 
+              businesses maintain compliance and build trust.
+            </p>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How Do Commercial Bonds Work?</h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            A commercial bond involves three key parties:
-          </p>
-          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li>
-            <span className="font-semibold"> The Principal </span> – The business owner or entity required to obtain the bond.
-            </li>
-            <li>
-             <span className="font-semibold">The Obligee</span>  – The party (often a government agency) that requires the bond to ensure compliance.
-            </li>
-            <li>
-             <span className="font-semibold">The Surety</span>  – The insurance company or bonding company that issues the bond and guarantees payment if a claim is made.
-            </li>
-          </ul>
-          <p className="mb-4">
-            When a business is required to obtain a commercial bond, they purchase it from a surety company. 
-            If they fail to meet the bond&apos;s obligations (such as following industry regulations), the obligee 
-            can file a claim. The surety company may pay the claim initially, but the principal is ultimately 
-            responsible for repaying the amount.
-          </p>
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How Do Commercial Bonds Work?</h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              A commercial bond involves three key parties:
+            </p>
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+              <li>
+              <span className="font-semibold"> The Principal </span> – The business owner or entity required to obtain the bond.
+              </li>
+              <li>
+               <span className="font-semibold">The Obligee</span>  – The party (often a government agency) that requires the bond to ensure compliance.
+              </li>
+              <li>
+               <span className="font-semibold">The Surety</span>  – The insurance company or bonding company that issues the bond and guarantees payment if a claim is made.
+              </li>
+            </ul>
+            <p className="mb-4">
+              When a bonded business fails to meet its obligations, such as violating industry regulations, 
+              the obligee can file a claim. The surety company may pay the claim, but the principal remains 
+              responsible for repaying the amount.
+            </p>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Benefits of Commercial Bonds</h2>
-          <ol className="list-decimal list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li className="mb-2">
-              <span className="font-semibold">Builds Trust and Credibility</span> - Having a commercial bond reassures customers and government agencies that a business operates ethically and is financially secure.
-            </li>
-            <li className="mb-2">
-              <span className="font-semibold">Legal Compliance</span> - Many industries and professions require commercial bonds as part of licensing requirements. Without them, businesses cannot legally operate.
-            </li>
-            <li className="mb-2">
-              <span className="font-semibold">Financial Protection</span> - Commercial bonds provide financial security to the obligee in case of non-compliance or unethical business practices.
-            </li>
-            <li className="mb-2">
-              <span className="font-semibold">Competitive Advantage</span> - Being bonded can give businesses an edge over competitors, as customers may prefer to work with bonded companies due to the added financial security.
-            </li>
-          </ol>
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Benefits of Commercial Bonds</h2>
+            <ol className="list-decimal list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+              <li className="mb-2">
+                <span className="font-semibold">Builds Trust and Credibility</span> - Having a commercial bond reassures customers and government agencies that a business operates ethically and is financially secure.
+              </li>
+              <li className="mb-2">
+                <span className="font-semibold">Legal Compliance</span> - Many industries and professions require commercial bonds as part of licensing requirements. Without them, businesses cannot legally operate.
+              </li>
+              <li className="mb-2">
+                <span className="font-semibold">Financial Protection</span> - Commercial bonds provide financial security to the obligee in case of non-compliance or unethical business practices.
+              </li>
+              <li className="mb-2">
+                <span className="font-semibold">Competitive Advantage</span> - Being bonded can give businesses an edge over competitors, as customers may prefer to work with bonded companies due to the added financial security.
+              </li>
+            </ol>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How to Obtain a Commercial Bond</h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            The process of getting a commercial bond typically involves the following steps:
-          </p>
-          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li>
-              <span className="font-semibold">Determine the Bond Requirement</span> – Identify the type of bond needed based on industry and government regulations.
-            </li>
-            <li>
-              <span className="font-semibold">Choose a Reputable Surety Company</span> – Work with a reliable surety provider that specializes in commercial bonds.
-            </li>
-            <li>
-              <span className="font-semibold">Submit an Application</span> – Provide details about the business, financial history, and required bond amount.
-            </li>
-            <li>
-              <span className="font-semibold">Undergo a Credit Check</span> – Surety companies assess the applicant&apos;s financial stability before issuing a bond.
-            </li>
-            <li>
-              <span className="font-semibold">Pay the Bond Premium</span> – The cost of the bond depends on factors such as credit score, business history, and bond amount.
-            </li>
-            <li>
-              <span className="font-semibold">Receive the Bond and Stay Compliant</span> – Once issued, the business must comply with all regulations to avoid claims.
-            </li>
-          </ul>
-        </div>
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How to Obtain a Commercial Bond</h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              The process of getting a commercial bond typically involves the following steps:
+            </p>
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+              <li>
+                <span className="font-semibold">Determine the Bond Requirement</span> – Identify the type of bond needed based on industry and government regulations.
+              </li>
+              <li>
+                <span className="font-semibold">Choose a Reputable Surety Provider</span> – Work with Prime Insurance Services to find the best bond solutions.
+              </li>
+              <li>
+                <span className="font-semibold">Submit an Application</span> – Provide details about the business, financial history, and required bond amount.
+              </li>
+              <li>
+                <span className="font-semibold">Undergo a Credit Check</span> – Surety companies assess the applicant&apos;s financial stability before issuing a bond.
+              </li>
+              <li>
+                <span className="font-semibold">Pay the Bond Premium</span> – The cost of the bond depends on factors such as credit score, business history, and bond amount.
+              </li>
+              <li>
+                <span className="font-semibold">Receive the Bond and Stay Compliant</span> – Maintain adherence to regulations to avoid claims.
+              </li>
+            </ul>
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              Get the Right Commercial Bond with Prime Insurance Services
+            </h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              At Prime Insurance Services, we specialize in commercial bond solutions that help businesses 
+              comply with regulations, protect their reputation, and enhance financial security. Contact us 
+              today to get started.
+            </p>
+          </div>
         </div>
         {/* Form Section */}
         <div>

@@ -173,7 +173,7 @@ const Carriers = () => {
         <div>
             <section className="w-full py-12 overflow-hidden">
                 <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-8">
-                    Partner Carriers we have
+                    Partner Carriers
                 </h2>
                 <div className="relative w-full flex items-center">
                     <motion.div

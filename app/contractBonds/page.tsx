@@ -32,85 +32,90 @@ const ContractBonds = () => {
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
   <div className="text-sm md:text-base">
     <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
-            Contract Bonds
-          </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
-            A Contract Bond is a type of surety bond specifically designed for construction projects. It guarantees that a contractor (the principal) will meet contractual obligations, including project completion and payment to subcontractors and suppliers.
-          </p>
+      Contract Bonds
+    </h2>
+    <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
+      Ensuring Trust and Compliance in Construction Projects<br/>
+      A Contract Bond is a type of surety bond designed specifically for construction projects. It guarantees that a contractor (the principal) will fulfill their contractual obligations, including project completion and payments to subcontractors and suppliers. Prime Insurance Services provides contract bonds that help contractors build credibility, meet legal requirements, and reduce financial risks.
+    </p>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Key Parties Involved in a Contract Bond</h2>
-          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li><span className="font-semibold">Principal</span> – The contractor who is required to obtain the bond.</li>
-            <li><span className="font-semibold">Obligee</span> – The project owner that requires the bond.</li>
-            <li><span className="font-semibold">Surety</span> – The company that provides the bond and guarantees fulfillment.</li>
-          </ul>
+    <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Key Parties Involved in a Contract Bond</h2>
+    <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+      <li><span className="font-semibold">Principal</span> – The contractor who is required to obtain the bond.</li>
+      <li><span className="font-semibold">Obligee</span> – The project owner that requires the bond.</li>
+      <li><span className="font-semibold">Surety</span> – The company that provides the bond and guarantees fulfillment.</li>
+    </ul>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">The 3 Cs of Surety: Key Factors in Contract Bond Underwriting</h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            Surety companies evaluate contractors based on three fundamental factors known as the 3 Cs of Surety:
-          </p>
+    <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">The 3 Cs of Surety: Key Factors in Contract Bond Underwriting</h2>
+    <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+      Surety companies evaluate contractors based on three fundamental factors known as the 3 Cs of Surety:
+    </p>
 
-          <div className="mb-5">
-            <h3 className="font-semibold mb-2">1. Character</h3>
-            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-              <li>Reflects the contractor&apos;s integrity, reliability, and track record.</li>
-              <li>Includes past project performance, business ethics, and reputation.</li>
-            </ul>
+    <div className="mb-5">
+      <h3 className="font-semibold mb-2">1. Character</h3>
+      <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+        <li>Reflects the contractor&apos;s integrity, reliability, and track record.</li>
+        <li>Includes past project performance, business ethics, and reputation.</li>
+      </ul>
 
-            <h3 className="font-semibold mb-2">2. Capacity</h3>
-            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-              <li>Measures the contractor&apos;s ability to complete projects successfully.</li>
-              <li>Includes technical expertise, management experience, and resources.</li>
-            </ul>
+      <h3 className="font-semibold mb-2">2. Capacity</h3>
+      <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+        <li>Measures the contractor&apos;s ability to complete projects successfully.</li>
+        <li>Includes technical expertise, management experience, and resources.</li>
+      </ul>
 
-            <h3 className="font-semibold mb-2">3. Capital</h3>
-            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-              <li>Assesses the contractor&apos;s financial stability and ability to cover costs.</li>
-              <li>Includes financial statements, credit history, and cash flow management.</li>
-            </ul>
-          </div>
+      <h3 className="font-semibold mb-2">3. Capital</h3>
+      <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+        <li>Assesses the contractor&apos;s financial stability and ability to cover costs.</li>
+        <li>Includes financial statements, credit history, and cash flow management.</li>
+      </ul>
+    </div>
 
-          <p className="mb-6">
-            Strengthening these three areas enhances a contractor&apos;s ability to secure larger bond programs and win more projects.
-          </p>
+    <p className="mb-6">
+      Strengthening these three areas enhances a contractor&apos;s ability to secure larger bond programs and win more projects.
+    </p>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Benefits of Contract Bonds</h2>
-          <div className="mb-5">
-            <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">1. Protection for Project Owners</h3>
-            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-              Contract bonds provide financial security, ensuring that projects are completed as agreed and subcontractors are paid.
-            </p>
+    <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Benefits of Contract Bonds</h2>
+    <div className="mb-5">
+      <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">1. Protection for Project Owners</h3>
+      <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+        Contract bonds provide financial security, ensuring that projects are completed as agreed and subcontractors are paid.
+      </p>
 
-            <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">2. Increased Contractor Credibility</h3>
-            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-              Having contract bonds demonstrates a contractor&apos;s reliability and financial strength, making them more attractive to project owners.
-            </p>
+      <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">2. Increased Contractor Credibility</h3>
+      <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+        Having contract bonds demonstrates a contractor&apos;s reliability and financial strength, making them more attractive to project owners.
+      </p>
 
-            <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">3. Compliance with Legal Requirements</h3>
-            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-              Many government projects require contract bonds, making them essential for contractors who want to work on public sector projects.
-            </p>
+      <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">3. Compliance with Legal Requirements</h3>
+      <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+        Many government projects require contract bonds, making them essential for contractors who want to work on public sector projects.
+      </p>
 
-            <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">4. Reduced Financial Risk</h3>
-            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-              Contract bonds minimize financial risk for all parties involved, ensuring that contractors meet obligations and subcontractors are compensated.
-            </p>
-          </div>
+      <h3 className="text-[18px] text-[#393939] font-opensans font-semibold mb-2">4. Reduced Financial Risk</h3>
+      <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+        Contract bonds minimize financial risk for all parties involved, ensuring that contractors meet obligations and subcontractors are compensated.
+      </p>
+    </div>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How to Obtain a Contract Bond</h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            Contractors seeking a contract bond must go through a thorough application and underwriting process:
-          </p>
-          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li>Assess Bond Requirements – Determine the type and amount of bond needed for the project.</li>
-            <li>Choose a Reputable Surety Provider – Work with a trusted surety company experienced in construction bonds.</li>
-            <li>Submit an Application – Provide business and financial details, including past project history.</li>
-            <li>Undergo Financial and Background Review – The surety evaluates the contractor&apos;s financial strength, experience, and reputation.</li>
-            <li>Pay the Bond Premium – The cost of the bond varies based on the contractor&apos;s credit, financial stability, and project size.</li>
-            <li>Receive and Maintain the Bond – Once issued, the contractor must comply with all bond conditions to avoid claims.</li>
-          </ul>
-        </div>
-        </div>
+    <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">How to Obtain a Contract Bond</h2>
+    <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+      Contractors seeking a contract bond must go through a thorough application and underwriting process:
+    </p>
+    <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+      <li>Assess Bond Requirements – Determine the type and amount of bond needed for the project.</li>
+      <li>Choose a Reputable Surety Provider – Work with a trusted surety company experienced in construction bonds.</li>
+      <li>Submit an Application – Provide business and financial details, including past project history.</li>
+      <li>Undergo Financial and Background Review – The surety evaluates the contractor&apos;s financial strength, experience, and reputation.</li>
+      <li>Pay the Bond Premium – The cost of the bond varies based on the contractor&apos;s credit, financial stability, and project size.</li>
+      <li>Receive and Maintain the Bond – Once issued, the contractor must comply with all bond conditions to avoid claims.</li>
+    </ul>
+
+    <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+      At Prime Insurance Services, we provide reliable contract bonds that help contractors establish trust, comply with legal requirements, and protect all parties involved in a project. Contact us today to get started.
+    </p>
+  </div>
+</div>
       
           {/* Bond Types Section */}
         <div className="p-4 md:p-8" ref={ref}>

@@ -30,77 +30,71 @@ export default function lifeInsurance() {
 
       {/* Text Content */}
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
-  <div className="text-sm md:text-base">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
-          Life Insurance
-        </h2>
-        <h2 className="text-xl mt-8 md:text-2xl font-semibold mt-3 mb-4 font-sans">
-          Protect Your Loved Ones With Anchor Insurance Agency
-        </h2>
-        <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-          It&apos;s the place you and your No one knows what the future holds. Yet,
-          you can take steps now to protect your loved ones in the event of your
-          death. Life insurance provides financial support for everything from
-          mortgage payments to funeral expenses. We&apos;re here to help you protect
-          what matters most to you. And what matters more than family? Protect
-          your loved ones&apos; future wellbeing with custom life insurance policies
-          by Anchor Insurance Agency.
-        </p>
+        <div className="text-sm md:text-base">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
+            Life Insurance
+          </h2>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mt-3 mb-4 font-sans">
+            Secure Your Family&apos;s Future with Prime Insurance Services
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+            Life is unpredictable, but you can take steps today to protect your loved ones from financial hardship. 
+            Life insurance provides essential financial support, covering everything from mortgage payments to daily 
+            living expenses and funeral costs. With Prime Insurance Services, you can ensure your family&apos;s financial 
+            stability no matter what the future holds.
+          </p>
 
-        {/* Factors Affecting Premiums */}
-        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
-          Life Insurance: Financial Support for Your Family&apos;s Future
-        </h2>
-        <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-          Life insurance is designed to deliver financial support to your family
-          if you should pass away. The beneficiaries you choose will receive a
-          lump-sum payment called a death benefit, which they can use to replace
-          lost income, repay debts and cover necessary expenses. Without life
-          insurance, you run the risk of leaving your family responsible for any
-          debt you leave behind. And if you&apos;re the primary income earner for
-          your family, you may leave them reeling from financial loss. A
-          comprehensive life insurance policy can eliminate these threats.
-        </p>
-        {/* Optional Add-Ons */}
-        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
-          Our Life Insurance Policy Options:
-        </h2>
-        <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-          There&apos;s a wide range of life insurance products available on the
-          market today. And by partnering with 30 insurance companies, we&apos;re
-          proud to be able to deliver them all. Some of the life insurance
-          policies we offer include:
-        </p>
-        <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-          <li>Term life</li>
-          <li>Whole life</li>
-          <li>Universal whole life</li>
-          <li>Annuities</li>
-          <li>Disability</li>
-        </ul>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+            Why Life Insurance Matters
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+            Life insurance provides a lump-sum payment, known as a death benefit, to your beneficiaries in the event 
+            of your passing. This financial support can help them:
+          </p>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li>Replace lost income and maintain their standard of living</li>
+            <li>Pay off outstanding debts, such as mortgages or loans</li>
+            <li>Cover medical bills and funeral expenses</li>
+            <li>Secure future financial goals, including education or retirement</li>
+          </ul>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+            Without life insurance, your family may face unexpected financial burdens, especially if you are the primary 
+            income earner. A well-structured policy eliminates these uncertainties and provides long-term security.
+          </p>
 
-        <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
-          How to Choose the Right Insurance?
-        </h2>
-        <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-          <li>
-            Assess Risks: Evaluate the specific risks associated with your
-            industry and business activities.
-          </li>
-          <li>
-            Legal Requirements: Check the mandatory insurance requirements in
-            your region or industry.
-          </li>
-          <li>
-            Budget Considerations: Balance coverage needs with affordability.
-          </li>
-          <li>
-            Consult an Agent: Seek professional advice to tailor coverage to
-            your business needs.
-          </li>
-        </ul>
-          </div>
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+            Life Insurance Policy Options
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+            Prime Insurance Services offers a variety of life insurance plans to meet different needs and financial goals:
+          </p>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li>Term Life Insurance – Provides coverage for a specific period at an affordable rate</li>
+            <li>Whole Life Insurance – Offers lifelong protection with cash value accumulation</li>
+            <li>Universal Life Insurance – Provides flexible coverage with investment growth potential</li>
+            <li>Annuities – Ensures financial security with guaranteed income for retirement</li>
+            <li>Disability Insurance – Offers financial protection if you are unable to work due to injury or illness</li>
+          </ul>
+
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+            Choosing the Right Life Insurance Policy
+          </h2>
+          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+            <li>Assess Your Needs – Consider financial obligations, future expenses, and income replacement</li>
+            <li>Understand Policy Options – Compare term, whole, and universal life insurance benefits</li>
+            <li>Consider Your Budget – Select a plan that balances affordability with long-term security</li>
+            <li>Consult an Expert – Our experienced advisors help customize coverage to fit your specific situation</li>
+          </ul>
+
+          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+            Plan for Tomorrow, Today
+          </h2>
+          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+            With Prime Insurance Services, you get personalized life insurance solutions designed to protect what matters 
+            most—your family. Contact us today to explore the best options for your financial future.
+          </p>
         </div>
+      </div>
 
       <div>
           <Form  />

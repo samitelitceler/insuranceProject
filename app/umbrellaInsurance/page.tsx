@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import NavSection from "@/components/nav-section/nav";
 import { Inter } from "next/font/google";
@@ -28,61 +28,46 @@ const UmbrellaInsurance = () => {
         </div>
         {/* Information Section */}
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-  <div className="text-sm md:text-base">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans"> 
-            Umbrella Insurance
-          </h2>
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
-            Gain Extra Coverage for Claims Against You With Umbrella Insurance
-          </h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
-            In rare cases, even quality homeowners&apos; and auto insurance
-            policies aren&apos;t enough to protect your finances should a claim
-            be filed against you. If you&apos;re found liable for more than your
-            current insurance will cover, an umbrella insurance policy can fill
-            the gap. Based in Plymouth, Minnesota, Anchor Insurance Agency
-            provides umbrella insurance policies to individuals and families
-            throughout Minnesota, Wisconsin, Arizona, Florida, Nevada and
-            Colorado. Let us help you protect your wellbeing, no matter what
-            comes next.
-          </p>
+          <div className="text-sm md:text-base">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
+              Umbrella Insurance: Extra Protection When You Need It Most
+            </h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
+              Standard homeowners and auto insurance policies provide essential coverage, but in some cases, they may not be enough. If a claim exceeds your existing policy limits, umbrella insurance steps in to fill the gap, protecting your assets and financial security.
+            </p>
+            <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">
+              At Prime Insurance Services, we help individuals and families secure additional liability coverage, ensuring peace of mind no matter what life brings.
+            </p>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">What Is Umbrella Insurance?</h2>
-          <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-            Umbrella insurance is a type of liability insurance that works
-            alongside your homeowners&apos; or auto insurance. The goal of
-            umbrella insurance is to provide additional financial support if
-            you&apos;re found liable for an accident or injury. For example, if
-            you cause a pile-up on the interstate that results in the severe
-            injury of several parties and they sue, the claim may be larger than
-            your other policies will cover. Your umbrella policy would then kick
-            in to provide the rest. Umbrella insurance doesn&apos;t only cover
-            you. It will also cover those closest to you, such as your spouse
-            and kids. For example, if your newly 16-year-old teen causes a
-            severe accident, your umbrella policy is there if you need it.
-          </p>
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">What Is Umbrella Insurance?</h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              Umbrella insurance is a supplemental liability policy that works alongside your homeowners, auto, or other personal insurance policies. It provides additional coverage in case you are found legally responsible for an accident, injury, or property damage that exceeds the limits of your existing policies.
+            </p>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              For example:
+            </p>
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+              <li>If you&apos;re involved in a multi-car accident resulting in severe injuries, and the claims exceed your auto insurance coverage, an umbrella policy covers the remaining costs.</li>
+              <li>If someone suffers a serious injury on your property and sues for damages beyond what your homeowners&apos; insurance covers, an umbrella policy provides extra protection.</li>
+              <li>If a family member, such as a teenage driver, causes a costly accident, your umbrella insurance can help cover the liability.</li>
+            </ul>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              Umbrella insurance not only protects you but also extends coverage to your spouse and dependent family members, ensuring comprehensive protection.
+            </p>
 
-          <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
-            How to Choose the Right Insurance?
-          </h2>
-          <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
-            <li>
-              Assess Risks: Evaluate the specific risks associated with your
-              industry and business activities.
-            </li>
-            <li>
-              Legal Requirements: Check the mandatory insurance requirements in
-              your region or industry.
-            </li>
-            <li>
-              Budget Considerations: Balance coverage needs with affordability.
-            </li>
-            <li>
-              Consult an Agent: Seek professional advice to tailor coverage to
-              your business needs.
-            </li>
-          </ul>
-        </div>
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Choosing the Right Umbrella Insurance Policy</h2>
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+              <li>Assess Your Risk Exposure – Consider your lifestyle, assets, and potential liability risks.</li>
+              <li>Review Existing Coverage – Determine whether your current policies provide enough liability protection.</li>
+              <li>Understand Legal Requirements – While not legally required, umbrella insurance is highly recommended for added security.</li>
+              <li>Work with an Expert – Our experienced agents help customize a policy that fits your needs and financial situation.</li>
+            </ul>
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">Why Choose Prime Insurance Services?</h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              With Prime Insurance Services, you receive personalized umbrella insurance solutions designed to provide financial protection beyond standard policies. Contact us today to explore your options and secure the extra coverage you need.
+            </p>
+          </div>
         </div>
 
         {/* Form Section */}

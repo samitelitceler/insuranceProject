@@ -1,6 +1,5 @@
 'use client';
 import React from "react";
-import Link from "next/link";
 import NavSection from "@/components/nav-section/nav";
 import {
   Car,
@@ -57,6 +56,16 @@ const insuranceOptions = [
 ];
 
 function CompareQuotes() {
+  const handleInsuranceClick = (path: string) => {
+    const ezlynxUrl = "http://sgt2.ezlynx.com/ls/click?upn=u001.rm8aNjauuBJWvFaVyKUmk3JQhrODDXZR4jPVn39fXtGpMjwgsQbikcptGOdhdhl-2B6sFik-2B89MlNq8WCrXWmnPjyjg4wENAuujAOVlzdKjLzTd0JdxqJloaz2-2BgzW4OLaDU5-_4uPN2jI8bTL0Cws4JGJkHF5x95e04t-2BUCNzi0ZHkQsgXtNc-2FwytgmGD-2Bdm-2BbApD3LdGQabJfRPsnZs1T7A-2B52CwEPMNoFiV8jrfhHrZN4gOdt3thkHr-2FmpIJBA42ojpXW0F4A1PXDzcbcvqQlsWcduJr5gI1hnx2VYZ-2BQ05VZa39R4UaMqT3KoKhucMnCv-2BGwNHLDHCafSXzMimT8xT11LoTCyeVH5IPa8V41duTtuc-3D";
+    
+    if (path === 'homeinsurance' || path === 'autoinsurance') {
+      window.open(ezlynxUrl, '_blank');
+    } else {
+      window.location.href = `/${path}`;
+    }
+  };
+
   return (
     <>
       <NavSection />
@@ -76,12 +85,14 @@ function CompareQuotes() {
           {/* Insurance Options Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 max-w-4xl mx-auto">
             {insuranceOptions.map((option, index) => (
-              <Link key={index} href={option.path} passHref>
-                <div className="flex items-center bg-gray-800 text-white p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition duration-300">
-                  <span className="text-2xl mr-3">{option.icon}</span>
-                  <span className="text-[18px] font-opensans font-medium">{option.name}</span>
-                </div>
-              </Link>
+              <div
+                key={index}
+                onClick={() => handleInsuranceClick(option.path)}
+                className="flex items-center bg-gray-800 text-white p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition duration-300"
+              >
+                <span className="text-2xl mr-3">{option.icon}</span>
+                <span className="text-[18px] font-opensans font-medium">{option.name}</span>
+              </div>
             ))}
           </div>
         </div>

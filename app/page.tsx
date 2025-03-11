@@ -20,21 +20,27 @@ import { useRouter } from "next/navigation";
 import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
 import { useState } from "react";
+import { useInView } from '@/hooks/useInView';
 import React from "react";
 import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function Home() {
   const router = useRouter();
-  const [selectedPath, setSelectedPath] = useState("");
   const [isHovered, setIsHovered] = useState(false);
+  const [ref, isInView] = useInView({ threshold: 0.2 });
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedPath(event.target.value);
-  };
   const handleNavigation = () => {
-    if (selectedPath) {
-      router.push(`/${selectedPath}`);
+    const ezlynxUrl = "http://sgt2.ezlynx.com/ls/click?upn=u001.rm8aNjauuBJWvFaVyKUmk3JQhrODDXZR4jPVn39fXtGpMjwgsQbikcptGOdhdhl-2B6sFik-2B89MlNq8WCrXWmnPjyjg4wENAuujAOVlzdKjLzTd0JdxqJloaz2-2BgzW4OLaDU5-_4uPN2jI8bTL0Cws4JGJkHF5x95e04t-2BUCNzi0ZHkQsgXtNc-2FwytgmGD-2Bdm-2BbApD3LdGQabJfRPsnZs1T7A-2B52CwEPMNoFiV8jrfhHrZN4gOdt3thkHr-2FmpIJBA42ojpXW0F4A1PXDzcbcvqQlsWcduJr5gI1hnx2VYZ-2BQ05VZa39R4UaMqT3KoKhucMnCv-2BGwNHLDHCafSXzMimT8xT11LoTCyeVH5IPa8V41duTtuc-3D";
+    
+    const selectedValue = document.querySelector('select')?.value;
+    if (selectedValue === 'homeinsurance' || selectedValue === 'autoinsurance') {
+      window.open(ezlynxUrl, '_blank');
+    } else {
+      // Navigate to the selected path if it's not home or auto insurance
+      if (selectedValue) {
+        router.push(selectedValue);
+      }
     }
   };
 
@@ -114,7 +120,6 @@ export default function Home() {
             </h1>
             <div className="flex flex-col items-start gap-2 mt-4 w-full md:w-64">
               <select
-                onChange={handleChange}
                 className="w-full text-black p-2 border rounded"
                 defaultValue=""
               >
@@ -228,9 +233,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* New Independent Agency Advantage Section */}
+      <section className="w-full px-4 md:px-8 py-16 bg-gray-50" ref={ref}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-[48px] text-[#002B5B] font-bold text-center mb-4">The Independent Agency Advantage</h2>
+          <p className="text-xl text-center mb-4">Why Choose an Independent Insurance Agency?</p>
+          <p className="text-lg text-center mb-12">Not all insurance agencies are the same. As an independent agency, Prime Insurance Services works for you—not a single insurance company. This means we provide unbiased guidance, competitive pricing, and a wide range of coverage options to meet your specific needs.</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "More Choices, Better Coverage",
+                delay: "0.2s",
+                description: "As an independent insurance agency, we have access to multiple insurance carriers, allowing us to find the best coverage options tailored to your specific needs."
+              },
+              {
+                title: "Here When You Need Us",
+                delay: "0.4s",
+                description: "Our dedicated team provides personalized support and guidance throughout the claims process, ensuring you receive the assistance you deserve when you need it most."
+              },
+              {
+                title: "Expert Guidance, Every Time",
+                delay: "0.6s",
+                description: "Our team consists of experienced, licensed professionals who stay up-to-date with industry trends and regulations to provide expert guidance and recommendations."
+              }
+            ].map((advantage, index) => (
+              <div
+                key={index}
+                className={`${isInView ? 'animate-slide-in' : 'opacity-0 translate-x-[-100%]'} hover:shadow-lg transition-shadow duration-300`}
+                style={{ animationDelay: advantage.delay }}
+              >
+                <div className="flex flex-col items-start p-6 bg-white rounded-lg">
+                  <div className="self-center mb-4"></div>
+                  <h3 className="text-[#0067B2] text-2xl font-semibold mb-4">{advantage.title}</h3>
+                  <p className="text-[#393939] font-opensans text-[18px] leading-[30px]">
+                    {advantage.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-
-
+          <div className="text-center mt-12">
+            <p className="text-lg mb-6">
+              Choosing Prime Insurance Services means choosing a partner who puts your needs first. Contact us today to discover how independent insurance can give you better protection, better value, and better service.
+            </p>
+            <Button
+              onClick={() => router.push('/contactUs')}
+              className="font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-8 py-3"
+            >
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <Carriers />
 
