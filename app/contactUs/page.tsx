@@ -4,7 +4,7 @@ import Footer from "@/components/footer/Footer";
 import NavSection from "@/components/nav-section/nav";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Car,
   Umbrella,
@@ -25,6 +25,7 @@ function ContactUs() {
   const router = useRouter();
   const [selectedPath, setSelectedPath] = useState("");
   const [isHovered, setIsHovered] = useState(false);
+  const motionRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedPath(event.target.value);
@@ -114,26 +115,27 @@ function ContactUs() {
               </select>
               <Button
                 onClick={handleNavigation}
-                className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
+                className="w-full font-sans font-semibold bg-transparent border border-white hover:bg-[#536AAE] hover:border-[#536AAE] text-white px-6 py-3"
               >
                 START QUOTE
-              </Button>
+              </Button> 
             </div>
           </div>
         </div>
       </section>
 
       <section
-        className="w-full bg-gray-800 py-4"
+        className="w-full bg-[#536AAE] py-4"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="overflow-hidden">
           <motion.div
+            ref={motionRef}
             className="flex space-x-30"
-            animate={{ x: isHovered ? "0%" : ["0%", "-50%"] }}
+            animate={{ x: isHovered ? 0 : "-50%" }}
             transition={{
-              repeat: Infinity,
+              repeat: isHovered ? 0 : Infinity,
               duration: 20,
               ease: "linear",
             }}
@@ -160,7 +162,7 @@ function ContactUs() {
                 </div>
 
                 {index !== [...insuranceOptions, ...insuranceOptions].length - 1 && (
-                  <div className="h-28 border-l border-gray-500 mx-12"></div>
+                  <div className="h-28 border-l border-[#11193B] mx-12"></div>
                 )}
               </div>
             ))}
@@ -171,41 +173,41 @@ function ContactUs() {
       <div className="min-h-screen">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div id="contact-form" className="mt-8">
-            <h1 className="text-4xl font-bold text-gray-800 text-left">
+            <h1 className="text-4xl font-bold text-[#11193B] text-left">
               Contact Us
             </h1>
             <p className="text-left text-gray-600 mt-2">Home » Contact Us</p>
           </div>
 
-          <h2 className="text-5xl font-semibold text-gray-800 text-left mt-8">
+          <h2 className="text-5xl font-semibold text-[#11193B] text-left mt-8">
             Contact Prime Insurance Services
           </h2>
 
           <div  className="grid md:grid-cols-2 gap-12 mt-8 max-w-6xl mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-[#11193B] mb-6">
                 Prime Insurance Services
               </h2>
               
               <div  className="space-y-4">
                 <div className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-gray-800 mt-1" />
-                  <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
+                <FaMapMarkerAlt className="text-[#11193B] mt-1" />
+                  <p className="text-[#11193B] text-lg hover:text-gray-900 cursor-pointer">
                     3440 Toringdon Way, Suite 205<br />
                     Office 254, Charlotte NC 28277
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-gray-800 mt-1" />
-                  <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
+                <FaPhoneAlt className="text-[#11193B] mt-1" />
+                  <p className="text-[#11193B] text-lg hover:text-gray-900 cursor-pointer">
                     980-297-9827
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3">
-                <FaEnvelope className="text-gray-800 mt-1" />
-                  <p className="text-gray-700 text-lg hover:text-gray-900 cursor-pointer">
+                <FaEnvelope className="text-[#11193B] mt-1" />
+                  <p className="text-[#11193B] text-lg hover:text-gray-900 cursor-pointer">
                     info@primeinsurancellc.com
                   </p>
                 </div>
@@ -250,7 +252,7 @@ function ContactUs() {
                   
                   <button
                     type="submit"
-                    className="w-full bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md transition duration-300"
+                    className="w-full bg-[#11193B] hover:bg-[#536AAE] text-white px-6 py-3 rounded-md transition duration-300"
                   >
                     Send Message
                   </button>
@@ -258,7 +260,7 @@ function ContactUs() {
               </form>
             </div>
 
-            <div className="border-4 border-gray-200 rounded-lg overflow-hidden shadow-lg">
+              <div className="border-4 border-gray-200 rounded-lg overflow-hidden shadow-lg">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.536614201292!2d-80.84008732386392!3d35.06206997297264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541ff03c8d47df%3A0x4eaf6b4dfb3018ff!2s3440%20Toringdon%20Way%2C%20Charlotte%2C%20NC%2028277%2C%20USA!5e0!3m2!1sen!2sus!4v1700000000000"
                 className="w-full h-full min-h-[600px]"

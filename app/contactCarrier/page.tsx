@@ -189,7 +189,7 @@ function ContactCarrier() {
             </select>
             <Button
               onClick={handleNavigation}
-              className="w-full bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white text-2xl px-6 py-3"
+              className="w-full bg-transparent border border-white hover:bg-[#536AAE] hover:border-[#536AAE] text-white text-2xl px-6 py-3"
             >
               Quote it!
             </Button>

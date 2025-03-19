@@ -88,12 +88,12 @@ export default function NavSection() {
         <div className="hidden lg:flex items-center justify-end space-x-4 md:space-x-8 h-full flex-1">
           {/* Email An Agent */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <svg className="w-5 h-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="w-5 h-5 text-[#11193B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
               <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
             </svg>
             <span 
-              className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer" 
+              className="text-[#11193B] hover:text-[#536AAE] hover:underline cursor-pointer" 
               onClick={handleEmailAgentClick}
             >
               Email An Agent
@@ -102,8 +102,8 @@ export default function NavSection() {
 
           {/* Make an Appointment */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <FaCalendar className="text-gray-700 text-lg" />
-            <Link className="text-gray-700 hover:text-[#D2091D] cursor-pointer hover:underline"
+            <FaCalendar className="text-[#11193B] text-lg" />
+            <Link className="text-[#11193B] hover:text-[#536AAE] cursor-pointer hover:underline"
               href="https://calendly.com/primeinsurancellc-info/30min"
               target="_blank"
               rel="noopener noreferrer"
@@ -114,15 +114,15 @@ export default function NavSection() {
 
           {/* Follow Us */}
           <div className="flex items-center gap-2">
-            <span className="text-gray-700">Follow Us</span>
+            <span className="text-[#11193B]">Follow Us</span>
             <div className="flex gap-2">
               <FaFacebookF
                 onClick={() => window.open('https://www.facebook.com/PrimeInsuranceServicesLLC/', '_blank')}
-                className="text-gray-700 cursor-pointer hover:text-[#D2091D]"
+                className="text-[#11193B] cursor-pointer hover:text-[#536AAE]"
               />
               <FaInstagram 
                 onClick={() => window.open('https://www.instagram.com/PrimeInsuranceServicesLLC/', '_blank')}
-                className="text-gray-700 cursor-pointer hover:text-[#D2091D]"
+                className="text-[#11193B] cursor-pointer hover:text-[#536AAE]"
               />
             </div>
           </div>
@@ -131,28 +131,28 @@ export default function NavSection() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="py-0">
               <div className="flex items-center gap-2 cursor-pointer">
-                <svg className="w-5 h-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 text-[#11193B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                   <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer">My Account</span>
-                <ChevronDown className="text-gray-700" />
+                <span className="text-[#11193B] hover:text-[#536AAE] hover:underline cursor-pointer">My Account</span>
+                <ChevronDown className="text-[#11193B]" />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-48 bg-white border shadow-lg">
               <DropdownMenuItem
-                className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
               >
                 View Policies
               </DropdownMenuItem>
               <DropdownMenuItem
-                className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
               >
                 Print Id Cards
               </DropdownMenuItem>
               <DropdownMenuItem
-                className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
               >
                 Add Driver
@@ -165,7 +165,7 @@ export default function NavSection() {
         <div className="lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-700 focus:outline-none"
+            className="text-[#11193B] focus:outline-none"
           >
             {isOpen ? <HiX size={28} /> : <HiOutlineMenu size={28} />}
           </button>
@@ -173,7 +173,7 @@ export default function NavSection() {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex justify-between p-4 items-center bg-gradient-to-b from-[#D2091D] to-[#880310]">
+      <div className="hidden lg:flex justify-between p-4 items-center bg-[#536AAE]">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <ul className="flex flex-wrap space-x-6 font-semibold text-white text-base">
             <li className="whitespace-nowrap">
@@ -215,94 +215,94 @@ export default function NavSection() {
                     <ChevronDown />
                   </div>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-48 text-gray-700 cursor-pointer border-none">
+                <DropdownMenuContent className="w-48 text-[#11193B] cursor-pointer border-none">
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/autoinsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Auto Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/homeinsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Home Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/lifeInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Life Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/businessInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Business Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/personalInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Personal Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/umbrellaInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Umbrella Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/cyberInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Cyber Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/rentersInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Renters Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/motorcycleInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Motorcycle Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/transportationalInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Transportational Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/boatInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Boat Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/condoInsurance')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Condo Insurance
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/contractBonds')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Contract Bonds
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/commercialBonds')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Commercial Bonds
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => handleNavigation('/notaryBonds')} 
-                    className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   >
                     Notary Bonds
                   </DropdownMenuItem>
@@ -337,13 +337,13 @@ export default function NavSection() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-48 text-white border-none">
                   <DropdownMenuItem
-                    className="hover:bg-gray-100 text-gray-700 bg-white cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] bg-white cursor-pointer"
                     onClick={() => window.open('https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login', '_blank')}
                   >
                     Client Center
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    className="hover:bg-gray-100 text-gray-700 bg-white cursor-pointer"
+                    className="hover:bg-gray-100 text-[#11193B] bg-white cursor-pointer"
                     onClick={() => handleDropdownNavigation("contactCarrier")}
                   >
                     Contact Your Carrier
@@ -370,7 +370,7 @@ export default function NavSection() {
 
       {/* Mobile Menu (Sliding Down) */}
       {isOpen && (
-        <div className="lg:hidden flex flex-col bg-gradient-to-b from-[#D2091D] to-[#880310] text-white p-4 space-y-4">
+        <div className="lg:hidden flex flex-col bg-[#11193B] text-white p-4 space-y-4">
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-2 text-white">
               <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -378,7 +378,7 @@ export default function NavSection() {
                 <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
               </svg>
               <span 
-                className="text-gray-700 hover:text-[#D2091D] hover:underline cursor-pointer" 
+                className="text-white hover:text-[#536AAE] hover:underline cursor-pointer" 
                 onClick={handleEmailAgentClick}
               >
                 Email An Agent
@@ -387,7 +387,7 @@ export default function NavSection() {
             
             <div className="flex items-center gap-2 text-white">
               <FaCalendar className="text-lg" />
-              <span className="hover:text-gray-200 cursor-pointer"
+              <span className="text-white hover:text-[#536AAE] hover:underline cursor-pointer"
                 onClick={() => window.open('https://calendly.com/primeinsurancellc-info/30min', '_blank')}>
                 Make an Appointment
               </span>
@@ -399,25 +399,25 @@ export default function NavSection() {
                   <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
                   </svg>
-                  <span>My Account</span>
+                  <span className="text-white hover:text-[#536AAE] hover:underline cursor-pointer">My Account</span>
                   <ChevronDown />
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 bg-white border shadow-lg">
                 <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
                 >
                   View Policies
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
                 >
                   Print Id Cards
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   onClick={() => window.open("https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login", "_blank")}
                 >
                   Add Driver
@@ -437,76 +437,76 @@ export default function NavSection() {
                   <ChevronDown />
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48 text-gray-700 cursor-pointer border-none">
+              <DropdownMenuContent className="w-48 text-[#11193B] cursor-pointer border-none">
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/autoinsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Auto Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/homeinsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Home Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/lifeInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Life Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/businessInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Business Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/personalInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Personal Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/umbrellaInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Umbrella Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/cyberInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Cyber Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/rentersInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Renters Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/motorcycleInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Motorcycle Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/transportationalInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Transportational Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/boatInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Boat Insurance
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/condoInsurance')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Condo Insurance
                 </DropdownMenuItem>
@@ -538,13 +538,13 @@ export default function NavSection() {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48  text-white border-none">
                 <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   onClick={() => window.open('https://customerservice.agentinsure.com/EzLynxCustomerService/web/primei/account/login', '_blank')}
                 >
                   Client Center
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                   onClick={() => handleDropdownNavigation("contactCarrier")}
                 >
                   Contact Your Carrier
@@ -567,19 +567,19 @@ export default function NavSection() {
               <DropdownMenuContent className="w-48 text-white border-none">
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/contractBonds')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Contract Bonds
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/commercialBonds')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Commercial Bonds
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => handleNavigation('/notaryBonds')} 
-                  className="hover:bg-gray-100 text-gray-700 cursor-pointer"
+                  className="hover:bg-gray-100 text-[#11193B] cursor-pointer"
                 >
                   Notary Bonds
                 </DropdownMenuItem>

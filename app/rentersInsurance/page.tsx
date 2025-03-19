@@ -30,7 +30,7 @@ const BusinessInsurance = () => {
         {/* Information Section */}
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-sm md:text-base">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-[#11193B] font-semibold font-sans">
               Renters Insurance
             </h2>
             <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">

@@ -73,12 +73,12 @@ function CompareQuotes() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           {/* Heading */}
           <div className="mt-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans">Insurance Quotes</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#11193B] font-semibold font-sans">Insurance Quotes</h1>
             <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px]">Home » Insurance Quotes</p>
           </div>
 
           {/* Subheading */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-red-600 font-semibold font-sans text-center mt-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#11193B] font-semibold font-sans text-center mt-8">
             Get Insurance Quotes
           </h2>
 

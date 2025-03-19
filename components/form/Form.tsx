@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 function Form() {
   return (
     <div id="form" className="p-4 md:p-8 max-w-5xl mx-auto font-sans">
-      <h2 className="text-xl md:text-4xl text-gray-800 font-bold text-center mb-6">
+      <h2 className="text-xl md:text-4xl text-[#11193B] font-bold text-center mb-6">
         Get a Quote
       </h2>
 
@@ -48,7 +48,7 @@ function Form() {
             
             <button
               type="submit"
-              className="w-full bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md transition duration-300"
+              className="w-full bg-[#11193B] hover:bg-[#536AAE] text-white px-6 py-3 rounded-md transition duration-300"
             >
               Send Message
             </button>
@@ -57,22 +57,22 @@ function Form() {
 
         {/* Right Side: Contact Info */}
         <div className="w-full md:w-1/2 bg-[#f8f8f8] p-6 md:p-10">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Insurance Agency</h3>
+          <h3 className="text-2xl font-bold text-[#11193B] mb-6">Prime Insurance Agency</h3>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-            <FaMapMarkerAlt className="text-gray-800 mt-1" />
-              <p className="text-gray-700 text-lg">
+            <FaMapMarkerAlt className="text-[#11193B] mt-1" />
+              <p className="text-[#11193B] text-lg">
                 3440 Toringdon Way, Suite 205<br />
                 Office 254, Charlotte NC 28277
               </p>
             </div>
             <div className="flex items-center gap-3">
-            <FaPhoneAlt className="text-gray-800 mt-1" />
-              <p className="text-gray-700 text-lg">980-297-9827</p>
+            <FaPhoneAlt className="text-[#11193B] mt-1" />
+              <p className="text-[#11193B] text-lg">980-297-9827</p>
             </div>
             <div className="flex items-center gap-3">
-            <FaEnvelope className="text-gray-800 mt-1" />
-              <p className="text-gray-700 text-lg">info@primeinsurancellc.com</p>
+            <FaEnvelope className="text-[#11193B] mt-1" />
+              <p className="text-[#11193B] text-lg">info@primeinsurancellc.com</p>
             </div>
             <div className="border-4 border-gray-200 rounded-lg overflow-hidden shadow-lg">
               <iframe

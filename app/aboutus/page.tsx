@@ -79,7 +79,7 @@ export default function About() {
         className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
-            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url(&apos;/images/bgHome.png&apos;) no-repeat center center / cover",
+            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -102,7 +102,7 @@ export default function About() {
                 ))}
               </select>
               <Button
-                className="w-full font-sans font-semibold bg-gradient-to-b from-[#D2091D] to-[#880310] hover:bg-red-700 text-white px-6 py-3"
+                className="w-full font-sans font-semibold bg-[#004884] hover:bg-red-700 text-white px-6 py-3"
               >
                 START QUOTE
               </Button>
@@ -113,32 +113,52 @@ export default function About() {
 
       {/* About Content Section */}
       <section className="w-full px-4 md:px-8 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="border border-red-400 rounded-lg p-6 md:p-10 text-left mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">About Prime Insurance Services</h2>
-            <h3 className="text-xl md:text-2xl font-semibold mb-6">Your Trusted Partner in Insurance Protection</h3>
-            <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
-              At Prime Insurance Services, we believe that insurance is more than just a policy—it&apos;s peace of mind. 
-              Whether you&apos;re protecting your home, business, or personal assets, our goal is to provide tailored 
-              insurance solutions that offer the right coverage, financial security, and support when you need it most.
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="text-sm md:text-base">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-[#11193B] font-semibold font-sans">
+              About Prime Insurance Services
+            </h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5 mt-4">
+              At Prime Insurance Services, we believe that insurance is more than just a policy—it's about protecting what matters most. Whether it's your home, business, or personal assets, we provide customized coverage to give you peace of mind.
             </p>
-            <h3 className="text-xl md:text-2xl font-semibold mb-4">Who We Are</h3>
-            <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
-              Prime Insurance Services was founded on the principles of trust, integrity, and personalized service. 
-              With extensive experience in the insurance industry, we understand that every client has unique needs. 
-              That&apos;s why we offer custom insurance solutions backed by a team of experts who prioritize your 
-              protection and financial well-being.
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              A Legacy of Trust & Expertise
+            </h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              With years of experience in the industry, our team has been helping individuals, families, and businesses find reliable and high-quality insurance solutions. We are committed to providing personalized service, expert guidance, and insurance plans tailored to your unique needs.
             </p>
-            <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed">
-              As independent agents, we can shop over 30 carriers, including Travelers, Liberty
-              Mutual, Safeco, Nationwide, The Hartford, State Auto, Berkshire Hathaway, National
-              General, Foremost, Heritage Insurance, American Modern, and AAA to explore
-              solutions for your insurance needs.
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              Putting People First
+            </h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              Our approach is simple—we prioritize your needs over anything else. As an independent agency, we work with multiple top-rated insurance providers to customize policies that truly fit your lifestyle, business, and budget. Our goal is to make insurance simple, transparent, and effective.
+            </p>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
+              We believe in honesty, integrity, and doing what's right. That's why we only recommend policies we'd choose for ourselves. Before you make a decision, we take the time to answer all your questions so you can feel confident in your coverage.
+            </p>
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              Why Choose Prime Insurance Services?
+            </h2>
+            <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
+              <li>Your Needs Come First – We tailor insurance solutions based on your specific requirements, not what benefits us</li>
+              <li>Independent & Flexible – We represent multiple insurance carriers, allowing us to offer the best coverage at competitive rates</li>
+              <li>Reliable Support – Whether you need help filing a claim or reviewing your policy, we're always available to assist you</li>
+              <li>Comprehensive Coverage Options – From homes and businesses to specialty assets, we offer a wide range of insurance solutions</li>
+            </ul>
+
+            <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
+              Protect What Matters Most to You
+            </h2>
+            <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-8">
+              We're here to help you find the right coverage from the right providers to ensure you're protected in every situation. Get in touch with us today to explore your insurance options.
             </p>
           </div>
 
           {/* Contact Form */}
-          <div>
+          <div className="mt-12">
             <Form />
           </div>
         </div>

@@ -29,7 +29,7 @@ const UmbrellaInsurance = () => {
         {/* Information Section */}
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-sm md:text-base">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-red-600 font-semibold font-sans">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mt-8 text-[#11193B] font-semibold font-sans">
               Umbrella Insurance: Extra Protection When You Need It Most
             </h2>
             <p className="text-[18px] text-[#393939] text-left font-opensans mt-3 font-medium leading-[30px] mb-5">

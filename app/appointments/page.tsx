@@ -66,7 +66,7 @@ const AppointmentsPage = () => {
           {insuranceOptions.map((option) => (
             <li 
               key={option.path} 
-              className="flex flex-col items-center space-y-2 text-gray-700 hover:text-red-600 cursor-pointer"
+              className="flex flex-col items-center space-y-2 text-gray-700 hover:text-[#11193B] cursor-pointer"
             >
               {option.icon}
               <span className="text-sm font-medium">{option.name}</span>
