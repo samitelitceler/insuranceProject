@@ -109,7 +109,7 @@ export default function Home() {
         className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
-            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url(&apos;/images/bgHome.png&apos;) no-repeat center center / cover",
+            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
