@@ -79,7 +79,7 @@ export default function About() {
         className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
-            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
+            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url(&apos;/images/bgHome.png&apos;) no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -119,7 +119,7 @@ export default function About() {
               About Prime Insurance Services
             </h2>
             <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5 mt-4">
-              At Prime Insurance Services, we believe that insurance is more than just a policy—it's about protecting what matters most. Whether it's your home, business, or personal assets, we provide customized coverage to give you peace of mind.
+              At Prime Insurance Services, we believe that insurance is more than just a policy—it&apos;s about protecting what matters most. Whether it&apos;s your home, business, or personal assets, we provide customized coverage to give you peace of mind.
             </p>
 
             <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
@@ -136,7 +136,7 @@ export default function About() {
               Our approach is simple—we prioritize your needs over anything else. As an independent agency, we work with multiple top-rated insurance providers to customize policies that truly fit your lifestyle, business, and budget. Our goal is to make insurance simple, transparent, and effective.
             </p>
             <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-5">
-              We believe in honesty, integrity, and doing what's right. That's why we only recommend policies we'd choose for ourselves. Before you make a decision, we take the time to answer all your questions so you can feel confident in your coverage.
+              We believe in honesty, integrity, and doing what&apos;s right. That&apos;s why we only recommend policies we&apos;d choose for ourselves. Before you make a decision, we take the time to answer all your questions so you can feel confident in your coverage.
             </p>
 
             <h2 className="text-xl mt-8 md:text-2xl font-semibold mb-4 font-sans">
@@ -145,7 +145,7 @@ export default function About() {
             <ul className="list-disc list-inside mb-5 space-y-2 font-opensans text-[18px] text-[#393939] font-medium leading-[30px]">
               <li>Your Needs Come First – We tailor insurance solutions based on your specific requirements, not what benefits us</li>
               <li>Independent & Flexible – We represent multiple insurance carriers, allowing us to offer the best coverage at competitive rates</li>
-              <li>Reliable Support – Whether you need help filing a claim or reviewing your policy, we're always available to assist you</li>
+              <li>Reliable Support – Whether you need help filing a claim or reviewing your policy, we&apos;re always available to assist you</li>
               <li>Comprehensive Coverage Options – From homes and businesses to specialty assets, we offer a wide range of insurance solutions</li>
             </ul>
 
@@ -153,7 +153,7 @@ export default function About() {
               Protect What Matters Most to You
             </h2>
             <p className="text-[18px] text-[#393939] text-left font-opensans font-medium leading-[30px] mb-8">
-              We're here to help you find the right coverage from the right providers to ensure you're protected in every situation. Get in touch with us today to explore your insurance options.
+              We&apos;re here to help you find the right coverage from the right providers to ensure you&apos;re protected in every situation. Get in touch with us today to explore your insurance options.
             </p>
           </div>
 

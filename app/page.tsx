@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation";
 import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
 import { useState, useRef } from "react";
-import { useInView } from '@/hooks/useInView';
+import { useInView } from "@/hooks/useInView";
 import React from "react";
 import Carriers from "@/components/partnerCarriers/carriers";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
@@ -38,7 +38,7 @@ export default function Home() {
     if (selectedValue === 'homeinsurance' || selectedValue === 'autoinsurance') {
       window.open(ezlynxUrl, '_blank');
     } else {
-      // Navigate to the selected path if it's not home or auto insurance
+      // Navigate to the selected path if it&apos;s not home or auto insurance
       if (selectedValue) {
         router.push(selectedValue);
       }
@@ -109,7 +109,7 @@ export default function Home() {
         className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
-            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('/images/bgHome.png') no-repeat center center / cover",
+            "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url(&apos;/images/bgHome.png&apos;) no-repeat center center / cover",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -155,7 +155,7 @@ export default function Home() {
                 {option.icon}
               </div>
               <p className="text-center font-medium text-sm uppercase">
-                {option.name.split(' ')[0]}
+                {option.name.split(&apos; &apos;)[0]}
                 <br />
                 INSURANCE
               </p>
@@ -215,7 +215,7 @@ export default function Home() {
           <h3 className="text-2xl md:text-3xl text-[#11193B] font-semibold mb-6">Comprehensive Insurance Solutions Tailored for You</h3>
           
           <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
-            At Prime Insurance Services, we understand that insurance isn't just about policies—it's about protecting what matters most. Whether it's your home, your business, or your future, we provide customized personal and business insurance designed to fit your unique needs.
+            At Prime Insurance Services, we understand that insurance isn&apos;t just about policies—it&apos;s about protecting what matters most. Whether it&apos;s your home, your business, or your future, we provide customized personal and business insurance designed to fit your unique needs.
           </p>
           <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
             As an independent insurance agency, we partner with top-rated carriers to ensure you get the best coverage at competitive rates. Our mission is simple: to provide reliable, transparent, and tailored insurance solutions backed by expert guidance and exceptional service.
@@ -250,14 +250,14 @@ export default function Home() {
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-[#11193B]">•</span>
-                <p><strong>Life Insurance</strong> – Financial security for your family's future.</p>
+                <p><strong>Life Insurance</strong> – Financial security for your family&apos;s future.</p>
               </div>
             </div>
           </div>
 
           {/* Business Insurance Section */}
           <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl text-[#11193B] font-bold mb-6">Business Insurance – Secure Your Business's Future</h3>
+            <h3 className="text-2xl md:text-3xl text-[#11193B] font-bold mb-6">Business Insurance – Secure Your Business&apos;s Future</h3>
             <p className="text-lg mb-6">
               Your business is an investment in your future, and the right insurance helps you safeguard it against unforeseen risks. We provide insurance solutions for businesses of all sizes:
             </p>
@@ -272,7 +272,7 @@ export default function Home() {
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-[#11193B]">•</span>
-                <p><strong>Workers' Compensation</strong> – Supports employees with medical expenses and lost wages.</p>
+                <p><strong>Workers&apos; Compensation</strong> – Supports employees with medical expenses and lost wages.</p>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-[#11193B]">•</span>
@@ -280,7 +280,7 @@ export default function Home() {
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-[#11193B]">•</span>
-                <p><strong>Business Owner's Policy (BOP)</strong> – A bundled policy covering general liability and property insurance.</p>
+                <p><strong>Business Owner&apos;s Policy (BOP)</strong> – A bundled policy covering general liability and property insurance.</p>
               </div>
             </div>
           </div>
@@ -299,7 +299,7 @@ export default function Home() {
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-[#11193B]">•</span>
-                <p><strong>Transparent & Honest Service</strong> – We provide clear explanations and policy reviews, ensuring you know exactly what you're getting.</p>
+                <p><strong>Transparent & Honest Service</strong> – We provide clear explanations and policy reviews, ensuring you know exactly what you&apos;re getting.</p>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-[#11193B]">•</span>
@@ -347,7 +347,7 @@ export default function Home() {
                 delay: "0.6s",
                 description: [
                   "With a team of experienced and knowledgeable professionals, we stay updated on industry trends and regulations to provide expert recommendations.",
-                  "Whether you're choosing a new policy or reviewing your existing coverage, we ensure you make informed decisions with confidence."
+                  "Whether you&apos;re choosing a new policy or reviewing your existing coverage, we ensure you make informed decisions with confidence."
                 ]
               }
             ].map((advantage, index) => (
