@@ -16,7 +16,7 @@ export default function HomeInsurance() {
         {/* Hero Section */}
         <div className="relative w-full h-[60vh] flex items-center justify-center bg-cover bg-center bg-black">
           <Image
-            src="https://www.anchorins.com/img/featured-home-insurance.jpg"
+            src="/images/HomeInsuranceImage.jpg"
             alt="Home Insurance"
             layout="fill"
             objectFit="cover"
@@ -25,7 +25,7 @@ export default function HomeInsurance() {
           <div className="absolute inset-0 flex items-center px-4 md:px-8 lg:px-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-12 text-white">
               <h1 className="text-2xl lg:text-4xl font-semibold mb-4 text-left font-sans">Get a Quote Instantly</h1>
-              <Button onClick={() => window.open('http://sgt2.ezlynx.com/ls/click?upn=u001.rm8aNjauuBJWvFaVyKUmk3JQhrODDXZR4jPVn39fXtGpMjwgsQbikcptGOdhdhl-2B6sFik-2B89MlNq8WCrXWmnPjyjg4wENAuujAOVlzdKjLzTd0JdxqJloaz2-2BgzW4OLaDU5-_4uPN2jI8bTL0Cws4JGJkHF5x95e04t-2BUCNzi0ZHkQsgXtNc-2FwytgmGD-2Bdm-2BbApD3LdGQabJfRPsnZs1T7A-2B52CwEPMNoFiV8jrfhHrZN4gOdt3thkHr-2FmpIJBA42ojpXW0F4A1PXDzcbcvqQlsWcduJr5gI1hnx2VYZ-2BQ05VZa39R4UaMqT3KoKhucMnCv-2BGwNHLDHCafSXzMimT8xT11LoTCyeVH5IPa8V41duTtuc-3D', '_blank')} className="font-sans bg-[#004884] hover:bg-red-700 font-bold w-72 text-white px-6 py-3 text-lg text-left">Start Quote</Button>
+              <Button onClick={() => window.open('http://sgt2.ezlynx.com/ls/click?upn=u001.rm8aNjauuBJWvFaVyKUmk3JQhrODDXZR4jPVn39fXtGpMjwgsQbikcptGOdhdhl-2B6sFik-2B89MlNq8WCrXWmnPjyjg4wENAuujAOVlzdKjLzTd0JdxqJloaz2-2BgzW4OLaDU5-_4uPN2jI8bTL0Cws4JGJkHF5x95e04t-2BUCNzi0ZHkQsgXtNc-2FwytgmGD-2Bdm-2BbApD3LdGQabJfRPsnZs1T7A-2B52CwEPMNoFiV8jrfhHrZN4gOdt3thkHr-2FmpIJBA42ojpXW0F4A1PXDzcbcvqQlsWcduJr5gI1hnx2VYZ-2BQ05VZa39R4UaMqT3KoKhucMnCv-2BGwNHLDHCafSXzMimT8xT11LoTCyeVH5IPa8V41duTtuc-3D', '_blank')} className="w-72 font-sans font-semibold bg-transparent border border-white hover:bg-[#536AAE] hover:border-[#536AAE] text-white px-6 py-3">Start Quote</Button>
             </div>
           </div>
         </div>

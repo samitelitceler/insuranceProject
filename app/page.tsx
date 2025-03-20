@@ -23,6 +23,7 @@ import { useState, useRef } from "react";
 import { useInView } from "@/hooks/useInView";
 import React from "react";
 import Carriers from "@/components/partnerCarriers/carriers";
+import Form from "@/components/form/Form";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
 export default function Home() {
@@ -210,7 +211,7 @@ export default function Home() {
       </section>
 
 
-      <section className="w-full px-4 md:px-8 py-16">
+      <section className="w-full px-4 md:px-8 py-8">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl md:text-3xl text-[#11193B] font-semibold mb-6">Comprehensive Insurance Solutions Tailored for You</h3>
           
@@ -309,13 +310,21 @@ export default function Home() {
           </div>
 
           <div>
-            <h3 className="text-2xl md:text-3xl text-[#11193B] font-bold mb-4">Get a Personalized Insurance Quote Today</h3>
+            <h3 className="text-2xl  md:text-3xl text-[#11193B] font-bold mb-4">Get a Personalized Insurance Quote Today</h3>
             <p className="text-lg mb-6">
               Choosing Prime Insurance Services means getting better protection, better value, and better service with your needs always put first. Contact us today.
             </p>
+       
           </div>
         </div>
+
       </section>
+
+      <section>
+        <Form/>
+      </section>
+
+   
 
       {/* New Independent Agency Advantage Section */}
       <section className="w-full px-4 md:px-8 py-16 " ref={ref}>

@@ -20,16 +20,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/PrimeLogo.png',
+        url: '/images/leftLogo.svg',
         sizes: '42x42',
       },
       {
-        url: '/images/PrimeLogo.png',
+        url: '/images/leftLogo.svg',
         sizes: '42x42',
       }
     ],
     apple: {
-      url: '/images/PrimeLogo.png',
+      url: '/images/leftLogo.svg',
       sizes: '42x42',
     },
   },

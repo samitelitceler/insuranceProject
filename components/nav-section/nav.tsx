@@ -6,7 +6,10 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { HiOutlineMenu, HiX } from "react-icons/hi"; // Icons for mobile menu
-import primeLogo from "@/public/images/PrimeLogo.png";
+// import primeLogo from "@/public/images/PrimeLogo.png";
+import leftLogo from "@/public/images/leftLogo.svg";
+import rightLogo from "@/public/images/rightToLogoPrime.svg";
+
 import { ChevronDown } from "lucide-react";
 import { FaCalendar } from "react-icons/fa";
 import {
@@ -74,14 +77,22 @@ export default function NavSection() {
     <nav className="bg-white shadow-md font-opensans">
       <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8 lg:px-12">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <Image
-            src={primeLogo.src}
+            src={leftLogo.src}
             alt="Prime Insurance Group"
             width={300}
             height={80}
-            className="w-[150px] md:w-[180px] lg:w-[200px] object-contain"
+            className="w-[150px] md:w-[180px] lg:w-[50px] object-contain"
           />
+          <Image
+            src={rightLogo.src}
+            alt="Prime Insurance Group"
+            width={300}
+            height={80}
+            className="w-[150px] md:w-[180px] lg:w-[150px] object-contain"
+          />
+          
         </div>
 
         {/* Desktop Navigation */}
