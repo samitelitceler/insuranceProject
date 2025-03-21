@@ -77,22 +77,21 @@ export default function NavSection() {
     <nav className="bg-white shadow-md font-opensans">
       <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8 lg:px-12">
         {/* Logo */}
-        <div className="flex items-center gap-4">
+        <div className="flex justify-start items-center gap-4 ">
           <Image
             src={leftLogo.src}
             alt="Prime Insurance Group"
             width={300}
             height={80}
-            className="w-[150px] md:w-[180px] lg:w-[50px] object-contain"
+            className="w-[40px]  md:w-[40px] lg:w-[50px] object-contain"
           />
           <Image
             src={rightLogo.src}
             alt="Prime Insurance Group"
             width={300}
             height={80}
-            className="w-[150px] md:w-[180px] lg:w-[150px] object-contain"
+            className="w-[100px] md:w-[110px] lg:w-[140px] object-contain"
           />
-          
         </div>
 
         {/* Desktop Navigation */}

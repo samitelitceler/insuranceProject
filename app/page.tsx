@@ -19,7 +19,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useInView } from "@/hooks/useInView";
 import React from "react";
 import Carriers from "@/components/partnerCarriers/carriers";
@@ -31,10 +31,13 @@ export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
   const [ref, isInView] = useInView({ threshold: 0.2 });
   const motionRef = useRef<HTMLDivElement>(null);
+  // const [screenWidth, setScreenWidth] = useState(0);
+  const [scrollWidth, setScrollWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const handleNavigation = () => {
     const ezlynxUrl = "http://sgt2.ezlynx.com/ls/click?upn=u001.rm8aNjauuBJWvFaVyKUmk3JQhrODDXZR4jPVn39fXtGpMjwgsQbikcptGOdhdhl-2B6sFik-2B89MlNq8WCrXWmnPjyjg4wENAuujAOVlzdKjLzTd0JdxqJloaz2-2BgzW4OLaDU5-_4uPN2jI8bTL0Cws4JGJkHF5x95e04t-2BUCNzi0ZHkQsgXtNc-2FwytgmGD-2Bdm-2BbApD3LdGQabJfRPsnZs1T7A-2B52CwEPMNoFiV8jrfhHrZN4gOdt3thkHr-2FmpIJBA42ojpXW0F4A1PXDzcbcvqQlsWcduJr5gI1hnx2VYZ-2BQ05VZa39R4UaMqT3KoKhucMnCv-2BGwNHLDHCafSXzMimT8xT11LoTCyeVH5IPa8V41duTtuc-3D";
-    
+
     const selectedValue = document.querySelector('select')?.value;
     if (selectedValue === 'homeinsurance' || selectedValue === 'autoinsurance') {
       window.open(ezlynxUrl, '_blank');
@@ -46,6 +49,13 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    if (motionRef.current) {
+      setScrollWidth(motionRef.current.scrollWidth); // Full width of the content
+      setContainerWidth(motionRef.current.offsetWidth); // Visible width
+    }
+  }, []);
+
   const handleAutoHomeInsurance = (path: string) => {
     const isAutoOrHome =
       path.includes("/autoinsurance") || path.includes("/homeinsurance");
@@ -53,7 +63,22 @@ export default function Home() {
     router.push(basePath);
   };
 
+  // useEffect(() => {
+  //   // Set the screen width when the component mounts
+  //   setScreenWidth(window.innerWidth);
 
+  //   // Optional: Update the screen width on resize
+  //   const handleResize = () => {
+  //     setScreenWidth(window.innerWidth);
+  //   };
+
+  //   window.addEventListener('resize', handleResize);
+
+  //   // Cleanup the event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []); // Empty dependency array to run only on mount
 
   const insuranceOptions = [
     { name: "Auto Insurance", icon: <Car />, path: "autoinsurance" },
@@ -116,7 +141,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="relative z-10 text-white max-w-3xl">
-            <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
+            <h1 className="text-xl md:text-4xl font-sans font-bold mb-4">
               Insurance is not just about protecting what you have; it&apos;s
               about securing your future and the peace of mind that comes with it.
             </h1>
@@ -142,7 +167,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    
+
       {/* Add this new section right after the hero section */}
       {/* <section className="w-full py-12 px-4 md:px-8 overflow-x-auto">
         <div className="flex justify-between min-w-max gap-8">
@@ -173,10 +198,10 @@ export default function Home() {
           <motion.div
             ref={motionRef}
             className="flex space-x-30"
-            animate={{ x: isHovered ? 0 : "-50%" }}
+            animate={{ x: isHovered ? 0 : `-${scrollWidth - containerWidth}px` }} // Move full width
             transition={{
               repeat: isHovered ? 0 : Infinity,
-              duration: 20,
+              duration: 50, // Adjust speed dynamically
               ease: "linear",
             }}
           >
@@ -214,7 +239,7 @@ export default function Home() {
       <section className="w-full px-4 md:px-8 py-8">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl md:text-3xl text-[#11193B] font-semibold mb-6">Comprehensive Insurance Solutions Tailored for You</h3>
-          
+
           <p className="text-xl md:text-lg font-opensans font-normal leading-relaxed mb-6">
             At Prime Insurance Services, we understand that insurance isn&apos;t just about policies—it&apos;s about protecting what matters most. Whether it&apos;s your home, your business, or your future, we provide customized personal and business insurance designed to fit your unique needs.
           </p>
@@ -314,25 +339,25 @@ export default function Home() {
             <p className="text-lg mb-6">
               Choosing Prime Insurance Services means getting better protection, better value, and better service with your needs always put first. Contact us today.
             </p>
-       
+
           </div>
         </div>
 
       </section>
 
       <section>
-        <Form/>
+        <Form />
       </section>
 
-   
+
 
       {/* New Independent Agency Advantage Section */}
       <section className="w-full px-4 md:px-8 py-16 " ref={ref}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-[48px] text-[#11193B] font-bold text-center mb-4">The Independent Agency Advantage</h2>
-          <p className="text-xl text-center mb-4">Why Choose an Independent Insurance Agency?</p>
-          <p className="text-lg text-center mb-12">Not all insurance agencies are the same. As an independent agency, Prime Insurance Services works for you—not a single insurance company. This means we provide unbiased guidance, competitive pricing, and a wide range of coverage options to meet your specific needs.</p>
-          
+          <h2 className="text-2xl md:text-4xl text-[#11193B] font-bold text-center mb-4">The Independent Agency Advantage</h2>
+          <p className="text-xl md:text-2xl text-center mb-4">Why Choose an Independent Insurance Agency?</p>
+          <p className="text-lg md:text-xl text-center mb-12">Not all insurance agencies are the same. As an independent agency, Prime Insurance Services works for you—not a single insurance company. This means we provide unbiased guidance, competitive pricing, and a wide range of coverage options to meet your specific needs.</p>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -367,10 +392,10 @@ export default function Home() {
               >
                 <div className="flex flex-col items-start p-6 bg-white rounded-lg h-full">
                   <div className="self-center mb-4"></div>
-                  <h3 className="text-[#11193B] text-2xl font-semibold mb-4">
+                  <h3 className="text-[#11193B] text-xl md:text-2xl font-semibold mb-4">
                     {advantage.title}
                   </h3>
-                  <div className="text-[#393939] font-opensans text-[18px] leading-[30px] space-y-4">
+                  <div className="text-[#393939] font-opensans text-lg md:text-xl leading-[30px] space-y-4">
                     {advantage.description.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}
@@ -384,7 +409,7 @@ export default function Home() {
             <p className="text-lg mb-6">
               Choosing Prime Insurance Services means getting better protection, better value, and better service with your needs always put first. Contact us today.
             </p>
-            
+
           </div>
         </div>
       </section>

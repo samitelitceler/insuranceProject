@@ -9,19 +9,19 @@ function Footer() {
     <footer className="bg-[#11193B] text-white py-12 font-sans">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-start items-center gap-4 mb-8">
-        <Image
+          <Image
             src={leftLogo.src}
             alt="Prime Insurance Group"
             width={300}
             height={80}
-            className="w-[150px] invert md:w-[180px] lg:w-[50px] object-contain"
+            className="w-[40px] invert md:w-[40px] lg:w-[50px] object-contain"
           />
           <Image
             src={rightLogo.src}
             alt="Prime Insurance Group"
             width={300}
             height={80}
-            className="w-[150px] invert md:w-[180px] lg:w-[150px] object-contain"
+            className="w-[100px] invert md:w-[110px] lg:w-[140px] object-contain"
           />
         </div>
 

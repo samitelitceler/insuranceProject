@@ -96,7 +96,7 @@ function ContactUs() {
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="relative z-10 text-white max-w-3xl">
-            <h1 className="text-2xl md:text-4xl font-sans font-bold mb-4">
+            <h1 className="text-xl md:text-4xl font-sans font-bold mb-4">
               Insurance is not just about protecting what you have; it&apos;s
               about securing your future and the peace of mind that comes with it.
             </h1>
@@ -173,13 +173,13 @@ function ContactUs() {
       <div className="min-h-screen">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div id="contact-form" className="mt-8">
-            <h1 className="text-4xl font-bold text-[#11193B] text-left">
+            <h1 className="text-2xl md:text-4xl font-bold text-[#11193B] text-left">
               Contact Us
             </h1>
             <p className="text-left text-gray-600 mt-2">Home » Contact Us</p>
           </div>
 
-          <h2 className="text-5xl font-semibold text-[#11193B] text-left mt-8">
+          <h2 className="text-2xl md:text-5xl font-semibold text-[#11193B] text-left mt-8">
             Contact Prime Insurance Services
           </h2>
 

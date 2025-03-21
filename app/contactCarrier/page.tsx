@@ -7,26 +7,30 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Image from "next/image";
 import {
-    Car,
-    Umbrella,
-    House,
-    Bike,
-    Briefcase,
-    Sailboat,
-    User,
-    ShieldCheck,
-    Building2,
-    Truck,
-    Mail,
-  } from "lucide-react";
+  Car,
+  Umbrella,
+  House,
+  Bike,
+  Briefcase,
+  Sailboat,
+  User,
+  ShieldCheck,
+  Building2,
+  Truck,
+  Mail,
+} from "lucide-react";
 import Carriers from "@/components/partnerCarriers/carriers";
 function ContactCarrier() {
   const router = useRouter();
   const [selectedPath, setSelectedPath] = useState("");
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedPath(event.target.value);
+    console.log(selectedPath);
+    
   };
   const handleNavigation = () => {
+    console.log(selectedPath);
+    
     if (selectedPath) {
       router.push(`/${selectedPath}`);
     }
@@ -118,7 +122,7 @@ function ContactCarrier() {
       logo: "https://www.anchorins.com/img/carriers/travelers.png",
     },
   ];
-  
+
   const insuranceOptions = [
     { name: "Auto Insurance", icon: <Car />, path: "autoinsurance" },
     { name: "Home Insurance", icon: <House />, path: "homeinsurance" },
@@ -162,7 +166,7 @@ function ContactCarrier() {
     <>
       <NavSection />
       <section
-        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center px-4 md:px-8"
+        className="relative w-full h-[60vh] flex items-center justify-start bg-cover bg-center"
         style={{
           background:
             "linear-gradient(270.16deg, rgba(217, 217, 217, 0.05) 0.15%, rgba(39, 38, 38, 0.3) 70.05%, rgba(19, 19, 19, 0.5) 99.87%), url('https://www.anchorins.com/img/featured-contact-your-carrier.jpg') no-repeat center center / cover",
@@ -173,27 +177,28 @@ function ContactCarrier() {
           <h1 className="text-2xl md:text-6xl font-bold mb-4">
             Get a Quote Instantly
           </h1>
-          <p className="text-4xl">Compare your unique insurance quotes
-          online via our comparative quoting form.</p>
-          <div className="flex flex-col items-start gap-2 mt-4 w-full md:w-64">
-            <select
-              onChange={handleChange}
-              className="w-full text-black p-2 border rounded"
-            >
-              <option value="">Select Insurance</option>
-              {insuranceOptions.map((option) => (
-                <option key={option.path} value={option.path}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-            <Button
-              onClick={handleNavigation}
-              className="w-full bg-transparent border border-white hover:bg-[#536AAE] hover:border-[#536AAE] text-white text-2xl px-6 py-3"
-            >
-              Quote it!
-            </Button>
-          </div>
+          <p className="text-xl md:text-4xl">Compare your unique insurance quotes
+            online via our comparative quoting form.</p>
+            <div className="flex flex-col font-opensans items-start gap-2 mt-4 w-full md:w-64">
+              <select
+                onChange={handleChange}
+                className="w-full text-black p-2 border rounded"
+                defaultValue=""
+              >
+                <option value="">Select Insurance</option>
+                {insuranceOptions.map((option) => (
+                  <option key={option.path} value={option.path}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+              <Button
+                onClick={handleNavigation}
+                className="w-full font-sans font-semibold bg-transparent border border-white hover:bg-[#536AAE] hover:border-[#536AAE] text-white px-6 py-3"
+              >
+                Quote it
+              </Button> 
+            </div>
         </div>
       </section>
       <div className="bg-gray-100 min-h-screen p-8">
@@ -210,12 +215,12 @@ function ContactCarrier() {
 
           {/* Subheading */}
           <h2 className="text-4xl font-semibold text-gray-800 text-left mt-8">
-          Contact Your Carrier
+            Contact Your Carrier
           </h2>
           <h2 className="text-2xl font-semibold text-gray-800 text-left mt-8">
-          Carriers
+            Carriers
           </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 mt-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 mt-2 lg:grid-cols-3 gap-6">
             {carriers.map((carrier, index) => (
               <div
                 key={index}
