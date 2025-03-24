@@ -1,8 +1,6 @@
 import NavSection from "@/components/nav-section/nav";
 import Footer from "@/components/footer/Footer";
-import Image from "next/image";
-import leftLogo from "@/public/images/leftLogo.svg"; // Adjust the path as necessary
-import rightLogo from "@/public/images/rightToLogoPrime.svg"; // Adjust the path as necessary
+
 
 function CookiePolicy() {
   return (

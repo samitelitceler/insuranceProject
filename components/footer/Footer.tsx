@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import leftLogo from "@/public/images/leftLogo.svg";
 import rightLogo from "@/public/images/rightToLogoPrime.svg";
+import Link from "next/link";
 
 function Footer() {
   return (
@@ -32,32 +33,32 @@ function Footer() {
             <h3 className="text-xl font-bold mb-4 underline">Company</h3>
             <ul className="space-y-2 text-sm md:text-lg">
               <li>
-                <a href="/">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <a href="/aboutus">About Us</a>
+                <Link href="/aboutus">About Us</Link>
               </li>
               <li>
-                <a href="/">Insurance Services</a>
+                <Link href="/">Insurance Services</Link>
               </li>
 
               <li>
-                <a href="/compareQuotes">Compare Quotes</a>
+                <Link href="/compareQuotes">Compare Quotes</Link>
               </li>
               <li>
-                <a href="/contactCarrier">Contact Carrier</a>
+                <Link href="/contactCarrier">Contact Carrier</Link>
               </li>
               <li>
-                <a href="/contactUs">Contact Us</a>
+                <Link href="/contactUs">Contact Us</Link>
               </li>
               <li>
-                <a href="/termsandconditions">Terms and Conditions</a>
+                <Link href="/termsandconditions">Terms and Conditions</Link>
               </li>
               <li>
-                <a href="/privacyandpolicy">Privacy & Policy</a>
+                <Link href="/privacyandpolicy">Privacy & Policy</Link>
               </li>
               <li>
-                <a href="/cookiepolicy">Cookie Policy</a>
+                <Link href="/cookiepolicy">Cookie Policy</Link>
               </li>
             </ul>
           </div>
@@ -68,41 +69,41 @@ function Footer() {
 
             <ul className="space-y-2 text-sm md:text-lg">
               <li>
-                <a href="/autoinsurance">Auto Insurance</a>
+                <Link href="/autoinsurance">Auto Insurance</Link>
               </li>
               <li>
-                <a href="/homeinsurance">Home Insurance</a>
+                <Link href="/homeinsurance">Home Insurance</Link>
               </li>
               <li>
-                <a href="/businessInsurance">Business Insurance</a>
+                <Link href="/businessInsurance">Business Insurance</Link>
               </li>
               <li>
-                <a href="/lifeInsurance">Life Insurance</a>
+                <Link href="/lifeInsurance">Life Insurance</Link>
               </li>
               <li>
-                <a href="/condoInsurance">Condo Insurance</a>
+                <Link href="/condoInsurance">Condo Insurance</Link>
               </li>
               <li>
-                <a href="/umbrellaInsurance">Umbrella Insurance</a>
+                <Link href="/umbrellaInsurance">Umbrella Insurance</Link>
               </li>
 
               <li>
-                <a href="/boatInsurance">Boat/Watercraft Insurance</a>
+                <Link href="/boatInsurance">Boat/Watercraft Insurance</Link>
               </li>
               <li>
-                <a href="/motorcycleInsurance">Motorcycle Insurance</a>
+                <Link href="/motorcycleInsurance">Motorcycle Insurance</Link>
               </li>
               <li>
-                <a href="/rentersInsurance">Renters Insurance</a>
+                <Link href="/rentersInsurance">Renters Insurance</Link>
               </li>
               <li>
-                <a href="/personalInsurance">Personal Insurance</a>
+                <Link href="/personalInsurance">Personal Insurance</Link>
               </li>
               <li>
-                <a href="/cyberInsurance">Cyber & EPLI</a>
+                <Link href="/cyberInsurance">Cyber & EPLI</Link>
               </li>
               <li>
-                <a href="/transportationalInsurance">Transportational Insurance</a>
+                <Link href="/transportationalInsurance">Transportational Insurance</Link>
               </li>
             </ul>
           </div>
@@ -112,13 +113,13 @@ function Footer() {
             <h3 className="text-xl font-bold mb-4 underline">Bonds</h3>
             <ul className="space-y-2 text-sm md:text-lg">
               <li>
-                <a href="/contractBonds">Contract Bonds</a>
+                <Link href="/contractBonds">Contract Bonds</Link>
               </li>
               <li>
-                <a href="/commercialBonds">Commercial Bonds</a>
+                <Link href="/commercialBonds">Commercial Bonds</Link>
               </li>
               <li>
-                <a href="/notaryBonds">Notary Bonds</a>
+                <Link href="/notaryBonds">Notary Bonds</Link>
               </li>
             </ul>
           </div>
@@ -157,9 +158,9 @@ function Footer() {
             <div className="flex items-start space-x-3 mt-3">
               <FaEnvelope className="text-gray-400 mt-1" />
               <p className="text-sm">
-                <a href="mailto:info@primeinsurancellc.com" className="underline">
+                <Link href="mailto:info@primeinsurancellc.com" className="underline">
                   info@primeinsurancellc.com
-                </a>
+                </Link>
               </p>
             </div>
           </div>
