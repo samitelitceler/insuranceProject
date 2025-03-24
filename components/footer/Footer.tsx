@@ -32,25 +32,32 @@ function Footer() {
             <h3 className="text-xl font-bold mb-4 underline">Company</h3>
             <ul className="space-y-2 text-sm md:text-lg">
               <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="#">About Us</a>
+                <a href="/aboutus">About Us</a>
               </li>
               <li>
-                <a href="#">Insurance Services</a>
+                <a href="/">Insurance Services</a>
+              </li>
+
+              <li>
+                <a href="/compareQuotes">Compare Quotes</a>
               </li>
               <li>
-                <a href="#">Bonds</a>
+                <a href="/contactCarrier">Contact Carrier</a>
               </li>
               <li>
-                <a href="#">Compare Quotes</a>
+                <a href="/contactUs">Contact Us</a>
               </li>
               <li>
-                <a href="#">Customer Service</a>
+                <a href="/termsandconditions">Terms and Conditions</a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <a href="/privacyandpolicy">Privacy & Policy</a>
+              </li>
+              <li>
+                <a href="/cookiepolicy">Cookie Policy</a>
               </li>
             </ul>
           </div>
@@ -61,41 +68,41 @@ function Footer() {
 
             <ul className="space-y-2 text-sm md:text-lg">
               <li>
-                <a href="#">Auto Insurance</a>
+                <a href="/autoinsurance">Auto Insurance</a>
               </li>
               <li>
-                <a href="#">Home Insurance</a>
+                <a href="/homeinsurance">Home Insurance</a>
               </li>
               <li>
-                <a href="#">Business Insurance</a>
+                <a href="/businessInsurance">Business Insurance</a>
               </li>
               <li>
-                <a href="#">Life Insurance</a>
+                <a href="/lifeInsurance">Life Insurance</a>
               </li>
               <li>
-                <a href="#">Condo Insurance</a>
+                <a href="/condoInsurance">Condo Insurance</a>
               </li>
               <li>
-                <a href="#">Umbrella Insurance</a>
+                <a href="/umbrellaInsurance">Umbrella Insurance</a>
               </li>
 
               <li>
-                <a href="#">Boat/Watercraft Insurance</a>
+                <a href="/boatInsurance">Boat/Watercraft Insurance</a>
               </li>
               <li>
-                <a href="#">Motorcycle Insurance</a>
+                <a href="/motorcycleInsurance">Motorcycle Insurance</a>
               </li>
               <li>
-                <a href="#">Renters Insurance</a>
+                <a href="/rentersInsurance">Renters Insurance</a>
               </li>
               <li>
-                <a href="#">Personal Insurance</a>
+                <a href="/personalInsurance">Personal Insurance</a>
               </li>
               <li>
-                <a href="#">Cyber & EPLI</a>
+                <a href="/cyberInsurance">Cyber & EPLI</a>
               </li>
               <li>
-                <a href="#">Workers Compensation</a>
+                <a href="/transportationalInsurance">Transportational Insurance</a>
               </li>
             </ul>
           </div>
@@ -105,13 +112,13 @@ function Footer() {
             <h3 className="text-xl font-bold mb-4 underline">Bonds</h3>
             <ul className="space-y-2 text-sm md:text-lg">
               <li>
-                <a href="https://www.tisins.com/contract-bonds/" target="_blank" rel="noopener noreferrer">Contract Bonds</a>
+                <a href="/contractBonds">Contract Bonds</a>
               </li>
               <li>
-                <a href="https://www.tisins.com/commercial-bonds/" target="_blank" rel="noopener noreferrer">Commercial Bonds</a>
+                <a href="/commercialBonds">Commercial Bonds</a>
               </li>
               <li>
-                <a href="https://www.tisins.com/notary-bonds/" target="_blank" rel="noopener noreferrer">Notary Bonds</a>
+                <a href="/notaryBonds">Notary Bonds</a>
               </li>
             </ul>
           </div>
