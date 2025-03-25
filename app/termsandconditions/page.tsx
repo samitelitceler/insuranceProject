@@ -50,7 +50,7 @@ function Termsandconditions() {
 
           <h2 className="font-semibold mt-4">7. Governing Law</h2>
           <p>
-            These terms are governed by the laws of Charlotte NC. Any disputes will be resolved in the jurisdiction of [Your State/Country].
+            These terms are governed by the laws of North Carolina (NC). Any disputes will be resolved in the jurisdiction of North Carolina (NC), United States (USA).
           </p>
 
           <h2 className="font-semibold mt-4">For any questions, contact us at info@primeinsurancellc.com.</h2>
