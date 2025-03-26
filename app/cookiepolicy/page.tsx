@@ -10,7 +10,7 @@ function CookiePolicy() {
         <h1 className="text-3xl md:text-4xl font-bold text-[#11193B] text-center mb-6">
           Cookie Policy
         </h1>
-        <div className="text-lg text-gray-700 leading-relaxed font-opensans">
+        <div className="text-xl text-gray-700 leading-relaxed font-opensans">
           <h2 className="font-semibold mt-4">1. What Are Cookies?</h2>
           <p>
             Cookies are small files stored on your device when you visit a website. They help us improve user experience and analyze site performance.
@@ -37,6 +37,16 @@ function CookiePolicy() {
           <p>
             We may update this Cookie Policy from time to time. Continued use of our website means you accept any changes.
           </p>
+          <h2 className="font-semibold mt-4">6. How We Use Cookies</h2>
+          <p>
+          We use cookies for several purposes, including:
+          </p>
+          <ul className="list-disc ml-6">
+            <li>Appointment reminders</li>
+            <li>Follow-up messages</li>
+            <li>Billing inquiries</li>
+            <li>Promotional offers when running specials/deals</li>
+          </ul>
 
           <h2 className="font-semibold mt-4">For more details, contact us at info@primeinsurancellc.com.</h2>
         </div>

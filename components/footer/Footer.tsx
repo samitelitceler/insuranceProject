@@ -55,10 +55,13 @@ function Footer() {
                 <Link href="/termsandconditions">Terms and Conditions</Link>
               </li>
               <li>
-                <Link href="/privacyandpolicy">Privacy & Policy</Link>
+                <Link href="/privacyandpolicy">Privacy Policy</Link>
               </li>
               <li>
                 <Link href="/cookiepolicy">Cookie Policy</Link>
+              </li>
+              <li>
+                <Link href="/smspolicy">SMS Policy</Link>
               </li>
             </ul>
           </div>
