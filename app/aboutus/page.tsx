@@ -8,19 +8,25 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 const inter = Inter({ weight: ["400", "600", "700"], subsets: ["latin"] });
 import Carriers from "@/components/partnerCarriers/carriers";
+import { motion } from "framer-motion";
+
 import {
-    Car,
-    Umbrella,
-    House,
-    Bike,
-    Briefcase,
-    Sailboat,
-    User,
-    ShieldCheck,
-    Building2,
-    Truck,
-    Mail,
-  } from "lucide-react";
+  Car,
+  Umbrella,
+  House,
+  Bike,
+  Briefcase,
+  Sailboat,
+  User,
+  ShieldCheck,
+  Building2,
+  Truck,
+  Mail,
+  Shield,
+  DollarSign,
+  CheckCircle,
+  ThumbsUp,
+} from "lucide-react";
 
 const insuranceOptions = [
     { name: "Auto Insurance", icon: <Car />, path: "autoinsurance" },
@@ -69,6 +75,13 @@ export default function About() {
         router.push(`/${event.target.value}`);
     };
 
+    const scrollToSection = (sectionId: string) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
   return (
     <div className={inter.className}>
       <NavSection />
@@ -108,6 +121,119 @@ export default function About() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#11193B] mb-6">
+            Are you sure you have the right coverage?
+            </h2>
+            <div className="w-24 h-1 bg-[#536AAE] mx-auto mb-8"></div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-[#536AAE] rounded-full">
+                  <DollarSign className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-xl text-center font-semibold text-[#11193B] mb-3">
+                Save Money
+              </h3>
+              <p className="text-gray-600 text-center">
+                Are you sure you have the right coverage at the best price?
+              </p>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-[#536AAE] rounded-full">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-xl text-center font-semibold text-[#11193B] mb-3">
+                Expert Protection
+              </h3>
+              <p className="text-gray-600 text-center">
+                Independent Insurance Agency with years of experience
+              </p>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-[#536AAE] rounded-full">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-xl text-center font-semibold text-[#11193B] mb-3">
+                Multiple Options
+              </h3>
+              <p className="text-gray-600 text-center">
+                We compare multiple carriers to find your perfect coverage
+              </p>
+            </motion.div>
+
+            {/* Card 4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-[#536AAE] rounded-full">
+                  <ThumbsUp className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-xl text-center font-semibold text-[#11193B] mb-3">
+                Best Value
+              </h3>
+              <p className="text-gray-600 text-center">
+                Get the best coverage at a low premium
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="text-center mt-12"
+          >
+            <button
+              onClick={() => scrollToSection("form")}
+              className="bg-[#11193B] text-white px-8 py-3 rounded-lg hover:bg-[#536AAE] transition-colors duration-300 font-semibold"
+            >
+              Get Your Free Quote Today
+            </button>
+          </motion.div>
         </div>
       </section>
 

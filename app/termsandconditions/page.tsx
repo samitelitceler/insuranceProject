@@ -7,7 +7,7 @@ function Termsandconditions() {
     <div className="bg-[#D8D8D8F7]" >
       <NavSection />
       <div className="container bg-white font-sans mx-auto mt-12 mb-12 px-4 md:px-8 lg:px-12 py-8">
-       
+
         <h1 className="text-3xl md:text-4xl font-bold text-[#11193B] text-center mb-6">
           Terms & Conditions
         </h1>
@@ -50,8 +50,8 @@ function Termsandconditions() {
 
           <h2 className="font-semibold mt-4">7. Website Availability & Accessibility</h2>
           <p>
-         
-          While we aim to keep the website operational at all times, we do not guarantee uninterrupted or error-free access. The website may be temporarily unavailable due to maintenance, updates, or other reasons.
+
+            While we aim to keep the website operational at all times, we do not guarantee uninterrupted or error-free access. The website may be temporarily unavailable due to maintenance, updates, or other reasons.
           </p>
           <h2 className="font-semibold mt-4">8. Governing Law</h2>
           <p>
@@ -85,22 +85,39 @@ function Termsandconditions() {
 
           <h2 className="font-semibold mt-4">14. SMS Terms & Conditions</h2>
           <p>
-            SMS Consent Communication: Mobile opt-in and information obtained as part of the SMS consent process or numbers for the purpose of SMS are not shared with any third parties or affiliates for marketing or any other purpose.
+            SMS Consent & Communication
+            By providing your mobile number, you consent to receive SMS communications from Prime Insurance Services LLC. Your information will not be shared with third parties or affiliates for marketing or any other purpose.
           </p>
           <p>
-            Types of SMS Communications: If you have consented to receive text messages from Prime Insurance Services, you may receive messages related to the following:
+            Types of SMS Communications:If you have opted in to receive text messages from Prime Insurance Services LLC, you may receive messages related to:
           </p>
-          <ul className="list-disc ml-6">
+          <ul className="list-disc ml-6 mt-4">
             <li>Appointment reminders</li>
-            <li>Follow-up messages</li>
-            <li>Billing inquiries</li>
-            <li>Promotional offers when running specials/deals</li>
+            <li>Policy updates and renewal notifications</li>
+            <li>Billing reminders and payment confirmations</li>
+            <li>Promotional offers and limited-time discounts</li>
           </ul>
-          <p>
-            Example: &quot;Hello, Prime Insurance Services here! This is a friendly reminder of your upcoming appointment with Dr. Smith. You can reply STOP to opt-out of SMS messaging from Prime Insurance Services at any time.&quot;
+          <p className="mt-4">
+            <span className="font-semibold">Example Message:</span> &quot;Hello, Prime Insurance Services here! This is a friendly reminder of your upcoming appointment with Dr. Smith. You can reply STOP to opt-out of SMS messaging from Prime Insurance Services at any time.&quot;
           </p>
 
-          <h2 className="font-semibold mt-4">For any questions, contact us at info@primeinsurancellc.com.</h2>
+          <p className="mt-4">
+            Message Frequency
+            Message frequency may vary depending on the nature of your interactions with Prime Insurance Services LLC, but you can expect to receive important updates as needed.
+          </p>
+          <p className="mt-4">Potential Fees for SMS Messaging
+            Standard message and data rates may apply depending on your mobile carrier. Please check with your provider for details on SMS charges.
+          </p>
+          <p className="mt-4">Opt-Out Method
+            You can opt-out at any time by replying <span className="font-semibold">&quot;STOP&quot;</span> to any message. Once opted out, you will no longer receive SMS communications from us. To resume messages, reply <span className="font-semibold"> &quot;START&quot;</span> at any time.</p>
+
+          <p className="mt-4">Help & Support
+            For assistance, reply <span className="font-semibold">&quot;HELP&quot;</span> to any message or contact us at <span className="font-semibold">info@primeinsurancellc.com.</span></p>
+          <p className="mt-4">Additional SMS Preferences
+            If you prefer not to receive SMS messages, you can decline SMS consent when filling out forms.</p>
+          <p className="mt-4">You can also manage your communication preferences by contacting our support team.</p>
+
+         
         </div>
       </div>
       <Footer />
