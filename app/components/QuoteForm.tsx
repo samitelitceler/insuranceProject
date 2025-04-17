@@ -18,6 +18,7 @@ interface AutoInsuranceFormValues {
   priorCarrierYears: number;
   continuousCoverageYears: number;
   hasClaims: 'yes' | 'no';
+  hasInsured: 'yes' | 'no';
   claimDetails?: {
     incidentDate: string;
     causeOfLoss: string;
@@ -56,7 +57,7 @@ interface HomeInsuranceFormValues {
   numberOfStories: number;
   withinCityLimits: 'yes' | 'no';
   distanceToHydrant: number;
-  residenceType: 'primary' | 'secondary';
+  residenceType: 'primary' | 'secondary' | 'investment';
   numberOfFamilies: number;
   numberOfOccupants: number;
   fullBaths: number;
@@ -103,7 +104,7 @@ export interface FormData extends AutoInsuranceFormValues, HomeInsuranceFormValu
   email: string;
   dob: string;
   gender: 'male' | 'female' | 'other';
-  insuranceType: 'auto' | 'home';
+  insuranceType: 'auto' | 'home' | 'both';
 }
 
 const QuoteForm = () => {
@@ -116,30 +117,42 @@ const QuoteForm = () => {
 
   const onSubmit = async (data: FormData) => {
     setSubmissionStatus("");
-
+    
     try {
+      // Create a FormData object
+      const formData = new FormData();
+      
+      // Add all non-file fields
+      Object.keys(data).forEach(key => {
+        if (key !== 'declarationPage' && key !== 'documents') {
+          formData.append(key, String(data[key as keyof typeof data]));
+        }
+      });
+      
+      // Add file fields
+      if (data.declarationPage?.[0]) {
+        formData.append('declarationPage', data.declarationPage[0]);
+      }
+      if (data.documents?.[0]) {
+        formData.append('documents', data.documents[0]);
+      }
+
       const response = await fetch("https://formspree.io/f/xgvaezgl", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        // Remove the Content-Type header to let the browser set it with the boundary
+        body: formData,
       });
 
       if (response.ok) {
         setSubmissionStatus("Thank you! Your quote request has been received. We'll get back to you soon.");
-        // Reset form
         reset();
-        // Reset number of drivers
         setNumberOfDrivers(1);
-        // Scroll to top to show success message
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setSubmissionStatus("There was an error submitting your form. Please try again.");
       }
     } catch (error) {
-        console.log(error);
-        
+      console.log(error);
       setSubmissionStatus("There was an error submitting your form. Please check your internet connection and try again.");
     }
   };
@@ -242,11 +255,22 @@ const QuoteForm = () => {
               />
               <span className="ml-2">Home</span>
             </label>
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                value="both"
+                {...register('insuranceType', { 
+                  required: "Please select an insurance type" 
+                })}
+                className="form-radio text-[#536AAE]"
+              />
+              <span className="ml-2">Both (Auto & Home)</span>
+            </label>
           </div>
         </div>
 
         {/* Conditional Rendering based on Insurance Type */}
-        {selectedInsuranceType === 'auto' && (
+        {(selectedInsuranceType === 'auto' || selectedInsuranceType === 'both') && (
           <AutoInsuranceForm 
             numberOfDrivers={numberOfDrivers} 
             setNumberOfDrivers={setNumberOfDrivers}
@@ -255,7 +279,7 @@ const QuoteForm = () => {
           />
         )}
 
-        {selectedInsuranceType === 'home' && (
+        {(selectedInsuranceType === 'home' || selectedInsuranceType === 'both') && (
           <HomeInsuranceForm 
             register={register}
             watch={watch}

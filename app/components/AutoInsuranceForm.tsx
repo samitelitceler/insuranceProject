@@ -155,6 +155,30 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
           />
         </div>
 
+        <div className="space-y-4">
+          <label className="block text-sm font-medium text-gray-700">Is the Named Insured or Spouse a member of the AARP? </label>
+          <div className="flex space-x-4">
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                {...register('hasInsured', { required: true })}
+                value="yes"
+                className="form-radio text-[#536AAE]"
+              />
+              <span className="ml-2">Yes</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                {...register('hasInsured', { required: true })}
+                value="no"
+                className="form-radio text-[#536AAE]"
+              />
+              <span className="ml-2">No</span>
+            </label>
+          </div>
+        </div>
+
         {/* Claims History */}
         <div className="space-y-4">
           <label className="block text-sm font-medium text-gray-700">Do you have any claims in last 4 Years?</label>

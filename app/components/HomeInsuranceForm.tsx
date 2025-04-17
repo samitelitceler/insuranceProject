@@ -220,6 +220,15 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
                 />
                 <span className="ml-2">Secondary</span>
               </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  {...register('residenceType', { required: true })}
+                  value="investment"
+                  className="form-radio text-[#536AAE]"
+                />
+                <span className="ml-2">Investment</span>
+              </label>
             </div>
           </div>
 
