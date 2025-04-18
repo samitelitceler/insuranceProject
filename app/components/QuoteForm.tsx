@@ -107,6 +107,7 @@ export interface FormData extends AutoInsuranceFormValues, HomeInsuranceFormValu
   insuranceType: 'auto' | 'home' | 'both';
 }
 
+
 const QuoteForm = () => {
   const [numberOfDrivers, setNumberOfDrivers] = useState<number>(1);
   const [submissionStatus, setSubmissionStatus] = useState<string>("");
@@ -119,27 +120,31 @@ const QuoteForm = () => {
     setSubmissionStatus("");
     
     try {
-      // Create a FormData object
       const formData = new FormData();
       
-      // Add all non-file fields
-      Object.keys(data).forEach(key => {
-        if (key !== 'declarationPage' && key !== 'documents') {
-          formData.append(key, String(data[key as keyof typeof data]));
+      // Handle nested objects and arrays
+      const processValue = (obj: Partial<FormData>, prefix = '') => {
+        for (const key in obj) {
+          const value = obj[key as keyof typeof obj];
+          if (value instanceof FileList) {
+            // Handle file uploads
+            Array.from(value).forEach((file: File, index) => {
+              formData.append(`${prefix}${key}[${index}]`, file);
+            });
+          } else if (Array.isArray(value) || typeof value === 'object') {
+            // Handle arrays and nested objects
+            formData.append(`${prefix}${key}`, JSON.stringify(value));
+          } else {
+            // Handle primitive values
+            formData.append(`${prefix}${key}`, value?.toString() || '');
+          }
         }
-      });
-      
-      // Add file fields
-      if (data.declarationPage?.[0]) {
-        formData.append('declarationPage', data.declarationPage[0]);
-      }
-      if (data.documents?.[0]) {
-        formData.append('documents', data.documents[0]);
-      }
+      };
+
+      processValue(data);
 
       const response = await fetch("https://formspree.io/f/xgvaezgl", {
         method: "POST",
-        // Remove the Content-Type header to let the browser set it with the boundary
         body: formData,
       });
 
@@ -149,10 +154,11 @@ const QuoteForm = () => {
         setNumberOfDrivers(1);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        setSubmissionStatus("There was an error submitting your form. Please try again.");
+        const errorData = await response.json();
+        setSubmissionStatus(`Error: ${errorData.error || 'Something went wrong'}`);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setSubmissionStatus("There was an error submitting your form. Please check your internet connection and try again.");
     }
   };
@@ -176,49 +182,61 @@ const QuoteForm = () => {
         {/* Basic Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">First Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              First Name<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="text"
-              {...register('firstName')}
+              {...register('firstName', { required: "First name is required" })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Last Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Last Name<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="text"
-              {...register('lastName')}
+              {...register('lastName', { required: "Last name is required" })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Cell Phone</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Cell Phone<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="tel"
-              {...register('cell')}
+              {...register('cell', { required: "Cell phone is required" })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Email<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="email"
-              {...register('email')}
+              {...register('email', { required: "Email is required" })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Date of Birth<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="date"
-              {...register('dob')}
+              {...register('dob', { required: "Date of Birth is required" })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Gender</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Gender<span className="text-red-500 ml-1">*</span>
+            </label>
             <select
-              {...register('gender')}
+              {...register('gender', { required: "Gender is required" })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             >
               <option value="">Select Gender</option>
@@ -231,7 +249,9 @@ const QuoteForm = () => {
 
         {/* Insurance Type Selection */}
         <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">Insurance Type</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Insurance Type<span className="text-red-500 ml-1">*</span>
+          </label>
           <div className="flex space-x-4">
             <label className="inline-flex items-center">
               <input

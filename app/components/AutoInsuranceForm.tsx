@@ -8,8 +8,7 @@ interface AutoInsuranceFormProps {
     watch: UseFormWatch<FormData>;
   }
 
-const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watch }: AutoInsuranceFormProps) => {
-  const hasClaims = watch('hasClaims');
+const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: AutoInsuranceFormProps) => {
 
   return (
     <div className="space-y-6 border-t pt-6">
@@ -17,7 +16,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
       
       {/* Number of Drivers Selection */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">Number of Drivers</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Number of Drivers<span className="text-red-500 ml-1">*</span>
+        </label>
         <select
           onChange={(e) => setNumberOfDrivers(parseInt(e.target.value))}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
@@ -34,58 +35,72 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
           <h4 className="font-semibold text-lg text-[#11193B] mb-4">Driver {index + 1} Details</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Driver&apos;s License Number</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Driver&apos;s License Number<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="text"
-                {...register(`drivers.${index}.dlNumber`, { required: true })}
+                {...register(`drivers.${index}.dlNumber`, { required: `Driver ${index + 1} License Number is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Date of Birth<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="date"
-                {...register(`drivers.${index}.dob`, { required: true })}
+                {...register(`drivers.${index}.dob`, { required: `Driver ${index + 1} Date of Birth is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Working Industry</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Working Industry<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="text"
-                {...register(`drivers.${index}.industry`, { required: true })}
+                {...register(`drivers.${index}.industry`, { required: `Driver ${index + 1} Working Industry is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Occupation</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Occupation<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="text"
-                {...register(`drivers.${index}.occupation`, { required: true })}
+                {...register(`drivers.${index}.occupation`, { required: `Driver ${index + 1} Occupation is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Education</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Education<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="text"
-                {...register(`drivers.${index}.education`, { required: true })}
+                {...register(`drivers.${index}.education`, { required: `Driver ${index + 1} Education is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Cell Number</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Cell Number<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="tel"
-                {...register(`drivers.${index}.cell`, { required: true })}
+                {...register(`drivers.${index}.cell`, { required: `Driver ${index + 1} Cell Number is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Email<span className="text-red-500 ml-1">*</span>
+              </label>
               <input
                 type="email"
-                {...register(`drivers.${index}.email`, { required: true })}
+                {...register(`drivers.${index}.email`, { required: `Driver ${index + 1} Email is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
@@ -95,36 +110,68 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
 
       {/* Additional Auto Insurance Fields */}
       <div className="space-y-6">
-        {/* AAA Membership */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">AAA Membership</label>
-          <div className="flex space-x-4">
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                {...register('aaaMembership', { required: true })}
-                value="yes"
-                className="form-radio text-[#536AAE]"
-              />
-              <span className="ml-2">Yes</span>
+        {/* AAA and AARP Membership */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              AAA Membership<span className="text-red-500 ml-1">*</span>
             </label>
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                {...register('aaaMembership', { required: true })}
-                value="no"
-                className="form-radio text-[#536AAE]"
-              />
-              <span className="ml-2">No</span>
+            <div className="flex space-x-4">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  {...register('aaaMembership', { required: "AAA membership is required" })}
+                  value="yes"
+                  className="form-radio text-[#536AAE]"
+                />
+                <span className="ml-2">Yes</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  {...register('aaaMembership', { required: "AAA membership is required" })}
+                  value="no"
+                  className="form-radio text-[#536AAE]"
+                />
+                <span className="ml-2">No</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              AARP Membership<span className="text-red-500 ml-1">*</span>
             </label>
+            <div className="flex space-x-4">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  {...register('hasInsured', { required: "AARP membership is required" })}
+                  value="yes"
+                  className="form-radio text-[#536AAE]"
+                />
+                <span className="ml-2">Yes</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  {...register('hasInsured', { required: "AARP membership is required" })}
+                  value="no"
+                  className="form-radio text-[#536AAE]"
+                />
+                <span className="ml-2">No</span>
+              </label>
+            </div>
           </div>
         </div>
 
         {/* Vehicle Ownership */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Vehicle Ownership</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Vehicle Ownership<span className="text-red-500 ml-1">*</span>
+          </label>
           <select
-            {...register('vehicleOwnership', { required: true })}
+            {...register('vehicleOwnership', { required: "Vehicle ownership is required" })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           >
             <option value="">Select Ownership Type</option>
@@ -135,7 +182,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
 
         {/* Prior Carrier Years */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Years with Prior Carrier</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Years with Prior Carrier<span className="text-red-500 ml-1">*</span>
+          </label>
           <input
             type="number"
             min="0"
@@ -146,7 +195,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
 
         {/* Continuous Coverage Years */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Years with Continuous Coverage</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Years with Continuous Coverage<span className="text-red-500 ml-1">*</span>
+          </label>
           <input
             type="number"
             min="0"
@@ -155,13 +206,16 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
           />
         </div>
 
+        {/* Claims History - simplified */}
         <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">Is the Named Insured or Spouse a member of the AARP? </label>
+          <label className="block text-sm font-medium text-gray-700">
+            Do you have any claims in last 4 Years?<span className="text-red-500 ml-1">*</span>
+          </label>
           <div className="flex space-x-4">
             <label className="inline-flex items-center">
               <input
                 type="radio"
-                {...register('hasInsured', { required: true })}
+                {...register('hasClaims', { required: "Claims information is required" })}
                 value="yes"
                 className="form-radio text-[#536AAE]"
               />
@@ -170,105 +224,19 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
             <label className="inline-flex items-center">
               <input
                 type="radio"
-                {...register('hasInsured', { required: true })}
+                {...register('hasClaims', { required: "Claims information is required" })}
                 value="no"
                 className="form-radio text-[#536AAE]"
               />
               <span className="ml-2">No</span>
             </label>
           </div>
-        </div>
-
-        {/* Claims History */}
-        <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">Do you have any claims in last 4 Years?</label>
-          <div className="flex space-x-4">
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                {...register('hasClaims', { required: true })}
-                value="yes"
-                className="form-radio text-[#536AAE]"
-              />
-              <span className="ml-2">Yes</span>
-            </label>
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                {...register('hasClaims', { required: true })}
-                value="no"
-                className="form-radio text-[#536AAE]"
-              />
-              <span className="ml-2">No</span>
-            </label>
-          </div>
-
-          {/* Conditional Claims Details */}
-          {hasClaims === 'yes' && (
-            <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Incident Date</label>
-                <input
-                  type="date"
-                  {...register('claimDetails.incidentDate', { required: true })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Cause of Loss</label>
-                <input
-                  type="text"
-                  {...register('claimDetails.causeOfLoss', { required: true })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Claim Amount</label>
-                <input
-                  type="number"
-                  {...register('claimDetails.claimAmount', { required: true })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">At Fault?</label>
-                <div className="flex space-x-4">
-                  <label className="inline-flex items-center">
-                    <input
-                      type="radio"
-                      {...register('claimDetails.atFault', { required: true })}
-                      value="yes"
-                      className="form-radio text-[#536AAE]"
-                    />
-                    <span className="ml-2">Yes</span>
-                  </label>
-                  <label className="inline-flex items-center">
-                    <input
-                      type="radio"
-                      {...register('claimDetails.atFault', { required: true })}
-                      value="no"
-                      className="form-radio text-[#536AAE]"
-                    />
-                    <span className="ml-2">No</span>
-                  </label>
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Comments/Details</label>
-                <textarea
-                  {...register('claimDetails.comments')}
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-                />
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Telematics Option */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Do you want us to put Driver telematics/smart ride/right track discount?
+            Do you want us to put Driver telematics/smart ride/right track discount?<span className="text-red-500 ml-1">*</span>
             <span className="text-xs text-gray-500 block mt-1">
               Learn more about <a href="https://www.travelers.com/car-insurance/intellidrive-programs" target="_blank" rel="noopener noreferrer" className="text-[#536AAE] hover:underline">telematics programs</a>
             </span>
@@ -277,7 +245,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
             <label className="inline-flex items-center">
               <input
                 type="radio"
-                {...register('wantTelematics', { required: true })}
+                {...register('wantTelematics', { required: "Telematics choice is required" })}
                 value="yes"
                 className="form-radio text-[#536AAE]"
               />
@@ -286,7 +254,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
             <label className="inline-flex items-center">
               <input
                 type="radio"
-                {...register('wantTelematics', { required: true })}
+                {...register('wantTelematics', { required: "Telematics choice is required" })}
                 value="no"
                 className="form-radio text-[#536AAE]"
               />
@@ -297,11 +265,13 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, watc
 
         {/* Annual Mileage */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">How many miles will the vehicle drive per year?</label>
+          <label className="block text-sm font-medium text-gray-700">
+            How many miles will the vehicle drive per year?<span className="text-red-500 ml-1">*</span>
+          </label>
           <input
             type="number"
             min="0"
-            {...register('annualMileage', { required: true })}
+            {...register('annualMileage', { required: "Annual mileage is required" })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           />
         </div>
