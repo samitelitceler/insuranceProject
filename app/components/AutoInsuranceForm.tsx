@@ -15,19 +15,61 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
       <h3 className="text-xl font-semibold text-[#11193B]">Auto Insurance Details</h3>
       
       {/* Number of Drivers Selection */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Number of Drivers<span className="text-red-500 ml-1">*</span>
-        </label>
-        <select
-          onChange={(e) => setNumberOfDrivers(parseInt(e.target.value))}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-        >
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <option key={num} value={num}>{num}</option>
-          ))}
-        </select>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Number of Drivers<span className="text-red-500 ml-1">*</span>
+          </label>
+          <select
+          {...register('numberOfDrivers' , {required : "Selecting no of drivers is required"})}
+            onChange={(e) => setNumberOfDrivers(parseInt(e.target.value))}
+            className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+          >
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <option key={num} value={num}>{num}</option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Vehicle Ownership<span className="text-red-500 ml-1">*</span>
+          </label>
+          <select
+            {...register('vehicleOwnership', { required: "Vehicle ownership is required" })}
+            className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+          >
+            <option value="">Select Type</option>
+            <option value="own">Own</option>
+            <option value="lease">Lease</option>
+          </select>
+        </div>
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Years with Prior Carrier
+            </label>
+            <input
+              type="number"
+              min="0"
+              {...register('priorCarrierYears')}
+              className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Years with Continuous Coverage
+            </label>
+            <input
+              type="number"
+              min="0"
+              {...register('continuousCoverageYears')}
+              className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            />
+          </div>
+        </div>
 
       {/* Driver Details */}
       {Array.from({ length: numberOfDrivers }).map((_, index) => (
@@ -40,7 +82,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               </label>
               <input
                 type="text"
-                {...register(`drivers.${index}.dlNumber`, { required: `Driver ${index + 1} License Number is required` })}
+                {...register(`drivers.${index}.licenseNumber`, { required: `Driver ${index + 1} License Number is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
@@ -50,7 +92,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               </label>
               <input
                 type="date"
-                {...register(`drivers.${index}.dob`, { required: `Driver ${index + 1} Date of Birth is required` })}
+                {...register(`drivers.${index}.dateOfBirth`, { required: `Driver ${index + 1} Date of Birth is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
@@ -60,7 +102,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               </label>
               <input
                 type="text"
-                {...register(`drivers.${index}.industry`, { required: `Driver ${index + 1} Working Industry is required` })}
+                {...register(`drivers.${index}.workingIndustry`, { required: `Driver ${index + 1} Working Industry is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
@@ -90,7 +132,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               </label>
               <input
                 type="tel"
-                {...register(`drivers.${index}.cell`, { required: `Driver ${index + 1} Cell Number is required` })}
+                {...register(`drivers.${index}.cellNumber`, { required: `Driver ${index + 1} Cell Number is required` })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
               />
             </div>
@@ -140,13 +182,13 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              AARP Membership<span className="text-red-500 ml-1">*</span>
+              AAR Membership<span className="text-red-500 ml-1">*</span>
             </label>
             <div className="flex space-x-4">
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  {...register('hasInsured', { required: "AARP membership is required" })}
+                  {...register('aarMembership', { required: "AAR membership is required" })}
                   value="yes"
                   className="form-radio text-[#536AAE]"
                 />
@@ -155,7 +197,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  {...register('hasInsured', { required: "AARP membership is required" })}
+                  {...register('aarMembership', { required: "AAR membership is required" })}
                   value="no"
                   className="form-radio text-[#536AAE]"
                 />
@@ -165,46 +207,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
           </div>
         </div>
 
-        {/* Vehicle Ownership */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Vehicle Ownership<span className="text-red-500 ml-1">*</span>
-          </label>
-          <select
-            {...register('vehicleOwnership', { required: "Vehicle ownership is required" })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-          >
-            <option value="">Select Ownership Type</option>
-            <option value="own">Own</option>
-            <option value="lease">Lease</option>
-          </select>
-        </div>
-
-        {/* Prior Carrier Years */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Years with Prior Carrier<span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="number"
-            min="0"
-            {...register('priorCarrierYears', { required: true })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-          />
-        </div>
-
-        {/* Continuous Coverage Years */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Years with Continuous Coverage<span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="number"
-            min="0"
-            {...register('continuousCoverageYears', { required: true })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-          />
-        </div>
+  
 
         {/* Claims History - simplified */}
         <div className="space-y-4">
@@ -271,8 +274,12 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
           <input
             type="number"
             min="0"
-            {...register('annualMileage', { required: "Annual mileage is required" })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            max="9999999999"
+            {...register('annualMileage', { 
+              required: "Annual mileage is required",
+              max: { value: 9999999999, message: "Please enter a valid mileage" }
+            })}
+            className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           />
         </div>
 

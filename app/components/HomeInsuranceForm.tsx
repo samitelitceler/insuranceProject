@@ -13,7 +13,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
   const conductsBusiness = watch('conductsBusiness');
   
   // Helper function to check if spouse fields are required
-  const isSpouseRequired = maritalStatus === 'married' || maritalStatus === 'domestic';
+  const isSpouseRequired = maritalStatus === 'MARRIED' || maritalStatus === 'DOMESTIC';
   // Helper function to check if previous address is required
   const isPreviousAddressRequired = yearsAtResidence < 3;
   // Helper function to check if secondary heating is required
@@ -36,12 +36,12 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           >
             <option value="">Select Status</option>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
-            <option value="divorced">Divorced</option>
-            <option value="separated">Separated</option>
-            <option value="widowed">Widowed</option>
-            <option value="domestic">Domestic Partner</option>
+            <option value="SINGLE">Single</option>
+            <option value="MARRIED">Married</option>
+            <option value="DIVORCED">Divorced</option>
+            <option value="SEPARATED">Separated</option>
+            <option value="WIDOWED">Widowed</option>
+            <option value="DOMESTIC">Domestic Partner</option>
           </select>
         </div>
 
@@ -54,7 +54,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                   Applicant/Insured<span className="text-red-500 ml-1">*</span>
                 </th>
-                {(maritalStatus === 'married' || maritalStatus === 'domestic') && (
+                {(maritalStatus === 'MARRIED' || maritalStatus === 'DOMESTIC') && (
                   <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                     Spouse<span className="text-red-500 ml-1">*</span>
                   </th>
@@ -80,7 +80,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
                     />
                   </td>
-                  {(maritalStatus === 'married' || maritalStatus === 'domestic') && (
+                  {(maritalStatus === 'MARRIED' || maritalStatus === 'DOMESTIC') && (
                     <td className="px-4 py-3">
                       <input
                         type={item.type}
@@ -244,7 +244,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  {...register('residenceType', { required: "Residence type is required" })}
+                  {...register('residenceType', { required: true })}
                   value="primary"
                   className="form-radio text-[#536AAE]"
                 />
@@ -253,7 +253,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  {...register('residenceType', { required: "Residence type is required" })}
+                  {...register('residenceType', { required: true })}
                   value="secondary"
                   className="form-radio text-[#536AAE]"
                 />
@@ -262,7 +262,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
               <label className="inline-flex items-center">
                 <input
                   type="radio"
-                  {...register('residenceType', { required: "Residence type is required" })}
+                  {...register('residenceType', { required: true })}
                   value="investment"
                   className="form-radio text-[#536AAE]"
                 />
@@ -580,20 +580,32 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
         {/* Insurance History */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Years with Prior Carrier</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Years with Prior Carrier<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="number"
               min="0"
-              {...register('priorCarrierYears', { required: true })}
+              {...register('priorCarrierYears', { 
+                required: "Years with prior carrier is required",
+                valueAsNumber: true,
+                min: 0
+              })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Years with Continuous Coverage</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Years with Continuous Coverage<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="number"
               min="0"
-              {...register('continuousCoverageYears', { required: true })}
+              {...register('continuousCoverageYears', { 
+                required: "Years with continuous coverage is required",
+                valueAsNumber: true,
+                min: 0
+              })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
@@ -633,7 +645,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
               <input
                 type="radio"
                 {...register('fireplaceType', { required: "Fireplace type is required" })}
-                value="masonry"
+                value="MASONRY"
                 className="form-radio text-[#536AAE]"
               />
               <span className="ml-2">Masonry</span>
@@ -642,7 +654,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
               <input
                 type="radio"
                 {...register('fireplaceType', { required: "Fireplace type is required" })}
-                value="prefab"
+                value="PREFAB"
                 className="form-radio text-[#536AAE]"
               />
               <span className="ml-2">Prefab</span>
@@ -665,16 +677,17 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
               <input
                 type="radio"
                 {...register('smartHomeMonitoring', { required: "Smart home monitoring choice is required" })}
-                value="participating"
+                value="PARTICIPATING"
                 className="form-radio text-[#536AAE]"
               />
+              
               <span className="ml-2">Participating</span>
             </label>
             <label className="inline-flex items-center">
               <input
                 type="radio"
                 {...register('smartHomeMonitoring', { required: "Smart home monitoring choice is required" })}
-                value="none"
+                value="NONE_SELECTED"
                 className="form-radio text-[#536AAE]"
               />
               <span className="ml-2">None Selected</span>

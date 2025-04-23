@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Open_Sans } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 
 
@@ -42,6 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script src="https://smtpjs.com/v3/smtp.js" strategy="beforeInteractive" />
+      </head>
       <body
         className={`${josefinSans.variable} ${openSans.variable} font-sans`}
       >
