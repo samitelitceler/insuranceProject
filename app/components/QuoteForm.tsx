@@ -620,6 +620,7 @@ const QuoteForm = () => {
             setNumberOfDrivers={setNumberOfDrivers}
             register={register}
             watch={watch}
+            errors={errors}
           />
         )}
 

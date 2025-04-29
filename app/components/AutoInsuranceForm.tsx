@@ -1,4 +1,4 @@
-import { UseFormRegister, UseFormWatch } from "react-hook-form";
+import { UseFormRegister, UseFormWatch, FieldErrors } from "react-hook-form";
 import { FormData } from './QuoteForm';  // Add this import
 
 interface AutoInsuranceFormProps {
@@ -6,9 +6,10 @@ interface AutoInsuranceFormProps {
     setNumberOfDrivers: (number: number) => void;
     register: UseFormRegister<FormData>;
     watch: UseFormWatch<FormData>;
+    errors: FieldErrors<FormData>;
   }
 
-const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: AutoInsuranceFormProps) => {
+const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, errors }: AutoInsuranceFormProps) => {
 
   return (
     <div className="space-y-6 border-t pt-6">
@@ -83,8 +84,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="text"
                 {...register(`drivers.${index}.licenseNumber`, { required: `Driver ${index + 1} License Number is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.licenseNumber ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.licenseNumber && <span className="text-red-500 text-xs">{errors.drivers[index].licenseNumber.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -93,8 +95,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="date"
                 {...register(`drivers.${index}.dateOfBirth`, { required: `Driver ${index + 1} Date of Birth is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.dateOfBirth ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.dateOfBirth && <span className="text-red-500 text-xs">{errors.drivers[index].dateOfBirth.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -103,8 +106,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="text"
                 {...register(`drivers.${index}.workingIndustry`, { required: `Driver ${index + 1} Working Industry is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.workingIndustry ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.workingIndustry && <span className="text-red-500 text-xs">{errors.drivers[index].workingIndustry.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -113,8 +117,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="text"
                 {...register(`drivers.${index}.occupation`, { required: `Driver ${index + 1} Occupation is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.occupation ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.occupation && <span className="text-red-500 text-xs">{errors.drivers[index].occupation.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -123,8 +128,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="text"
                 {...register(`drivers.${index}.education`, { required: `Driver ${index + 1} Education is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.education ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.education && <span className="text-red-500 text-xs">{errors.drivers[index].education.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -133,8 +139,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="tel"
                 {...register(`drivers.${index}.cellNumber`, { required: `Driver ${index + 1} Cell Number is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.cellNumber ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.cellNumber && <span className="text-red-500 text-xs">{errors.drivers[index].cellNumber.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -143,8 +150,9 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
               <input
                 type="email"
                 {...register(`drivers.${index}.email`, { required: `Driver ${index + 1} Email is required` })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.email ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
+              {errors.drivers?.[index]?.email && <span className="text-red-500 text-xs">{errors.drivers[index].email.message}</span>}
             </div>
           </div>
         </div>
@@ -272,15 +280,16 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register }: Au
             How many miles will the vehicle drive per year?<span className="text-red-500 ml-1">*</span>
           </label>
           <input
-            type="number"
+           maxLength={10}
             min="0"
-            max="9999999999"
+            max="10"
             {...register('annualMileage', { 
               required: "Annual mileage is required",
-              max: { value: 9999999999, message: "Please enter a valid mileage" }
+              max: { value: 10, message: "Please enter a valid mileage" }
             })}
-            className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            className={`mt-1 block w-48 rounded-md border ${errors.annualMileage ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           />
+          {errors.annualMileage && <span className="text-red-500 text-xs">{errors.annualMileage.message}</span>}
         </div>
 
         {/* File Upload */}

@@ -76,7 +76,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
                   <td className="px-4 py-3">
                     <input
                       type={item.type}
-                      {...register(`applicant.${item.field}` as keyof FormData, { required: `${item.label} is required` })}
+                      {...register(`applicant.${item.field}` as keyof FormData, { required: `${item.label} is required`, minLength: { value: 10, message: "Valid phone number is required" } })}
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
                     />
                   </td>
@@ -84,7 +84,7 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
                     <td className="px-4 py-3">
                       <input
                         type={item.type}
-                        {...register(`spouse.${item.field}` as keyof FormData, { required: isSpouseRequired ? `Spouse ${item.label} is required` : false })}
+                        {...register(`spouse.${item.field}` as keyof FormData, { required: isSpouseRequired ? `Spouse ${item.label} is required` : false, minLength: { value: 10, message: "Valid phone number is required" } })}
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
                       />
                     </td>
@@ -326,9 +326,9 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
           </label>
           <select
             {...register('foundationType', { required: "Foundation type is required" })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            className="mt-1 block w-48 rounded-md border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           >
-            <option value="">Select Foundation Type</option>
+            <option value="">Select Type</option>
             <option value="basement-finished">Basement Finished</option>
             <option value="basement-unfinished">Basement Unfinished</option>
             <option value="basement-partially-finished">Basement Partially Finished</option>
@@ -581,32 +581,24 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Years with Prior Carrier<span className="text-red-500 ml-1">*</span>
+              Years with Prior Carrier
             </label>
             <input
               type="number"
               min="0"
-              {...register('priorCarrierYears', { 
-                required: "Years with prior carrier is required",
-                valueAsNumber: true,
-                min: 0
-              })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              {...register('priorCarrierYears', { valueAsNumber: true, min: 0 })}
+              className="mt-1 block w-full rounded-md border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Years with Continuous Coverage<span className="text-red-500 ml-1">*</span>
+              Years with Continuous Coverage
             </label>
             <input
               type="number"
               min="0"
-              {...register('continuousCoverageYears', { 
-                required: "Years with continuous coverage is required",
-                valueAsNumber: true,
-                min: 0
-              })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              {...register('continuousCoverageYears', { valueAsNumber: true, min: 0 })}
+              className="mt-1 block w-full rounded-md border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
         </div>
@@ -640,24 +632,18 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
           <label className="block text-sm font-medium text-gray-700">
             Fireplace Type<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="flex space-x-4">
+          <div className="space-x-4 flex">
             <label className="inline-flex items-center">
-              <input
-                type="radio"
-                {...register('fireplaceType', { required: "Fireplace type is required" })}
-                value="MASONRY"
-                className="form-radio text-[#536AAE]"
-              />
+              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="MASONRY" className="form-radio text-[#536AAE]" />
               <span className="ml-2">Masonry</span>
             </label>
             <label className="inline-flex items-center">
-              <input
-                type="radio"
-                {...register('fireplaceType', { required: "Fireplace type is required" })}
-                value="PREFAB"
-                className="form-radio text-[#536AAE]"
-              />
+              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="PREFAB" className="form-radio text-[#536AAE]" />
               <span className="ml-2">Prefab</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="NONE" className="form-radio text-[#536AAE]" />
+              <span className="ml-2">None</span>
             </label>
           </div>
           <p className="text-sm text-gray-500 mt-1">
@@ -714,102 +700,112 @@ const HomeInsuranceForm = ({ register, watch }: HomeInsuranceFormProps) => {
                 { label: 'Plumbing', field: 'plumbing' },
                 { label: 'Electrical', field: 'electrical' },
                 { label: 'Heating', field: 'heating' }
-              ].map((item) => (
-                <tr key={item.field}>
-                  <td className="px-4 py-3 text-sm text-gray-700">{item.label}</td>
-                  <td className="px-4 py-3">
-                    <div className="flex space-x-4">
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          {...register(`${item.field}Updated` as keyof FormData, { required: true })}
-                          value="yes"
-                          className="form-radio text-[#536AAE]"
-                        />
-                        <span className="ml-2">Yes</span>
-                      </label>
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          {...register(`${item.field}Updated` as keyof FormData, { required: true })}
-                          value="no"
-                          className="form-radio text-[#536AAE]"
-                        />
-                        <span className="ml-2">No</span>
-                      </label>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                  <input
-                    type="date"
-                    {...register(`${item.field}UpdateYear` as keyof FormData)}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
-                    disabled={watch(`${item.field}Updated` as keyof FormData) !== 'yes'}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+              ].map((item) => {
+                const updatedValue = watch(`${item.field}Updated` as keyof FormData);
+                const updateYearError = [`${item.field}UpdateYear` as keyof FormData];
+                return (
+                  <tr key={item.field}>
+                    <td className="px-4 py-3 text-sm text-gray-700">{item.label}</td>
+                    <td className="px-4 py-3">
+                      <div className="flex space-x-4">
+                        <label className="inline-flex items-center">
+                          <input
+                            type="radio"
+                            {...register(`${item.field}Updated` as keyof FormData, { required: true })}
+                            value="yes"
+                            className="form-radio text-[#536AAE]"
+                          />
+                          <span className="ml-2">Yes</span>
+                        </label>
+                        <label className="inline-flex items-center">
+                          <input
+                            type="radio"
+                            {...register(`${item.field}Updated` as keyof FormData, { required: true })}
+                            value="no"
+                            className="form-radio text-[#536AAE]"
+                          />
+                          <span className="ml-2">No</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td className="px-4 py-3">
+                      <input
+                        type="date"
+                        {...register(`${item.field}UpdateYear` as keyof FormData, {
+                          required: updatedValue === 'yes' ? `${item.label} update year is required when updated is Yes` : false
+                        })}
+                        className={`block w-full rounded-md border shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE] 
+                          ${updatedValue === 'yes' && updateYearError && !watch(`${item.field}UpdateYear` as keyof FormData) ? 'border-red-500' : 'border-black'}`}
+                        disabled={updatedValue !== 'yes'}
+                      />
+                      {updateYearError && updatedValue === 'yes' && !watch(`${item.field}UpdateYear` as keyof FormData) && (
+                        <span className="text-red-500 text-xs">Required</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
 
-      {/* Insurance History */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Has property insurance been cancelled, declined or non-renewed in the last 5 years?
-        </label>
-        <div className="flex space-x-4">
-          <label className="inline-flex items-center">
-            <input
-              type="radio"
-              {...register('insuranceCancelled', { required: true })}
-              value="yes"
-              className="form-radio text-[#536AAE]"
-            />
-            <span className="ml-2">Yes</span>
+        {/* Insurance History */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Has property insurance been cancelled, declined or non-renewed in the last 5 years?
           </label>
-          <label className="inline-flex items-center">
-            <input
-              type="radio"
-              {...register('insuranceCancelled', { required: true })}
-              value="no"
-              className="form-radio text-[#536AAE]"
-            />
-            <span className="ml-2">No</span>
+          <div className="flex space-x-4">
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                {...register('insuranceCancelled', { required: true })}
+                value="yes"
+                className="form-radio text-[#536AAE]"
+              />
+              <span className="ml-2">Yes</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                {...register('insuranceCancelled', { required: true })}
+                value="no"
+                className="form-radio text-[#536AAE]"
+              />
+              <span className="ml-2">No</span>
+            </label>
+          </div>
+        </div>
+
+        {/* File Upload */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Upload Declaration Page (HOI)
+            <span className="text-xs text-gray-500 block mt-1">
+              Upload your current declaration page to speed up the process
+            </span>
           </label>
+          <input
+            type="file"
+            accept=".pdf,.jpg,.jpeg,.png"
+            {...register('declarationPage')}
+            className="mt-1 block w-full text-sm text-gray-500
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-md file:border-0
+              file:text-sm file:font-semibold
+              file:bg-[#11193B] file:text-white
+              hover:file:bg-[#536AAE]
+              cursor-pointer
+            "
+          />
+        </div>
+
+        {/* Error Messages Section */}
+        <div className="text-sm text-red-600 space-y-1">
+          {/* Add error messages here if needed */}
         </div>
       </div>
-
-      {/* File Upload */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700">
-          Upload Declaration Page (HOI)
-          <span className="text-xs text-gray-500 block mt-1">
-            Upload your current declaration page to speed up the process
-          </span>
-        </label>
-        <input
-          type="file"
-          accept=".pdf,.jpg,.jpeg,.png"
-          {...register('declarationPage')}
-          className="mt-1 block w-full text-sm text-gray-500
-            file:mr-4 file:py-2 file:px-4
-            file:rounded-md file:border-0
-            file:text-sm file:font-semibold
-            file:bg-[#11193B] file:text-white
-            hover:file:bg-[#536AAE]
-            cursor-pointer
-          "
-        />
-      </div>
-
-      {/* Error Messages Section */}
-      <div className="text-sm text-red-600 space-y-1">
-        {/* Add error messages here if needed */}
-      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default HomeInsuranceForm;
