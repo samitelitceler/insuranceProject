@@ -109,10 +109,17 @@ export interface FormData extends AutoInsuranceFormValues, HomeInsuranceFormValu
   insuranceType: 'AUTO' | 'HOME' | 'BOTH';
 }
 
+interface ApiError {
+  status: number;
+  error: string;
+  message: string;
+  field?: string;
+}
 
 const QuoteForm = () => {
   const [numberOfDrivers, setNumberOfDrivers] = useState<number>(1);
   const [submissionStatus, setSubmissionStatus] = useState<string>("");
+  const [apiErrors, setApiErrors] = useState<Array<ApiError>>([]);
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<FormData>();
 
   // Watch the insurance type value to conditionally render forms
@@ -120,6 +127,7 @@ const QuoteForm = () => {
 
   const onSubmit = async (data: FormData) => {
     setSubmissionStatus("");
+    setApiErrors([]);
 
     try {
       const formData = new FormData();
@@ -184,15 +192,18 @@ const QuoteForm = () => {
         });
 
         if (!autoResponse.ok) {
-          throw new Error('Auto insurance quote submission failed');
+          const errorData = await autoResponse.json();
+          if (errorData.status === 409 && errorData.error === "Unique constraint violation") {
+            setSubmissionStatus(errorData.message);
+          } else {
+            setSubmissionStatus(errorData.error || 'Auto insurance quote submission failed');
+          }
+          return;
         }
         if (autoResponse.ok) {
           setSubmissionStatus("Thank you! Your quote request has been received. We'll get back to you soon.");
           reset();
           window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          const errorData = await autoResponse.json();
-          setSubmissionStatus(`Error: ${errorData.error || 'Something went wrong'}`);
         }
       }
 
@@ -297,23 +308,29 @@ const QuoteForm = () => {
           body: homeFormData,
         });
 
+        if (!homeResponse.ok) {
+          const errorData = await homeResponse.json();
+          if (errorData.status === 409 && errorData.error === "Unique constraint violation") {
+            setSubmissionStatus(errorData.message);
+          } else {
+            setSubmissionStatus(errorData.error || 'Home insurance quote submission failed');
+          }
+          return;
+        }
         if (homeResponse.ok) {
           setSubmissionStatus("Thank you! Your quote request has been received. We'll get back to you soon.");
           reset();
           window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          const errorData = await homeResponse.json();
-          setSubmissionStatus(`Error: ${errorData.error || 'Something went wrong'}`);
-        }
-
-        if (!homeResponse.ok) {
-          throw new Error('Home insurance quote submission failed');
         }
       }
 
     } catch (error) {
-      console.error(error);
-      setSubmissionStatus("There was an error submitting your form. Please check your internet connection and try again.");
+      console.log(error);
+      if (error instanceof Error) {
+        setSubmissionStatus(error.message);
+      } else {
+        setSubmissionStatus("There was an error submitting your form. Please try again.");
+      }
     }
 
     
@@ -340,14 +357,6 @@ const QuoteForm = () => {
       bothFormData.append('autoInsurance[hasClaimsInLast4Years]', data.hasClaims);
       bothFormData.append('autoInsurance[wantsTelematicsDiscount]', data.wantTelematics);
       bothFormData.append('autoInsurance[annualMileage]', String(data.annualMileage));
-  
-      // Add optional fields only if they exist
-      // if (data.priorCarrierYears) {
-      //   bothFormData.append('autoInsurance[yearsWithPriorCarrier]', String(data.priorCarrierYears));
-      // }
-      // if (data.continuousCoverageYears) {
-      //   bothFormData.append('autoInsurance[yearsWithContinuousCoverage]', String(data.continuousCoverageYears));
-      // }
   
       // Add drivers information
       if (data.drivers) {
@@ -475,19 +484,29 @@ const QuoteForm = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      {/* {console.log(errors)} */}
+      {/* Display API Errors */}
+      {apiErrors.length > 0 && (
+        <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-800 border border-red-300">
+          <h3 className="font-semibold mb-2">{submissionStatus}</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            {apiErrors.map((error, index) => (
+              <li key={index}>{error.message}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-      {/* Add error message banner */}
-
+      {/* Display Form Validation Errors */}
       {Object.keys(errors).length > 0 && (
         <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-800 border border-red-300">
           Please correct the items that have been highlighted. Items marked with an asterisk (*) are required.
         </div>
       )}
+
       <h2 className="text-2xl font-bold text-[#11193B] mb-6">Get Your Insurance Quote</h2>
 
       {/* Submission Status Message */}
-      {submissionStatus && (
+      {submissionStatus && !apiErrors.length && (
         <div className={`mb-6 p-4 rounded-lg ${submissionStatus.includes("Thank you")
             ? "bg-green-50 text-green-800"
             : "bg-red-50 text-red-800"
@@ -506,8 +525,9 @@ const QuoteForm = () => {
             <input
               type="text"
               {...register('firstName', { required: "First name is required" })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`mt-1 block w-full rounded-md border ${errors.firstName ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {errors.firstName && <span className="text-red-500 text-xs">{errors.firstName.message}</span>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -516,8 +536,9 @@ const QuoteForm = () => {
             <input
               type="text"
               {...register('lastName', { required: "Last name is required" })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`mt-1 block w-full rounded-md border ${errors.lastName ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {errors.lastName && <span className="text-red-500 text-xs">{errors.lastName.message}</span>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -532,8 +553,9 @@ const QuoteForm = () => {
                   message: "Valid phone number is required"
                 }
               })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`mt-1 block w-full rounded-md border ${errors.cell ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {errors.cell && <span className="text-red-500 text-xs">{errors.cell.message}</span>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -542,8 +564,9 @@ const QuoteForm = () => {
             <input
               type="email"
               {...register('email', { required: "Email is required" })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`mt-1 block w-full rounded-md border ${errors.email ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -552,8 +575,9 @@ const QuoteForm = () => {
             <input
               type="date"
               {...register('dob', { required: "Date of Birth is required" })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`mt-1 block w-full rounded-md border ${errors.dob ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {errors.dob && <span className="text-red-500 text-xs">{errors.dob.message}</span>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -561,13 +585,14 @@ const QuoteForm = () => {
             </label>
             <select
               {...register('gender', { required: "Gender is required" })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`mt-1 block w-full rounded-md border ${errors.gender ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             >
               <option value="">Select Gender</option>
               <option value="MALE">Male</option>
               <option value="FEMALE">Female</option>
               <option value="other">Other</option>
             </select>
+            {errors.gender && <span className="text-red-500 text-xs">{errors.gender.message}</span>}
           </div>
         </div>
 
@@ -628,6 +653,7 @@ const QuoteForm = () => {
           <HomeInsuranceForm
             register={register}
             watch={watch}
+            errors={errors}
           />
         )}
 

@@ -24,7 +24,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
           <select
           {...register('numberOfDrivers' , {required : "Selecting no of drivers is required"})}
             onChange={(e) => setNumberOfDrivers(parseInt(e.target.value))}
-            className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           >
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <option key={num} value={num}>{num}</option>
@@ -38,7 +38,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
           </label>
           <select
             {...register('vehicleOwnership', { required: "Vehicle ownership is required" })}
-            className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
           >
             <option value="">Select Type</option>
             <option value="own">Own</option>
@@ -55,7 +55,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               type="number"
               min="0"
               {...register('priorCarrierYears')}
-              className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
 
@@ -67,7 +67,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               type="number"
               min="0"
               {...register('continuousCoverageYears')}
-              className="mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
             />
           </div>
         </div>
@@ -103,33 +103,63 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               <label className="block text-sm font-medium text-gray-700">
                 Working Industry<span className="text-red-500 ml-1">*</span>
               </label>
-              <input
-                type="text"
+              <select
                 {...register(`drivers.${index}.workingIndustry`, { required: `Driver ${index + 1} Working Industry is required` })}
                 className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.workingIndustry ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
-              />
+              >
+                <option value="">Select Industry</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Construction">Construction</option>
+                <option value="Education">Education</option>
+                <option value="Finance">Finance</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Retail">Retail</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Other">Other</option>
+              </select>
               {errors.drivers?.[index]?.workingIndustry && <span className="text-red-500 text-xs">{errors.drivers[index].workingIndustry.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Occupation<span className="text-red-500 ml-1">*</span>
               </label>
-              <input
-                type="text"
+              <select
                 {...register(`drivers.${index}.occupation`, { required: `Driver ${index + 1} Occupation is required` })}
                 className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.occupation ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
-              />
+              >
+                <option value="">Select Occupation</option>
+                <option value="Accountant">Accountant</option>
+                <option value="Architect">Architect</option>
+                <option value="Business Owner">Business Owner</option>
+                <option value="Engineer">Engineer</option>
+                <option value="Healthcare Professional">Healthcare Professional</option>
+                <option value="IT Professional">IT Professional</option>
+                <option value="Manager">Manager</option>
+                <option value="Sales Representative">Sales Representative</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Other">Other</option>
+              </select>
               {errors.drivers?.[index]?.occupation && <span className="text-red-500 text-xs">{errors.drivers[index].occupation.message}</span>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Education<span className="text-red-500 ml-1">*</span>
               </label>
-              <input
-                type="text"
+              <select
                 {...register(`drivers.${index}.education`, { required: `Driver ${index + 1} Education is required` })}
                 className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.education ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
-              />
+              >
+                <option value="">Select Education</option>
+                <option value="High School">High School</option>
+                <option value="Associate Degree">Associate Degree</option>
+                <option value="Bachelor Degree">Bachelor Degree</option>
+                <option value="Master Degree">Master Degree</option>
+                <option value="Doctorate">Doctorate</option>
+                <option value="Professional Certification">Professional Certification</option>
+                <option value="Other">Other</option>
+              </select>
               {errors.drivers?.[index]?.education && <span className="text-red-500 text-xs">{errors.drivers[index].education.message}</span>}
             </div>
             <div>
@@ -280,12 +310,12 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
             How many miles will the vehicle drive per year?<span className="text-red-500 ml-1">*</span>
           </label>
           <input
-           maxLength={10}
+            type="number"
             min="0"
-            max="10"
+            max="999999"
             {...register('annualMileage', { 
               required: "Annual mileage is required",
-              max: { value: 10, message: "Please enter a valid mileage" }
+              max: { value: 999999, message: "Please enter a valid mileage (max 999,999)" }
             })}
             className={`mt-1 block w-48 rounded-md border ${errors.annualMileage ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           />
