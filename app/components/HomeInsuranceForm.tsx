@@ -5,6 +5,7 @@ interface HomeInsuranceFormProps {
     register: UseFormRegister<FormData>;
     watch: UseFormWatch<FormData>;
     errors: FieldErrors<FormData>;
+    isSubmitted: boolean;
 }
 
 interface FormField {
@@ -24,7 +25,7 @@ interface FormErrors extends FieldErrors<FormData> {
   root?: Record<string, Partial<{ type: string | number; message: string }>> & Partial<{ type: string | number; message: string }>;
 }
   
-const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) => {
+const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuranceFormProps) => {
   const maritalStatus = watch('maritalStatus');
   const yearsAtResidence = watch('yearsAtResidence');
   const hasAlternateHeat = watch('hasAlternateHeat');
@@ -43,12 +44,15 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
 
   const getErrorClass = (field: string): string => {
     const error = typedErrors[field];
-    return error ? 'border-red-500' : 'border-black';
+    if (error && isSubmitted) {
+      return 'border-red-500 text-red-500';
+    }
+    return 'border-black text-gray-700';
   };
 
   const getNestedErrorClass = (parent: string, field: string): string => {
     const parentError = typedErrors[parent] as Record<string, FieldError | undefined>;
-    return parentError?.[field] ? 'border-red-500' : 'border-black';
+    return parentError?.[field] && isSubmitted ? 'border-red-500 text-red-500' : 'border-black text-gray-700';
   };
 
   const getErrorMessage = (field: string): string => {
@@ -60,6 +64,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
       return (error as FieldError).message || 'This field is required';
     }
     return 'This field is required';
+  };
+
+  const getRadioErrorClass = (field: string): string => {
+    const error = typedErrors[field];
+    if (error && isSubmitted) {
+      return 'text-red-500';
+    }
+    return '';
   };
 
   return (
@@ -288,13 +300,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
             <label className="block text-sm font-medium text-gray-700">
               Within City Limits?<span className="text-red-500 ml-1">*</span>
             </label>
-            <div className="flex space-x-4 mt-1">
+            <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('withinCityLimits')}`}>
               <label className="inline-flex items-center">
                 <input
                   type="radio"
                   {...register('withinCityLimits', { required: "City limits information is required" })}
                   value="yes"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('withinCityLimits')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('withinCityLimits')}`}
                 />
                 <span className="ml-2">Yes</span>
               </label>
@@ -303,11 +315,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                   type="radio"
                   {...register('withinCityLimits', { required: "City limits information is required" })}
                   value="no"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('withinCityLimits')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('withinCityLimits')}`}
                 />
                 <span className="ml-2">No</span>
               </label>
             </div>
+            {typedErrors.withinCityLimits && isSubmitted && (
+              <span className="text-red-500 text-xs">Please select if property is within city limits</span>
+            )}
           </div>
 
           <div>
@@ -328,13 +343,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
             <label className="block text-sm font-medium text-gray-700">
               Residence Type<span className="text-red-500 ml-1">*</span>
             </label>
-            <div className="flex space-x-4 mt-1">
+            <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('residenceType')}`}>
               <label className="inline-flex items-center">
                 <input
                   type="radio"
                   {...register('residenceType', { required: true })}
                   value="primary"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('residenceType')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('residenceType')}`}
                 />
                 <span className="ml-2">Primary</span>
               </label>
@@ -343,7 +358,7 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                   type="radio"
                   {...register('residenceType', { required: true })}
                   value="secondary"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('residenceType')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('residenceType')}`}
                 />
                 <span className="ml-2">Secondary</span>
               </label>
@@ -352,11 +367,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                   type="radio"
                   {...register('residenceType', { required: true })}
                   value="investment"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('residenceType')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('residenceType')}`}
                 />
                 <span className="ml-2">Investment</span>
               </label>
             </div>
+            {typedErrors.residenceType && isSubmitted && (
+              <span className="text-red-500 text-xs">Please select a residence type</span>
+            )}
           </div>
 
           <div>
@@ -440,13 +458,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
             <label className="block text-sm font-medium text-gray-700">
               Do you have an alternate source of heat other than a fireplace?<span className="text-red-500 ml-1">*</span>
             </label>
-            <div className="flex space-x-4 mt-1">
+            <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('hasAlternateHeat')}`}>
               <label className="inline-flex items-center">
                 <input
                   type="radio"
                   {...register('hasAlternateHeat', { required: "Alternate heat source information is required" })}
                   value="yes"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('hasAlternateHeat')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('hasAlternateHeat')}`}
                 />
                 <span className="ml-2">Yes</span>
               </label>
@@ -455,11 +473,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                   type="radio"
                   {...register('hasAlternateHeat', { required: "Alternate heat source information is required" })}
                   value="no"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('hasAlternateHeat')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('hasAlternateHeat')}`}
                 />
                 <span className="ml-2">No</span>
               </label>
             </div>
+            {typedErrors.hasAlternateHeat && isSubmitted && (
+              <span className="text-red-500 text-xs">Please select if you have an alternate heat source</span>
+            )}
           </div>
 
           {isSecondaryHeatingRequired && (
@@ -497,13 +518,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
           <label className="block text-sm font-medium text-gray-700">
             Does this home have an electric circuit breaker?<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="flex space-x-4 mt-1">
+          <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('hasCircuitBreaker')}`}>
             <label className="inline-flex items-center">
               <input
                 type="radio"
                 {...register('hasCircuitBreaker', { required: "Circuit breaker information is required" })}
                 value="yes"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('hasCircuitBreaker')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('hasCircuitBreaker')}`}
               />
               <span className="ml-2">Yes</span>
             </label>
@@ -512,11 +533,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('hasCircuitBreaker', { required: "Circuit breaker information is required" })}
                 value="no"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('hasCircuitBreaker')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('hasCircuitBreaker')}`}
               />
               <span className="ml-2">No</span>
             </label>
           </div>
+          {typedErrors.hasCircuitBreaker && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select if the home has an electric circuit breaker</span>
+          )}
         </div>
 
         {/* Business on Property */}
@@ -525,13 +549,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
             <label className="block text-sm font-medium text-gray-700">
               Do you conduct any type of business on this property?<span className="text-red-500 ml-1">*</span>
             </label>
-            <div className="flex space-x-4 mt-1">
+            <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('conductsBusiness')}`}>
               <label className="inline-flex items-center">
                 <input
                   type="radio"
                   {...register('conductsBusiness', { required: "Business conduction information is required" })}
                   value="yes"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('conductsBusiness')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('conductsBusiness')}`}
                 />
                 <span className="ml-2">Yes</span>
               </label>
@@ -540,11 +564,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                   type="radio"
                   {...register('conductsBusiness', { required: "Business conduction information is required" })}
                   value="no"
-                  className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('conductsBusiness')}`}
+                  className={`form-radio h-4 w-4 ${getErrorClass('conductsBusiness')}`}
                 />
                 <span className="ml-2">No</span>
               </label>
             </div>
+            {typedErrors.conductsBusiness && isSubmitted && (
+              <span className="text-red-500 text-xs">Please select if you conduct business on this property</span>
+            )}
           </div>
 
           {isBusinessNameRequired && (
@@ -576,13 +603,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
           <label className="block text-sm font-medium text-gray-700">
             Mortgagee<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="flex flex-wrap gap-4 mt-1">
+          <div className={`flex flex-wrap gap-4 mt-1 ${getRadioErrorClass('mortgagee')}`}>
             <label className="inline-flex items-center">
               <input
                 type="radio"
                 {...register('mortgagee', { required: "Mortgagee information is required" })}
                 value="first"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('mortgagee')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('mortgagee')}`}
               />
               <span className="ml-2">First</span>
             </label>
@@ -591,7 +618,7 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('mortgagee', { required: "Mortgagee information is required" })}
                 value="second"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('mortgagee')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('mortgagee')}`}
               />
               <span className="ml-2">Second</span>
             </label>
@@ -600,7 +627,7 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('mortgagee', { required: "Mortgagee information is required" })}
                 value="third"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('mortgagee')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('mortgagee')}`}
               />
               <span className="ml-2">Third</span>
             </label>
@@ -609,7 +636,7 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('mortgagee', { required: "Mortgagee information is required" })}
                 value="cosigner"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('mortgagee')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('mortgagee')}`}
               />
               <span className="ml-2">Cosigner</span>
             </label>
@@ -618,11 +645,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('mortgagee', { required: "Mortgagee information is required" })}
                 value="equity"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('mortgagee')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('mortgagee')}`}
               />
               <span className="ml-2">Equity Line of Credit</span>
             </label>
           </div>
+          {typedErrors.mortgagee && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select a mortgagee type</span>
+          )}
         </div>
 
         {/* Property Features */}
@@ -641,13 +671,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
               <label className="block text-sm font-medium text-gray-700">
                 {item.label}<span className="text-red-500 ml-1">*</span>
               </label>
-              <div className="flex space-x-4 mt-1">
+              <div className={`flex space-x-4 mt-1 ${getRadioErrorClass(item.field)}`}>
                 <label className="inline-flex items-center">
                   <input
                     type="radio"
                     {...register(item.field as keyof FormData, { required: `${item.label} information is required` })}
                     value="yes"
-                    className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass(item.field)}`}
+                    className={`form-radio h-4 w-4 ${getErrorClass(item.field)}`}
                   />
                   <span className="ml-2">Yes</span>
                 </label>
@@ -656,11 +686,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                     type="radio"
                     {...register(item.field as keyof FormData, { required: `${item.label} information is required` })}
                     value="no"
-                    className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass(item.field)}`}
+                    className={`form-radio h-4 w-4 ${getErrorClass(item.field)}`}
                   />
                   <span className="ml-2">No</span>
                 </label>
               </div>
+              {typedErrors[item.field] && isSubmitted && (
+                <span className="text-red-500 text-xs">Please select if property has {item.label.toLowerCase()}</span>
+              )}
             </div>
           ))}
         </div>
@@ -720,20 +753,23 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
           <label className="block text-sm font-medium text-gray-700">
             Fireplace Type<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="space-x-4 flex">
+          <div className={`space-x-4 flex ${getRadioErrorClass('fireplaceType')}`}>
             <label className="inline-flex items-center">
-              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="MASONRY" className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('fireplaceType')}`} />
+              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="MASONRY" className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`} />
               <span className="ml-2">Masonry</span>
             </label>
             <label className="inline-flex items-center">
-              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="PREFAB" className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('fireplaceType')}`} />
+              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="PREFAB" className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`} />
               <span className="ml-2">Prefab</span>
             </label>
             <label className="inline-flex items-center">
-              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="NONE" className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('fireplaceType')}`} />
+              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="NONE" className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`} />
               <span className="ml-2">None</span>
             </label>
           </div>
+          {typedErrors.fireplaceType && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select a fireplace type</span>
+          )}
           <p className="text-sm text-gray-500 mt-1">
             Prefabricated (prefab) fireplaces are factory-built, metal units designed for easy installation,
             while masonry fireplaces are built on-site with brick or stone,
@@ -746,13 +782,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
           <label className="block text-sm font-medium text-gray-700">
             Smart Home Monitoring<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="flex space-x-4 mt-1">
+          <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('smartHomeMonitoring')}`}>
             <label className="inline-flex items-center">
               <input
                 type="radio"
                 {...register('smartHomeMonitoring', { required: "Smart home monitoring choice is required" })}
                 value="PARTICIPATING"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('smartHomeMonitoring')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('smartHomeMonitoring')}`}
               />
               
               <span className="ml-2">Participating</span>
@@ -762,11 +798,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('smartHomeMonitoring', { required: "Smart home monitoring choice is required" })}
                 value="NONE_SELECTED"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('smartHomeMonitoring')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('smartHomeMonitoring')}`}
               />
               <span className="ml-2">None Selected</span>
             </label>
           </div>
+          {typedErrors.smartHomeMonitoring && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select a smart home monitoring option</span>
+          )}
         </div>
 
         {/* Updates Table */}
@@ -789,13 +828,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                   <tr key={type}>
                     <td className="px-4 py-3 text-sm text-gray-700">{type}</td>
                     <td className="px-4 py-3">
-                      <div className="flex space-x-4">
+                      <div className={`flex space-x-4 ${getRadioErrorClass(updatedField)}`}>
                         <label className="inline-flex items-center">
                           <input
                             type="radio"
                             {...register(updatedField, { required: true })}
                             value="yes"
-                            className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass(updatedField)}`}
+                            className={`form-radio h-4 w-4 ${getErrorClass(updatedField)}`}
                           />
                           <span className="ml-2">Yes</span>
                         </label>
@@ -804,12 +843,12 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                             type="radio"
                             {...register(updatedField, { required: true })}
                             value="no"
-                            className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass(updatedField)}`}
+                            className={`form-radio h-4 w-4 ${getErrorClass(updatedField)}`}
                           />
                           <span className="ml-2">No</span>
                         </label>
                       </div>
-                      {typedErrors[updatedField] && (
+                      {typedErrors[updatedField] && isSubmitted && (
                         <span className="text-red-500 text-xs">Please select if {type.toLowerCase()} has been updated</span>
                       )}
                     </td>
@@ -822,7 +861,7 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                         className={`w-full px-3 py-2 border ${getErrorClass(yearField)} rounded-md`}
                         disabled={!isUpdated}
                       />
-                      {typedErrors[yearField] && (
+                      {typedErrors[yearField] && isSubmitted && (
                         <span className="text-red-500 text-xs">
                           {getErrorMessage(yearField)}
                         </span>
@@ -840,13 +879,13 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Has property insurance been cancelled, declined or non-renewed in the last 5 years?
           </label>
-          <div className="flex space-x-4">
+          <div className={`flex space-x-4 ${getRadioErrorClass('insuranceCancelled')}`}>
             <label className="inline-flex items-center">
               <input
                 type="radio"
                 {...register('insuranceCancelled', { required: true })}
                 value="yes"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('insuranceCancelled')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('insuranceCancelled')}`}
               />
               <span className="ml-2">Yes</span>
             </label>
@@ -855,11 +894,14 @@ const HomeInsuranceForm = ({ register, watch, errors }: HomeInsuranceFormProps) 
                 type="radio"
                 {...register('insuranceCancelled', { required: true })}
                 value="no"
-                className={`form-radio h-4 w-4 text-blue-600 ${getErrorClass('insuranceCancelled')}`}
+                className={`form-radio h-4 w-4 ${getErrorClass('insuranceCancelled')}`}
               />
               <span className="ml-2">No</span>
             </label>
           </div>
+          {typedErrors.insuranceCancelled && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select if insurance has been cancelled, declined or non-renewed</span>
+          )}
         </div>
 
         {/* File Upload */}

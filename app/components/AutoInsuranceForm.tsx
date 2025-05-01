@@ -7,9 +7,25 @@ interface AutoInsuranceFormProps {
     register: UseFormRegister<FormData>;
     watch: UseFormWatch<FormData>;
     errors: FieldErrors<FormData>;
-  }
+    isSubmitted: boolean;
+}
 
-const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, errors }: AutoInsuranceFormProps) => {
+const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, errors, isSubmitted }: AutoInsuranceFormProps) => {
+  const getErrorClass = (field: keyof FormData): string => {
+    const error = errors[field];
+    if (error && isSubmitted) {
+      return 'border-red-500 text-red-500';
+    }
+    return 'text-[#536AAE]';
+  };
+
+  const getRadioErrorClass = (field: keyof FormData): string => {
+    const error = errors[field];
+    if (error && isSubmitted) {
+      return 'text-red-500 border-red-500';
+    }
+    return '';
+  };
 
   return (
     <div className="space-y-6 border-t pt-6">
@@ -167,10 +183,16 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
                 Cell Number<span className="text-red-500 ml-1">*</span>
               </label>
               <input
-                type="tel"
-                {...register(`drivers.${index}.cellNumber`, { required: `Driver ${index + 1} Cell Number is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.cellNumber ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
-              />
+              type="tel"
+              {...register(`drivers.${index}.cellNumber`, { 
+                required: `Driver ${index + 1} Cell Number is required`,
+                minLength: {
+                  value: 10,
+                  message: "Valid cell number is required"
+                }
+              })}
+              className={`mt-1 block w-full rounded-md border ${errors.cell ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+            />
               {errors.drivers?.[index]?.cellNumber && <span className="text-red-500 text-xs">{errors.drivers[index].cellNumber.message}</span>}
             </div>
             <div>
@@ -196,52 +218,58 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
             <label className="block text-sm font-medium text-gray-700 mb-2">
               AAA Membership<span className="text-red-500 ml-1">*</span>
             </label>
-            <div className="flex space-x-4">
-              <label className="inline-flex items-center">
+            <div className={`flex space-x-4 ${getRadioErrorClass('aaaMembership')}`}>
+              <label className={`inline-flex items-center ${errors.aaaMembership && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('aaaMembership', { required: "AAA membership is required" })}
                   value="yes"
-                  className="form-radio text-[#536AAE]"
+                  className={`form-radio h-4 w-4 ${getErrorClass('aaaMembership')}`}
                 />
                 <span className="ml-2">Yes</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${errors.aaaMembership && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('aaaMembership', { required: "AAA membership is required" })}
                   value="no"
-                  className="form-radio text-[#536AAE]"
+                  className={`form-radio h-4 w-4 ${getErrorClass('aaaMembership')}`}
                 />
                 <span className="ml-2">No</span>
               </label>
             </div>
+            {errors.aaaMembership && isSubmitted && (
+              <span className="text-red-500 text-xs">Please select AAA membership status</span>
+            )}
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               AAR Membership<span className="text-red-500 ml-1">*</span>
             </label>
-            <div className="flex space-x-4">
-              <label className="inline-flex items-center">
+            <div className={`flex space-x-4 ${getRadioErrorClass('aarMembership')}`}>
+              <label className={`inline-flex items-center ${errors.aarMembership && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('aarMembership', { required: "AAR membership is required" })}
                   value="yes"
-                  className="form-radio text-[#536AAE]"
+                  className={`form-radio h-4 w-4 ${getErrorClass('aarMembership')}`}
                 />
                 <span className="ml-2">Yes</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${errors.aarMembership && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('aarMembership', { required: "AAR membership is required" })}
                   value="no"
-                  className="form-radio text-[#536AAE]"
+                  className={`form-radio h-4 w-4 ${getErrorClass('aarMembership')}`}
                 />
                 <span className="ml-2">No</span>
               </label>
             </div>
+            {errors.aarMembership && isSubmitted && (
+              <span className="text-red-500 text-xs">Please select AAR membership status</span>
+            )}
           </div>
         </div>
 
@@ -252,26 +280,29 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
           <label className="block text-sm font-medium text-gray-700">
             Do you have any claims in last 4 Years?<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="flex space-x-4">
-            <label className="inline-flex items-center">
+          <div className={`flex space-x-4 ${getRadioErrorClass('hasClaims')}`}>
+            <label className={`inline-flex items-center ${errors.hasClaims && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('hasClaims', { required: "Claims information is required" })}
                 value="yes"
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${getErrorClass('hasClaims')}`}
               />
               <span className="ml-2">Yes</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${errors.hasClaims && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('hasClaims', { required: "Claims information is required" })}
                 value="no"
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${getErrorClass('hasClaims')}`}
               />
               <span className="ml-2">No</span>
             </label>
           </div>
+          {errors.hasClaims && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select if you have any claims in the last 4 years</span>
+          )}
         </div>
 
         {/* Telematics Option */}
@@ -282,26 +313,29 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               Learn more about <a href="https://www.travelers.com/car-insurance/intellidrive-programs" target="_blank" rel="noopener noreferrer" className="text-[#536AAE] hover:underline">telematics programs</a>
             </span>
           </label>
-          <div className="flex space-x-4 mt-2">
-            <label className="inline-flex items-center">
+          <div className={`flex space-x-4 mt-2 ${getRadioErrorClass('wantTelematics')}`}>
+            <label className={`inline-flex items-center ${errors.wantTelematics && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('wantTelematics', { required: "Telematics choice is required" })}
                 value="yes"
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${getErrorClass('wantTelematics')}`}
               />
               <span className="ml-2">Yes</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${errors.wantTelematics && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('wantTelematics', { required: "Telematics choice is required" })}
                 value="no"
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${getErrorClass('wantTelematics')}`}
               />
               <span className="ml-2">No</span>
             </label>
           </div>
+          {errors.wantTelematics && isSubmitted && (
+            <span className="text-red-500 text-xs">Please select if you want telematics discount</span>
+          )}
         </div>
 
         {/* Annual Mileage */}

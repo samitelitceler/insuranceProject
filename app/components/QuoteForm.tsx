@@ -120,7 +120,7 @@ const QuoteForm = () => {
   const [numberOfDrivers, setNumberOfDrivers] = useState<number>(1);
   const [submissionStatus, setSubmissionStatus] = useState<string>("");
   const [apiErrors, setApiErrors] = useState<Array<ApiError>>([]);
-  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit, watch, reset, formState: { errors, isSubmitted } } = useForm<FormData>();
 
   // Watch the insurance type value to conditionally render forms
   const selectedInsuranceType = watch('insuranceType');
@@ -186,7 +186,7 @@ const QuoteForm = () => {
 
 
         // Send to auto insurance endpoint
-        const autoResponse = await fetch('http://3.109.56.52:8000/api/v1/auto-insurance-quote', {
+        const autoResponse = await fetch('https://primeinsuranceserver.elitceler.com/api/v1/auto-insurance-quote', {
           method: 'POST',
           body: autoFormData,
         });
@@ -303,7 +303,7 @@ const QuoteForm = () => {
         }
 
         // Send to home insurance endpoint
-        const homeResponse = await fetch('http://3.109.56.52:8000/api/v1/home-insurance-quote', {
+        const homeResponse = await fetch('https://primeinsuranceserver.elitceler.com/api/v1/home-insurance-quote', {
           method: 'POST',
           body: homeFormData,
         });
@@ -465,7 +465,7 @@ const QuoteForm = () => {
         bothFormData.append('autoInsurance[yearsWithPriorCarrier]', String(data.priorCarrierYears || 0));
         bothFormData.append('autoInsurance[yearsWithContinuousCoverage]', String(data.continuousCoverageYears || 0));
 
-        const bothResponseData = await fetch('http://3.109.56.52:8000/api/v1/both-insurance-quote', {
+        const bothResponseData = await fetch('https://primeinsuranceserver.elitceler.com/api/v1/both-insurance-quote', {
           method: 'POST',
           body: bothFormData,
         });
@@ -646,6 +646,7 @@ const QuoteForm = () => {
             register={register}
             watch={watch}
             errors={errors}
+            isSubmitted={isSubmitted}
           />
         )}
 
@@ -654,6 +655,7 @@ const QuoteForm = () => {
             register={register}
             watch={watch}
             errors={errors}
+            isSubmitted={isSubmitted}
           />
         )}
 
