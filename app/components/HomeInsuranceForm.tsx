@@ -74,7 +74,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
     return '';
   };
 
-  const validateDateOfBirth = (value: any) => {
+  const validateDateOfBirth = (value: unknown): true | string => {
     if (!value || typeof value !== 'string') return true;
     const date = new Date(value);
     const today = new Date();
@@ -90,7 +90,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
     return true;
   };
 
-  const validatePurchaseDate = (value: any) => {
+  const validatePurchaseDate = (value: unknown): true | string => {
     if (!value || typeof value !== 'string') return true;
     const date = new Date(value);
     const today = new Date();
@@ -106,7 +106,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
     return true;
   };
 
-  const validateUpdateYear = (value: any, type: string) => {
+  const validateUpdateYear = (value: unknown, type: string): true | string => {
     if (!value || typeof value !== 'string') return true;
     const updateDate = new Date(value);
     const today = new Date();
