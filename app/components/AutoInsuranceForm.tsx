@@ -27,6 +27,21 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
     return '';
   };
 
+  const validateDateOfBirth = (value: string) => {
+    const date = new Date(value);
+    const today = new Date();
+    const minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 100); // Maximum age of 100 years
+
+    if (date > today) {
+      return "Date of birth cannot be in the future";
+    }
+    if (date < minDate) {
+      return "Date of birth cannot be more than 100 years ago";
+    }
+    return true;
+  };
+
   return (
     <div className="space-y-6 border-t pt-6">
       <h3 className="text-xl font-semibold text-[#11193B]">Auto Insurance Details</h3>
@@ -112,7 +127,10 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               </label>
               <input
                 type="date"
-                {...register(`drivers.${index}.dateOfBirth`, { required: `Driver ${index + 1} Date of Birth is required` })}
+                {...register(`drivers.${index}.dateOfBirth`, { 
+                  required: `Driver ${index + 1} Date of Birth is required`,
+                  validate: validateDateOfBirth
+                })}
                 className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.dateOfBirth ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
               {errors.drivers?.[index]?.dateOfBirth && <span className="text-red-500 text-xs">{errors.drivers[index].dateOfBirth.message}</span>}

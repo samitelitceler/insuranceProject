@@ -74,6 +74,55 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
     return '';
   };
 
+  const validateDateOfBirth = (value: any) => {
+    if (!value || typeof value !== 'string') return true;
+    const date = new Date(value);
+    const today = new Date();
+    const minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 100); // Maximum age of 100 years
+
+    if (date > today) {
+      return "Date of birth cannot be in the future";
+    }
+    if (date < minDate) {
+      return "Date of birth cannot be more than 100 years ago";
+    }
+    return true;
+  };
+
+  const validatePurchaseDate = (value: any) => {
+    if (!value || typeof value !== 'string') return true;
+    const date = new Date(value);
+    const today = new Date();
+    const minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 200); // Maximum age of 200 years for property
+
+    if (date > today) {
+      return "Purchase date cannot be in the future";
+    }
+    if (date < minDate) {
+      return "Purchase date cannot be more than 200 years ago";
+    }
+    return true;
+  };
+
+  const validateUpdateYear = (value: any, type: string) => {
+    if (!value || typeof value !== 'string') return true;
+    const updateDate = new Date(value);
+    const today = new Date();
+    const yearBuilt = watch('yearBuilt');
+    
+    if (updateDate > today) {
+      return `${type} update year cannot be in the future`;
+    }
+    
+    if (yearBuilt && updateDate.getFullYear() < yearBuilt) {
+      return `${type} update year cannot be before the year the property was built`;
+    }
+    
+    return true;
+  };
+
   return (
     <div className="space-y-6 border-t pt-6">
       <h3 className="text-xl font-semibold text-[#11193B]">Home Insurance Details</h3>
@@ -153,7 +202,8 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                         type={item.type}
                         {...register(`applicant.${item.field}` as keyof FormData, { 
                           required: `${item.label} is required`, 
-                          minLength: item.type === 'tel' ? { value: 10, message: "Valid phone number is required" } : undefined 
+                          minLength: item.type === 'tel' ? { value: 10, message: "Valid phone number is required" } : undefined,
+                          validate: item.type === 'date' ? validateDateOfBirth : undefined
                         })}
                         className={`w-full px-3 py-2 border ${getNestedErrorClass('applicant', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                       />
@@ -166,7 +216,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                     <td className="px-4 py-3">
                       {item.type === 'select' ? (
                         <select
-                          {...register(`spouse.${item.field}` as keyof FormData, { required: isSpouseRequired ? `Spouse ${item.label} is required` : false })}
+                          {...register(`spouse.${item.field}` as keyof FormData, { 
+                            required: isSpouseRequired ? `Spouse ${item.label} is required` : false
+                          })}
                           className={`w-full px-3 py-2 border ${getNestedErrorClass('spouse', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                         >
                           <option value="">Select {item.label}</option>
@@ -179,7 +231,8 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                           type={item.type}
                           {...register(`spouse.${item.field}` as keyof FormData, { 
                             required: isSpouseRequired ? `Spouse ${item.label} is required` : false,
-                            minLength: item.type === 'tel' ? { value: 10, message: "Valid phone number is required" } : undefined 
+                            minLength: item.type === 'tel' ? { value: 10, message: "Valid phone number is required" } : undefined,
+                            validate: item.type === 'date' ? validateDateOfBirth : undefined
                           })}
                           className={`w-full px-3 py-2 border ${getNestedErrorClass('spouse', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                         />
@@ -266,9 +319,15 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             </label>
             <input
               type="date"
-              {...register('purchaseDate', { required: "Purchase date is required" })}
+              {...register('purchaseDate', { 
+                required: "Purchase date is required",
+                validate: validatePurchaseDate
+              })}
               className={`w-full px-3 py-2 border ${getErrorClass('purchaseDate')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.purchaseDate && (
+              <span className="text-red-500 text-xs">{typedErrors.purchaseDate.message}</span>
+            )}
           </div>
 
           <div>
@@ -870,7 +929,8 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                       <input
                         type="date"
                         {...register(yearField, { 
-                          required: isUpdated ? `${type} update year is required` : false 
+                          required: isUpdated ? `${type} update year is required` : false,
+                          validate: (value) => isUpdated ? validateUpdateYear(value, type) : true
                         })}
                         className={`w-full px-3 py-2 border ${getErrorClass(yearField)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                         disabled={!isUpdated}
