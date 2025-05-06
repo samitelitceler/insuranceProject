@@ -120,10 +120,28 @@ const QuoteForm = () => {
   const [numberOfDrivers, setNumberOfDrivers] = useState<number>(1);
   const [submissionStatus, setSubmissionStatus] = useState<string>("");
   const [apiErrors, setApiErrors] = useState<Array<ApiError>>([]);
-  const { register, handleSubmit, watch, reset, formState: { errors, isSubmitted } } = useForm<FormData>();
+  const { register, handleSubmit, watch, reset, formState: { errors, isSubmitted } } = useForm<FormData>({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange'
+  });
 
   // Watch the insurance type value to conditionally render forms
   const selectedInsuranceType = watch('insuranceType');
+
+  const validateDateOfBirth = (value: string) => {
+    const date = new Date(value);
+    const today = new Date();
+    const minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 100); // Maximum age of 100 years
+
+    if (date > today) {
+      return "Date of birth cannot be in the future";
+    }
+    if (date < minDate) {
+      return "Date of birth cannot be more than 100 years ago";
+    }
+    return true;
+  };
 
   const onSubmit = async (data: FormData) => {
     setSubmissionStatus("");
@@ -499,7 +517,18 @@ const QuoteForm = () => {
       {/* Display Form Validation Errors */}
       {Object.keys(errors).length > 0 && (
         <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-800 border border-red-300">
-          Please correct the items that have been highlighted. Items marked with an asterisk (*) are required.
+          <h3 className="font-semibold mb-2">Please correct the following errors:</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            {errors.insuranceType && (
+              <li>Please select an insurance type (Auto, Home, or Both)</li>
+            )}
+            {errors.firstName && <li>{errors.firstName.message}</li>}
+            {errors.lastName && <li>{errors.lastName.message}</li>}
+            {errors.cell && <li>{errors.cell.message}</li>}
+            {errors.email && <li>{errors.email.message}</li>}
+            {errors.dob && <li>{errors.dob.message}</li>}
+            {errors.gender && <li>{errors.gender.message}</li>}
+          </ul>
         </div>
       )}
 
@@ -519,78 +548,99 @@ const QuoteForm = () => {
         {/* Basic Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               First Name<span className="text-red-500 ml-1">*</span>
             </label>
             <input
               type="text"
-              {...register('firstName', { required: "First name is required" })}
-              className={`mt-1 block w-full rounded-md border ${errors.firstName ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              {...register('firstName', { 
+                required: "First name is required",
+                minLength: {
+                  value: 2,
+                  message: "First name must be at least 2 characters"
+                }
+              })}
+              className={`w-full px-3 py-2 border ${errors.firstName ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
             {errors.firstName && <span className="text-red-500 text-xs">{errors.firstName.message}</span>}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Last Name<span className="text-red-500 ml-1">*</span>
             </label>
             <input
               type="text"
-              {...register('lastName', { required: "Last name is required" })}
-              className={`mt-1 block w-full rounded-md border ${errors.lastName ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              {...register('lastName', { 
+                required: "Last name is required",
+                minLength: {
+                  value: 2,
+                  message: "Last name must be at least 2 characters"
+                }
+              })}
+              className={`w-full px-3 py-2 border ${errors.lastName ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
             {errors.lastName && <span className="text-red-500 text-xs">{errors.lastName.message}</span>}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Cell Phone<span className="text-red-500 ml-1">*</span>
             </label>
             <input
               type="tel"
               {...register('cell', { 
                 required: "Cell phone is required",
-                minLength: {
-                  value: 10,
-                  message: "Valid phone number is required"
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: "Please enter a valid 10-digit phone number"
                 }
               })}
-              className={`mt-1 block w-full rounded-md border ${errors.cell ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              className={`w-full px-3 py-2 border ${errors.cell ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
             {errors.cell && <span className="text-red-500 text-xs">{errors.cell.message}</span>}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Email<span className="text-red-500 ml-1">*</span>
             </label>
             <input
               type="email"
-              {...register('email', { required: "Email is required" })}
-              className={`mt-1 block w-full rounded-md border ${errors.email ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              {...register('email', { 
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Please enter a valid email address"
+                }
+              })}
+              className={`w-full px-3 py-2 border ${errors.email ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
             {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Date of Birth<span className="text-red-500 ml-1">*</span>
             </label>
             <input
               type="date"
-              {...register('dob', { required: "Date of Birth is required" })}
-              className={`mt-1 block w-full rounded-md border ${errors.dob ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              {...register('dob', { 
+                required: "Date of Birth is required",
+                validate: validateDateOfBirth
+              })}
+              className={`w-full px-3 py-2 border ${errors.dob ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
             {errors.dob && <span className="text-red-500 text-xs">{errors.dob.message}</span>}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Gender<span className="text-red-500 ml-1">*</span>
             </label>
             <select
               {...register('gender', { required: "Gender is required" })}
-              className={`mt-1 block w-full rounded-md border ${errors.gender ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              className={`w-full px-3 py-2 border ${errors.gender ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             >
               <option value="">Select Gender</option>
               <option value="MALE">Male</option>
               <option value="FEMALE">Female</option>
-              <option value="other">Other</option>
+              <option value="OTHER">Other</option>
             </select>
             {errors.gender && <span className="text-red-500 text-xs">{errors.gender.message}</span>}
           </div>
@@ -598,44 +648,47 @@ const QuoteForm = () => {
 
         {/* Insurance Type Selection */}
         <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Insurance Type<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className="flex space-x-4">
-            <label className="inline-flex items-center">
+          <div className={`flex space-x-4 ${errors.insuranceType ? 'text-red-500' : ''}`}>
+            <label className={`inline-flex items-center ${errors.insuranceType ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 value="AUTO"
                 {...register('insuranceType', {
                   required: "Please select an insurance type"
                 })}
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${errors.insuranceType ? 'text-red-500' : 'text-[#536AAE]'}`}
               />
               <span className="ml-2">Auto</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${errors.insuranceType ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 value="HOME"
                 {...register('insuranceType', {
                   required: "Please select an insurance type"
                 })}
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${errors.insuranceType ? 'text-red-500' : 'text-[#536AAE]'}`}
               />
               <span className="ml-2">Home</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${errors.insuranceType ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 value="BOTH"
                 {...register('insuranceType', {
                   required: "Please select an insurance type"
                 })}
-                className="form-radio text-[#536AAE]"
+                className={`form-radio h-4 w-4 ${errors.insuranceType ? 'text-red-500' : 'text-[#536AAE]'}`}
               />
               <span className="ml-2">Both (Auto & Home)</span>
             </label>
           </div>
+          {errors.insuranceType && (
+            <span className="text-red-500 text-xs">{errors.insuranceType.message}</span>
+          )}
         </div>
 
         {/* Conditional Rendering based on Insurance Type */}

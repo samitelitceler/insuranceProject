@@ -16,7 +16,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
     if (error && isSubmitted) {
       return 'border-red-500 text-red-500';
     }
-    return 'text-[#536AAE]';
+    return 'border-black text-gray-700';
   };
 
   const getRadioErrorClass = (field: keyof FormData): string => {
@@ -34,56 +34,58 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
       {/* Number of Drivers Selection */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Number of Drivers<span className="text-red-500 ml-1">*</span>
           </label>
           <select
-          {...register('numberOfDrivers' , {required : "Selecting no of drivers is required"})}
+            {...register('numberOfDrivers', { required: "Selecting no of drivers is required" })}
             onChange={(e) => setNumberOfDrivers(parseInt(e.target.value))}
-            className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            className={`w-full px-3 py-2 border ${getErrorClass('numberOfDrivers')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           >
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <option key={num} value={num}>{num}</option>
             ))}
           </select>
+          {errors.numberOfDrivers && <span className="text-red-500 text-xs">{errors.numberOfDrivers.message}</span>}
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Vehicle Ownership<span className="text-red-500 ml-1">*</span>
           </label>
           <select
             {...register('vehicleOwnership', { required: "Vehicle ownership is required" })}
-            className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+            className={`w-full px-3 py-2 border ${getErrorClass('vehicleOwnership')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           >
             <option value="">Select Type</option>
             <option value="own">Own</option>
             <option value="lease">Lease</option>
           </select>
+          {errors.vehicleOwnership && <span className="text-red-500 text-xs">{errors.vehicleOwnership.message}</span>}
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Years with Prior Carrier
             </label>
             <input
               type="number"
               min="0"
               {...register('priorCarrierYears')}
-              className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`w-full px-3 py-2 border ${getErrorClass('priorCarrierYears')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Years with Continuous Coverage
             </label>
             <input
               type="number"
               min="0"
               {...register('continuousCoverageYears')}
-              className="mt-1 block w-48 rounded-md border border-black shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]"
+              className={`w-full px-3 py-2 border ${getErrorClass('continuousCoverageYears')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
         </div>
@@ -94,34 +96,34 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
           <h4 className="font-semibold text-lg text-[#11193B] mb-4">Driver {index + 1} Details</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Driver&apos;s License Number<span className="text-red-500 ml-1">*</span>
               </label>
               <input
                 type="text"
                 {...register(`drivers.${index}.licenseNumber`, { required: `Driver ${index + 1} License Number is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.licenseNumber ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.licenseNumber ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
               {errors.drivers?.[index]?.licenseNumber && <span className="text-red-500 text-xs">{errors.drivers[index].licenseNumber.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Date of Birth<span className="text-red-500 ml-1">*</span>
               </label>
               <input
                 type="date"
                 {...register(`drivers.${index}.dateOfBirth`, { required: `Driver ${index + 1} Date of Birth is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.dateOfBirth ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.dateOfBirth ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
               {errors.drivers?.[index]?.dateOfBirth && <span className="text-red-500 text-xs">{errors.drivers[index].dateOfBirth.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Working Industry<span className="text-red-500 ml-1">*</span>
               </label>
               <select
                 {...register(`drivers.${index}.workingIndustry`, { required: `Driver ${index + 1} Working Industry is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.workingIndustry ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.workingIndustry ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               >
                 <option value="">Select Industry</option>
                 <option value="Agriculture">Agriculture</option>
@@ -138,12 +140,12 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               {errors.drivers?.[index]?.workingIndustry && <span className="text-red-500 text-xs">{errors.drivers[index].workingIndustry.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Occupation<span className="text-red-500 ml-1">*</span>
               </label>
               <select
                 {...register(`drivers.${index}.occupation`, { required: `Driver ${index + 1} Occupation is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.occupation ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.occupation ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               >
                 <option value="">Select Occupation</option>
                 <option value="Accountant">Accountant</option>
@@ -160,12 +162,12 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               {errors.drivers?.[index]?.occupation && <span className="text-red-500 text-xs">{errors.drivers[index].occupation.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Education<span className="text-red-500 ml-1">*</span>
               </label>
               <select
                 {...register(`drivers.${index}.education`, { required: `Driver ${index + 1} Education is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.education ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.education ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               >
                 <option value="">Select Education</option>
                 <option value="High School">High School</option>
@@ -179,30 +181,30 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               {errors.drivers?.[index]?.education && <span className="text-red-500 text-xs">{errors.drivers[index].education.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Cell Number<span className="text-red-500 ml-1">*</span>
               </label>
               <input
-              type="tel"
-              {...register(`drivers.${index}.cellNumber`, { 
-                required: `Driver ${index + 1} Cell Number is required`,
-                minLength: {
-                  value: 10,
-                  message: "Valid cell number is required"
-                }
-              })}
-              className={`mt-1 block w-full rounded-md border ${errors.cell ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
-            />
+                type="tel"
+                {...register(`drivers.${index}.cellNumber`, { 
+                  required: `Driver ${index + 1} Cell Number is required`,
+                  minLength: {
+                    value: 10,
+                    message: "Valid cell number is required"
+                  }
+                })}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.cellNumber ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+              />
               {errors.drivers?.[index]?.cellNumber && <span className="text-red-500 text-xs">{errors.drivers[index].cellNumber.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email<span className="text-red-500 ml-1">*</span>
               </label>
               <input
                 type="email"
                 {...register(`drivers.${index}.email`, { required: `Driver ${index + 1} Email is required` })}
-                className={`mt-1 block w-full rounded-md border ${errors.drivers?.[index]?.email ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+                className={`w-full px-3 py-2 border ${errors.drivers?.[index]?.email ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               />
               {errors.drivers?.[index]?.email && <span className="text-red-500 text-xs">{errors.drivers[index].email.message}</span>}
             </div>
@@ -215,7 +217,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
         {/* AAA and AARP Membership */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               AAA Membership<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex space-x-4 ${getRadioErrorClass('aaaMembership')}`}>
@@ -244,14 +246,14 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              AAR Membership<span className="text-red-500 ml-1">*</span>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              AARP Membership<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex space-x-4 ${getRadioErrorClass('aarMembership')}`}>
               <label className={`inline-flex items-center ${errors.aarMembership && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
-                  {...register('aarMembership', { required: "AAR membership is required" })}
+                  {...register('aarMembership', { required: "AARP membership is required" })}
                   value="yes"
                   className={`form-radio h-4 w-4 ${getErrorClass('aarMembership')}`}
                 />
@@ -268,7 +270,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               </label>
             </div>
             {errors.aarMembership && isSubmitted && (
-              <span className="text-red-500 text-xs">Please select AAR membership status</span>
+              <span className="text-red-500 text-xs">Please select AARP membership status</span>
             )}
           </div>
         </div>
@@ -277,7 +279,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
 
         {/* Claims History - simplified */}
         <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Do you have any claims in last 4 Years?<span className="text-red-500 ml-1">*</span>
           </label>
           <div className={`flex space-x-4 ${getRadioErrorClass('hasClaims')}`}>
@@ -307,7 +309,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
 
         {/* Telematics Option */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Do you want us to put Driver telematics/smart ride/right track discount?<span className="text-red-500 ml-1">*</span>
             <span className="text-xs text-gray-500 block mt-1">
               Learn more about <a href="https://www.travelers.com/car-insurance/intellidrive-programs" target="_blank" rel="noopener noreferrer" className="text-[#536AAE] hover:underline">telematics programs</a>
@@ -340,7 +342,7 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
 
         {/* Annual Mileage */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             How many miles will the vehicle drive per year?<span className="text-red-500 ml-1">*</span>
           </label>
           <input
@@ -351,14 +353,14 @@ const AutoInsuranceForm = ({ numberOfDrivers, setNumberOfDrivers, register, erro
               required: "Annual mileage is required",
               max: { value: 999999, message: "Please enter a valid mileage (max 999,999)" }
             })}
-            className={`mt-1 block w-48 rounded-md border ${errors.annualMileage ? 'border-red-500' : 'border-black'} shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
+            className={`w-full px-3 py-2 border ${getErrorClass('annualMileage')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           />
           {errors.annualMileage && <span className="text-red-500 text-xs">{errors.annualMileage.message}</span>}
         </div>
 
         {/* File Upload */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Upload Declaration Page and Driver Licenses
             <span className="text-xs text-gray-500 block mt-1">
               Upload your current declaration page and copies of all driver licenses to speed up the process

@@ -69,7 +69,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
   const getRadioErrorClass = (field: string): string => {
     const error = typedErrors[field];
     if (error && isSubmitted) {
-      return 'text-red-500';
+      return 'text-red-500 border-red-500';
     }
     return '';
   };
@@ -86,7 +86,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
           </label>
           <select
             {...register('maritalStatus', { required: true })}
-            className={`w-full px-3 py-2 border ${getErrorClass('maritalStatus')} rounded-md`}
+            className={`w-full px-3 py-2 border ${getErrorClass('maritalStatus')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           >
             <option value="">Select Marital Status</option>
             <option value="SINGLE">Single</option>
@@ -141,7 +141,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                     {item.type === 'select' ? (
                       <select
                         {...register(`applicant.${item.field}` as keyof FormData, { required: `${item.label} is required` })}
-                        className={`w-full px-3 py-2 border ${getNestedErrorClass('applicant', item.field)} rounded-md`}
+                        className={`w-full px-3 py-2 border ${getNestedErrorClass('applicant', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                       >
                         <option value="">Select {item.label}</option>
                         {item.options?.map(option => (
@@ -155,7 +155,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                           required: `${item.label} is required`, 
                           minLength: item.type === 'tel' ? { value: 10, message: "Valid phone number is required" } : undefined 
                         })}
-                        className={`w-full px-3 py-2 border ${getNestedErrorClass('applicant', item.field)} rounded-md`}
+                        className={`w-full px-3 py-2 border ${getNestedErrorClass('applicant', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                       />
                     )}
                     {typedErrors.applicant?.[item.field] && (
@@ -167,7 +167,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                       {item.type === 'select' ? (
                         <select
                           {...register(`spouse.${item.field}` as keyof FormData, { required: isSpouseRequired ? `Spouse ${item.label} is required` : false })}
-                          className={`w-full px-3 py-2 border ${getNestedErrorClass('spouse', item.field)} rounded-md`}
+                          className={`w-full px-3 py-2 border ${getNestedErrorClass('spouse', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                         >
                           <option value="">Select {item.label}</option>
                           {item.options?.map(option => (
@@ -181,7 +181,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                             required: isSpouseRequired ? `Spouse ${item.label} is required` : false,
                             minLength: item.type === 'tel' ? { value: 10, message: "Valid phone number is required" } : undefined 
                           })}
-                          className={`w-full px-3 py-2 border ${getNestedErrorClass('spouse', item.field)} rounded-md`}
+                          className={`w-full px-3 py-2 border ${getNestedErrorClass('spouse', item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                         />
                       )}
                       {typedErrors.spouse?.[item.field] && (
@@ -204,7 +204,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="text"
               {...register('address', { required: "Address is required" })}
-              className={`w-full px-3 py-2 border ${getErrorClass('address')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('address')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -216,7 +216,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               type="number"
               min="0"
               {...register('yearsAtResidence', { required: "Years at residence is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('yearsAtResidence')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('yearsAtResidence')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -229,7 +229,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 <input
                   type="text"
                   {...register('previousAddress', { required: isPreviousAddressRequired ? "Previous address is required" : false })}
-                  className={`w-full px-3 py-2 border ${getErrorClass('previousAddress')} rounded-md`}
+                  className={`w-full px-3 py-2 border ${getErrorClass('previousAddress')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                 />
               </div>
               <div>
@@ -240,7 +240,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                   type="number"
                   min="0"
                   {...register('yearsAtPreviousAddress', { required: isPreviousAddressRequired ? "Years at previous address is required" : false, valueAsNumber: true })}
-                  className={`w-full px-3 py-2 border ${getErrorClass('yearsAtPreviousAddress')} rounded-md`}
+                  className={`w-full px-3 py-2 border ${getErrorClass('yearsAtPreviousAddress')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                 />
               </div>
             </>
@@ -256,7 +256,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('yearBuilt', { required: "Year built is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('yearBuilt')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('yearBuilt')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -267,7 +267,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="date"
               {...register('purchaseDate', { required: "Purchase date is required" })}
-              className={`w-full px-3 py-2 border ${getErrorClass('purchaseDate')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('purchaseDate')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -278,7 +278,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('squareFootage', { required: "Square footage is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('squareFootage')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('squareFootage')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -289,7 +289,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('numberOfStories', { required: "Number of stories is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('numberOfStories')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('numberOfStories')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
         </div>
@@ -301,7 +301,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               Within City Limits?<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('withinCityLimits')}`}>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.withinCityLimits && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('withinCityLimits', { required: "City limits information is required" })}
@@ -310,7 +310,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 />
                 <span className="ml-2">Yes</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.withinCityLimits && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('withinCityLimits', { required: "City limits information is required" })}
@@ -332,7 +332,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('distanceToHydrant', { required: "Distance to hydrant is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('distanceToHydrant')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('distanceToHydrant')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
         </div>
@@ -344,7 +344,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               Residence Type<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('residenceType')}`}>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.residenceType && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('residenceType', { required: true })}
@@ -353,7 +353,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 />
                 <span className="ml-2">Primary</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.residenceType && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('residenceType', { required: true })}
@@ -362,7 +362,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 />
                 <span className="ml-2">Secondary</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.residenceType && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('residenceType', { required: true })}
@@ -384,7 +384,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('numberOfFamilies', { required: "Number of families is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('numberOfFamilies')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('numberOfFamilies')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -395,7 +395,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('numberOfOccupants', { required: "Number of occupants is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('numberOfOccupants')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('numberOfOccupants')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
         </div>
@@ -409,7 +409,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('fullBaths', { required: "Number of full baths is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('fullBaths')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('fullBaths')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
 
@@ -420,7 +420,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             <input
               type="number"
               {...register('halfBaths', { required: "Number of half baths is required", valueAsNumber: true })}
-              className={`w-full px-3 py-2 border ${getErrorClass('halfBaths')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('halfBaths')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
         </div>
@@ -432,7 +432,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
           </label>
           <select
             {...register('foundationType', { required: "Foundation type is required" })}
-            className={`w-full px-3 py-2 border ${getErrorClass('foundationType')} rounded-md`}
+            className={`w-full px-3 py-2 border ${getErrorClass('foundationType')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
           >
             <option value="">Select Type</option>
             <option value="basement-finished">Basement Finished</option>
@@ -459,7 +459,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               Do you have an alternate source of heat other than a fireplace?<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('hasAlternateHeat')}`}>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.hasAlternateHeat && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('hasAlternateHeat', { required: "Alternate heat source information is required" })}
@@ -468,7 +468,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 />
                 <span className="ml-2">Yes</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.hasAlternateHeat && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('hasAlternateHeat', { required: "Alternate heat source information is required" })}
@@ -490,7 +490,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               </label>
               <select
                 {...register('secondaryHeatingType', { required: isSecondaryHeatingRequired ? "Secondary heating type is required" : false })}
-                className={`w-full px-3 py-2 border ${getErrorClass('secondaryHeatingType')} rounded-md`}
+                className={`w-full px-3 py-2 border ${getErrorClass('secondaryHeatingType')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               >
                 <option value="">Select Heating Type</option>
                 <option value="coal-nonprof">Coal (Non-Professionally Installed)</option>
@@ -519,7 +519,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             Does this home have an electric circuit breaker?<span className="text-red-500 ml-1">*</span>
           </label>
           <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('hasCircuitBreaker')}`}>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${typedErrors.hasCircuitBreaker && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('hasCircuitBreaker', { required: "Circuit breaker information is required" })}
@@ -528,7 +528,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               />
               <span className="ml-2">Yes</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${typedErrors.hasCircuitBreaker && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('hasCircuitBreaker', { required: "Circuit breaker information is required" })}
@@ -550,7 +550,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               Do you conduct any type of business on this property?<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('conductsBusiness')}`}>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.conductsBusiness && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('conductsBusiness', { required: "Business conduction information is required" })}
@@ -559,7 +559,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 />
                 <span className="ml-2">Yes</span>
               </label>
-              <label className="inline-flex items-center">
+              <label className={`inline-flex items-center ${typedErrors.conductsBusiness && isSubmitted ? 'text-red-500' : ''}`}>
                 <input
                   type="radio"
                   {...register('conductsBusiness', { required: "Business conduction information is required" })}
@@ -583,7 +583,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 <input
                   type="text"
                   {...register('businessName', { required: isBusinessNameRequired ? "Business name is required" : false })}
-                  className={`w-full px-3 py-2 border ${getErrorClass('businessName')} rounded-md`}
+                  className={`w-full px-3 py-2 border ${getErrorClass('businessName')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                 />
               </div>
               <div>
@@ -591,7 +591,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 <input
                   type="text"
                   {...register('businessClass')} // Not specified as required
-                  className={`w-full px-3 py-2 border ${getErrorClass('businessClass')} rounded-md`}
+                  className={`w-full px-3 py-2 border ${getErrorClass('businessClass')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                 />
               </div>
             </div>
@@ -672,7 +672,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                 {item.label}<span className="text-red-500 ml-1">*</span>
               </label>
               <div className={`flex space-x-4 mt-1 ${getRadioErrorClass(item.field)}`}>
-                <label className="inline-flex items-center">
+                <label className={`inline-flex items-center ${typedErrors[item.field] && isSubmitted ? 'text-red-500' : ''}`}>
                   <input
                     type="radio"
                     {...register(item.field as keyof FormData, { required: `${item.label} information is required` })}
@@ -681,7 +681,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                   />
                   <span className="ml-2">Yes</span>
                 </label>
-                <label className="inline-flex items-center">
+                <label className={`inline-flex items-center ${typedErrors[item.field] && isSubmitted ? 'text-red-500' : ''}`}>
                   <input
                     type="radio"
                     {...register(item.field as keyof FormData, { required: `${item.label} information is required` })}
@@ -708,7 +708,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               type="number"
               min="0"
               {...register('priorCarrierYears', { valueAsNumber: true, min: 0 })}
-              className={`w-full px-3 py-2 border ${getErrorClass('priorCarrierYears')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('priorCarrierYears')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
           <div>
@@ -719,7 +719,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               type="number"
               min="0"
               {...register('continuousCoverageYears', { valueAsNumber: true, min: 0 })}
-              className={`w-full px-3 py-2 border ${getErrorClass('continuousCoverageYears')} rounded-md`}
+              className={`w-full px-3 py-2 border ${getErrorClass('continuousCoverageYears')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
           </div>
         </div>
@@ -737,7 +737,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               </label>
               <select
                 {...register(item.field as keyof FormData, { required: `${item.label} is required` })}
-                className={`w-full px-3 py-2 border ${getErrorClass(item.field)} rounded-md`}
+                className={`w-full px-3 py-2 border ${getErrorClass(item.field)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
               >
                 <option value="">Select Type</option>
                 <option value="central">Central</option>
@@ -753,17 +753,32 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
           <label className="block text-sm font-medium text-gray-700">
             Fireplace Type<span className="text-red-500 ml-1">*</span>
           </label>
-          <div className={`space-x-4 flex ${getRadioErrorClass('fireplaceType')}`}>
-            <label className="inline-flex items-center">
-              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="MASONRY" className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`} />
+          <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('fireplaceType')}`}>
+            <label className={`inline-flex items-center ${typedErrors.fireplaceType && isSubmitted ? 'text-red-500' : ''}`}>
+              <input
+                type="radio"
+                {...register('fireplaceType', { required: "Fireplace type is required" })}
+                value="MASONRY"
+                className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`}
+              />
               <span className="ml-2">Masonry</span>
             </label>
-            <label className="inline-flex items-center">
-              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="PREFAB" className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`} />
+            <label className={`inline-flex items-center ${typedErrors.fireplaceType && isSubmitted ? 'text-red-500' : ''}`}>
+              <input
+                type="radio"
+                {...register('fireplaceType', { required: "Fireplace type is required" })}
+                value="PREFAB"
+                className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`}
+              />
               <span className="ml-2">Prefab</span>
             </label>
-            <label className="inline-flex items-center">
-              <input type="radio" {...register('fireplaceType', { required: "Fireplace type is required" })} value="NONE" className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`} />
+            <label className={`inline-flex items-center ${typedErrors.fireplaceType && isSubmitted ? 'text-red-500' : ''}`}>
+              <input
+                type="radio"
+                {...register('fireplaceType', { required: "Fireplace type is required" })}
+                value="NONE"
+                className={`form-radio h-4 w-4 ${getErrorClass('fireplaceType')}`}
+              />
               <span className="ml-2">None</span>
             </label>
           </div>
@@ -783,17 +798,16 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             Smart Home Monitoring<span className="text-red-500 ml-1">*</span>
           </label>
           <div className={`flex space-x-4 mt-1 ${getRadioErrorClass('smartHomeMonitoring')}`}>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${typedErrors.smartHomeMonitoring && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('smartHomeMonitoring', { required: "Smart home monitoring choice is required" })}
                 value="PARTICIPATING"
                 className={`form-radio h-4 w-4 ${getErrorClass('smartHomeMonitoring')}`}
               />
-              
               <span className="ml-2">Participating</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${typedErrors.smartHomeMonitoring && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('smartHomeMonitoring', { required: "Smart home monitoring choice is required" })}
@@ -829,7 +843,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                     <td className="px-4 py-3 text-sm text-gray-700">{type}</td>
                     <td className="px-4 py-3">
                       <div className={`flex space-x-4 ${getRadioErrorClass(updatedField)}`}>
-                        <label className="inline-flex items-center">
+                        <label className={`inline-flex items-center ${typedErrors[updatedField] && isSubmitted ? 'text-red-500' : ''}`}>
                           <input
                             type="radio"
                             {...register(updatedField, { required: true })}
@@ -838,7 +852,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                           />
                           <span className="ml-2">Yes</span>
                         </label>
-                        <label className="inline-flex items-center">
+                        <label className={`inline-flex items-center ${typedErrors[updatedField] && isSubmitted ? 'text-red-500' : ''}`}>
                           <input
                             type="radio"
                             {...register(updatedField, { required: true })}
@@ -858,7 +872,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                         {...register(yearField, { 
                           required: isUpdated ? `${type} update year is required` : false 
                         })}
-                        className={`w-full px-3 py-2 border ${getErrorClass(yearField)} rounded-md`}
+                        className={`w-full px-3 py-2 border ${getErrorClass(yearField)} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                         disabled={!isUpdated}
                       />
                       {typedErrors[yearField] && isSubmitted && (
@@ -880,7 +894,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
             Has property insurance been cancelled, declined or non-renewed in the last 5 years?
           </label>
           <div className={`flex space-x-4 ${getRadioErrorClass('insuranceCancelled')}`}>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${typedErrors.insuranceCancelled && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('insuranceCancelled', { required: true })}
@@ -889,7 +903,7 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               />
               <span className="ml-2">Yes</span>
             </label>
-            <label className="inline-flex items-center">
+            <label className={`inline-flex items-center ${typedErrors.insuranceCancelled && isSubmitted ? 'text-red-500' : ''}`}>
               <input
                 type="radio"
                 {...register('insuranceCancelled', { required: true })}
