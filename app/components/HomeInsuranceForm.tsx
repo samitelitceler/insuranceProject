@@ -259,6 +259,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('address', { required: "Address is required" })}
               className={`w-full px-3 py-2 border ${getErrorClass('address')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.address && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.address.message}</span>
+            )}
           </div>
 
           <div>
@@ -271,6 +274,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('yearsAtResidence', { required: "Years at residence is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('yearsAtResidence')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.yearsAtResidence && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.yearsAtResidence.message}</span>
+            )}
           </div>
 
           {isPreviousAddressRequired && (
@@ -284,6 +290,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                   {...register('previousAddress', { required: isPreviousAddressRequired ? "Previous address is required" : false })}
                   className={`w-full px-3 py-2 border ${getErrorClass('previousAddress')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                 />
+                {typedErrors.previousAddress && isSubmitted && (
+                  <span className="text-red-500 text-xs">{typedErrors.previousAddress.message}</span>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
@@ -295,6 +304,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
                   {...register('yearsAtPreviousAddress', { required: isPreviousAddressRequired ? "Years at previous address is required" : false, valueAsNumber: true })}
                   className={`w-full px-3 py-2 border ${getErrorClass('yearsAtPreviousAddress')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
                 />
+                {typedErrors.yearsAtPreviousAddress && isSubmitted && (
+                  <span className="text-red-500 text-xs">{typedErrors.yearsAtPreviousAddress.message}</span>
+                )}
               </div>
             </>
           )}
@@ -311,6 +323,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('yearBuilt', { required: "Year built is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('yearBuilt')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.yearBuilt && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.yearBuilt.message}</span>
+            )}
           </div>
 
           <div>
@@ -339,6 +354,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('squareFootage', { required: "Square footage is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('squareFootage')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.squareFootage && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.squareFootage.message}</span>
+            )}
           </div>
 
           <div>
@@ -350,6 +368,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('numberOfStories', { required: "Number of stories is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('numberOfStories')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.numberOfStories && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.numberOfStories.message}</span>
+            )}
           </div>
         </div>
 
@@ -393,6 +414,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('distanceToHydrant', { required: "Distance to hydrant is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('distanceToHydrant')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.distanceToHydrant && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.distanceToHydrant.message}</span>
+            )}
           </div>
         </div>
 
@@ -445,6 +469,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('numberOfFamilies', { required: "Number of families is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('numberOfFamilies')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.numberOfFamilies && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.numberOfFamilies.message}</span>
+            )}
           </div>
 
           <div>
@@ -456,6 +483,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('numberOfOccupants', { required: "Number of occupants is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('numberOfOccupants')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.numberOfOccupants && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.numberOfOccupants.message}</span>
+            )}
           </div>
         </div>
 
@@ -470,6 +500,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('fullBaths', { required: "Number of full baths is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('fullBaths')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.fullBaths && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.fullBaths.message}</span>
+            )}
           </div>
 
           <div>
@@ -481,6 +514,9 @@ const HomeInsuranceForm = ({ register, watch, errors, isSubmitted }: HomeInsuran
               {...register('halfBaths', { required: "Number of half baths is required", valueAsNumber: true })}
               className={`w-full px-3 py-2 border ${getErrorClass('halfBaths')} rounded-md shadow-sm focus:border-[#536AAE] focus:ring-[#536AAE]`}
             />
+            {typedErrors.halfBaths && isSubmitted && (
+              <span className="text-red-500 text-xs">{typedErrors.halfBaths.message}</span>
+            )}
           </div>
         </div>
 
